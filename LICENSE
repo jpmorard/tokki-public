@@ -1,0 +1,22 @@
+Tokki Public Materials License
+
+Copyright (c) 2026 Jean-Pierre Morard. All rights reserved.
+
+This public repository contains project information, documentation, metadata,
+and branding materials for Tokki. It does not publish Tokki implementation
+source.
+
+No permission is granted to copy, modify, publish, distribute, sublicense, sell,
+host, mirror, fork for redistribution, or create derivative works from these
+materials or from any private Tokki source tooling unless a separate written
+agreement says otherwise.
+
+Viewing this public repository, linking to it, and installing/running the public
+PyPI marker package for package-identification purposes are permitted. Those
+limited permissions do not grant any right to private Tokki source tooling.
+
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM OR IN
+CONNECTION WITH THE MATERIALS OR THEIR USE.
