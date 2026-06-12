@@ -63,6 +63,20 @@ evidence stays summary-only.
 Tokki ships as compiled wheels. Use the installer for your OS, then verify with
 `tokki --version` and `tokki doctor --strict`.
 
+After install, the non-destructive first-run check is:
+
+```sh
+tokki smoke
+tokki privacy explain
+```
+
+To install available wrappers and run the same trust/adoption proof in one
+flow:
+
+```sh
+tokki setup --guided
+```
+
 ### macOS
 
 Fast path:
@@ -131,6 +145,12 @@ local wrapper path. For `codex`, the health report also compares the installed
 CLI version against the latest published `@openai/codex` version when both can
 be parsed as real semver tokens; otherwise the version stays unknown and Tokki
 does not claim an upgrade.
+
+Tokki does not silently replace one agent command with another by default.
+Cross-agent low-tier handoff, for example launching Codex from a simple Claude
+one-shot prompt, requires both `TOKKI_MODEL_LOW_AGENT=codex` and
+`TOKKI_MODEL_ALLOW_CROSS_AGENT_HANDOFF=1`. Unset either variable to keep
+`claude` invocations on Claude.
 
 Tokki also honors `TOKKI_TOKEN_SAVING_MODE=aggressive`,
 `TOKKI_TOKEN_SAVING_MODE=ultimate`, or `TOKKI_TOKEN_SAVING_MODE=emergency`.
@@ -209,13 +229,13 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 0.3.11`.
+Current public package: `tokki 0.3.12`.
 
-`0.3.11` publishes wheels for:
+`0.3.12` publishes wheels for:
 
-- macOS arm64: `tokki-0.3.11-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-0.3.11-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-0.3.11-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-0.3.12-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-0.3.12-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-0.3.12-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
@@ -229,3 +249,7 @@ privacy-filtered digest with the issue. Use `tokki issue fix` to read a
 private repository contents, or customer material in public issues. The
 `tokki-auto` label should stay restricted to trusted triage users so untrusted
 reporters cannot publish into the fix queue.
+
+For a local trust summary before filing anything public, run
+`tokki privacy explain`. It describes what Tokki stores locally, what public
+reports omit, and which audit commands to run before sharing artifacts.
