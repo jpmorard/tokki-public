@@ -53,7 +53,17 @@ Tokki when you want a private compiled-wheel layer around the agents you already
 use. The two can complement each other: Tokki can install wrappers with
 `tokki setup` without making the Tokki source public.
 
+The private CLI also includes `tokki benchmark` for comparing report-path
+timings. Its log-digest benchmark path uses the native Rust helper when
+available and falls back to Python only for compatibility, while public
+evidence stays summary-only.
+
 ## Install
+
+Tokki ships as compiled wheels. Use the installer for your OS, then verify with
+`tokki --version` and `tokki doctor --strict`.
+
+### macOS
 
 Fast path:
 
@@ -61,16 +71,43 @@ Fast path:
 curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh
 ```
 
-To install opt-in wrappers around detected agent commands:
+Optional agent wrappers for Codex, Claude, Aider, OpenCode, Vibe, and Caveman:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --with-wrappers
 ```
 
-After install, run `tokki setup` to install wrappers and check the health of the
-local wrapper path.
+Manual user-site fallback:
 
-On Ubuntu or Debian, use `pipx`:
+```sh
+python3 -m pip install --upgrade --force-reinstall tokki
+mkdir -p "$HOME/.local/bin"
+ln -sf "$(python3 -m site --user-base)/bin/tokki" "$HOME/.local/bin/tokki"
+export PATH="$HOME/.local/bin:$PATH"
+tokki --version
+```
+
+Uninstall:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --uninstall
+```
+
+### Linux
+
+Fast path:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh
+```
+
+Optional wrappers:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --with-wrappers
+```
+
+Ubuntu/Debian manual path with `pipx`:
 
 ```sh
 sudo apt update
@@ -81,25 +118,104 @@ export PATH="$HOME/.local/bin:$PATH"
 tokki --version
 ```
 
-On macOS, a user-site install is also supported:
+Uninstall:
 
 ```sh
-python3 -m pip config set global.user true
-python3 -m pip install --upgrade --force-reinstall tokki
-mkdir -p "$HOME/.local/bin"
-ln -sf "$(python3 -m site --user-base)/bin/tokki" "$HOME/.local/bin/tokki"
+curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --uninstall
+```
+
+### Agent Wrappers On POSIX
+
+After install, run `tokki setup` to install wrappers and check the health of the
+local wrapper path. For `codex`, the health report also compares the installed
+CLI version against the latest published `@openai/codex` version when both can
+be parsed as real semver tokens; otherwise the version stays unknown and Tokki
+does not claim an upgrade.
+
+Tokki also honors `TOKKI_TOKEN_SAVING_MODE=aggressive`,
+`TOKKI_TOKEN_SAVING_MODE=ultimate`, or `TOKKI_TOKEN_SAVING_MODE=emergency`.
+Weekly-hours quota signals can escalate the mode automatically: `25%` remaining
+switches to `aggressive`, `10%` to `ultimate`, and `5%` to `emergency`. The
+lower modes reduce the compact-response budget, compact-trigger threshold, and
+native output budgets more aggressively than the default mode. When
+output overflows, Tokki emits a terse local handle receipt and keeps the full
+payload recoverable with `tokki retrieve <handle>`.
+
+### Windows
+
+Fast path (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
+```
+
+To pin a version, set `TOKKI_VERSION` first (parameters cannot be passed
+through `irm | iex`):
+
+```powershell
+$env:TOKKI_VERSION = "0.3.11"
+irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
+```
+
+Or download the script and run it with an explicit version:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install.ps1 -Version 0.3.11
+```
+
+Choose an installer backend explicitly:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install.ps1 -Method uv
+powershell -ExecutionPolicy Bypass -File install.ps1 -Method pipx
+powershell -ExecutionPolicy Bypass -File install.ps1 -Method user
+```
+
+If `tokki` installs but this shell cannot find it yet, rerun with `-AddToPath`
+or set `TOKKI_ADD_TO_PATH=1` before the `irm | iex` command.
+
+The installer tries `uv tool install`, then `pipx install`, then
+`pip install --user` (via `python` or the `py` launcher), and prints the
+directory to add to `PATH` if `tokki` is not found after install. Typical
+script locations are `%USERPROFILE%\.local\bin` (uv, pipx) or
+`<python user base>\Scripts` (pip `--user`).
+
+Manual install with pipx:
+
+```powershell
+py -m pip install --user pipx
+py -m pipx ensurepath
+pipx install --force tokki
 tokki --version
 ```
 
+Uninstall:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install.ps1 -Uninstall
+```
+
+Windows notes:
+
+- The core CLI (`tokki run`, `fix`, `map`, `query`, `model-route`, ...) works
+  natively in PowerShell and cmd.
+- Agent wrappers installed by `tokki setup` use POSIX shims and are not
+  supported in native Windows shells; run Tokki inside WSL (recommended) or
+  Git Bash if you want wrapped agent commands. Inside WSL, use the Linux
+  install path above.
+- Tokki stores its runtime config under `%APPDATA%\tokki\runtime.json` and
+  logs/reports under `%LOCALAPPDATA%\tokki\`. Set `TOKKI_RUNTIME_CONFIG`,
+  `TOKKI_LOG_DIR`, or `TOKKI_REPORT_DIR` to override.
+
 ## Public Package
 
-Current public package: `tokki 0.3.10`.
+Current public package: `tokki 0.3.11`.
 
-`0.3.10` publishes wheels for:
+`0.3.11` publishes wheels for:
 
-- macOS arm64: `tokki-0.3.10-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-0.3.10-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-0.3.10-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-0.3.11-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-0.3.11-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-0.3.11-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
@@ -107,5 +223,9 @@ repository-local tests, protected Rust source, or private development scripts.
 ## Support
 
 Use GitHub issues for installation problems and public package metadata issues.
-Do not post secrets, prompts, command output, private repository contents, or
-customer material in public issues.
+For failure reports, prefer `tokki issue report` so Tokki can send a bounded,
+privacy-filtered digest with the issue. Use `tokki issue fix` to read a
+`tokki-auto` issue back into a local fix bundle. Do not post secrets, prompts, command output,
+private repository contents, or customer material in public issues. The
+`tokki-auto` label should stay restricted to trusted triage users so untrusted
+reporters cannot publish into the fix queue.
