@@ -63,6 +63,14 @@ evidence stays summary-only.
 Tokki ships as compiled wheels. Use the installer for your OS, then verify with
 `tokki --version` and `tokki doctor --strict`.
 
+If wrappers are already installed and you want to restore the original agent
+command without uninstalling Tokki, remove the wrapper first:
+
+```sh
+tokki agent uninstall-wrapper claude
+tokki agent uninstall-wrapper codex
+```
+
 After install, the non-destructive first-run check is:
 
 ```sh
@@ -151,6 +159,13 @@ Cross-agent low-tier handoff, for example launching Codex from a simple Claude
 one-shot prompt, requires both `TOKKI_MODEL_LOW_AGENT=codex` and
 `TOKKI_MODEL_ALLOW_CROSS_AGENT_HANDOFF=1`. Unset either variable to keep
 `claude` invocations on Claude.
+
+To restore the original command without uninstalling Tokki, remove the wrapper:
+
+```sh
+tokki agent uninstall-wrapper claude
+tokki agent uninstall-wrapper codex
+```
 
 Tokki also honors `TOKKI_TOKEN_SAVING_MODE=aggressive`,
 `TOKKI_TOKEN_SAVING_MODE=ultimate`, or `TOKKI_TOKEN_SAVING_MODE=emergency`.
