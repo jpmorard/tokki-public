@@ -62,10 +62,14 @@ evidence stays summary-only.
 
 Tokki ships as compiled wheels. Use the installer for your OS, then verify with
 `tokki --version` and `tokki doctor --strict`.
+The installers use PyPI wheels only; if no installable Tokki release exists on
+PyPI yet, they stop with a publish-first message instead of falling back to
+private source.
 
 After install, the non-destructive first-run check is:
 
 ```sh
+tokki proof
 tokki smoke
 tokki privacy explain
 ```

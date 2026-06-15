@@ -15,6 +15,7 @@ TOKKI_MODEL_ALLOW_CROSS_AGENT_HANDOFF=${TOKKI_MODEL_ALLOW_CROSS_AGENT_HANDOFF:-}
 TOKKI_MODEL_LOW_HANDOFF_MODEL=${TOKKI_MODEL_LOW_HANDOFF_MODEL:-}
 TOKKI_MODEL_LOW_HANDOFF_COMMAND=${TOKKI_MODEL_LOW_HANDOFF_COMMAND:-}
 TOKKI_MODEL_LOW_HANDOFF_ARGS=${TOKKI_MODEL_LOW_HANDOFF_ARGS:-}
+PYPI_SIMPLE_URL=${TOKKI_PYPI_SIMPLE_URL:-https://pypi.org/simple/tokki/}
 
 usage() {
     cat <<'EOF'
@@ -246,6 +247,58 @@ if [ "$UNINSTALL" = "1" ]; then
     exit 0
 fi
 
+pypi_preflight_installable() {
+    [ "${TOKKI_SKIP_PYPI_PRECHECK:-0}" = "1" ] && return 0
+    "$PYTHON" - "$PACKAGE_VERSION" "$PYPI_SIMPLE_URL" <<'PY'
+from html.parser import HTMLParser
+import sys
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
+
+version = sys.argv[1]
+url = sys.argv[2]
+needle = f"tokki-{version}-" if version else "tokki-"
+
+
+class SimpleIndexParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.installable = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "a":
+            return
+        attr = {name.lower(): value or "" for name, value in attrs}
+        if "data-yanked" in attr:
+            return
+        href = attr.get("href", "")
+        if needle in href:
+            self.installable = True
+
+
+try:
+    request = Request(url, headers={"Cache-Control": "no-cache"})
+    with urlopen(request, timeout=15) as response:
+        body = response.read().decode("utf-8", "replace")
+except HTTPError as exc:
+    raise SystemExit(1 if exc.code == 404 else 0)
+except (OSError, URLError):
+    raise SystemExit(0)
+
+parser = SimpleIndexParser()
+parser.feed(body)
+raise SystemExit(0 if parser.installable else 1)
+PY
+}
+
+require_pypi_release() {
+    pypi_preflight_installable && return 0
+    if [ -n "$PACKAGE_VERSION" ]; then
+        fail "tokki $PACKAGE_VERSION is not installable from PyPI; publish protected wheels first or choose an available version"
+    fi
+    fail "no installable Tokki release is available on PyPI yet; publish protected wheels first"
+}
+
 install_with_uv() {
     command -v uv >/dev/null 2>&1 || return 1
     uv tool install --force "$PACKAGE_SPEC"
@@ -279,6 +332,8 @@ install_with_user_pip() {
     fi
     "$PYTHON" -m pip install --user --upgrade --force-reinstall "$PACKAGE_SPEC"
 }
+
+require_pypi_release
 
 printf 'tokki install\n'
 case "$INSTALL_METHOD" in

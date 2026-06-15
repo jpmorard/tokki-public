@@ -110,6 +110,44 @@ function Find-TokkiCommand($pathHint) {
     return ""
 }
 
+function Test-PyPIInstallableRelease($RequestedVersion) {
+    if (Test-Truthy $env:TOKKI_SKIP_PYPI_PRECHECK) { return $true }
+    $simpleUrl = if ($env:TOKKI_PYPI_SIMPLE_URL) { $env:TOKKI_PYPI_SIMPLE_URL } else { "https://pypi.org/simple/tokki/" }
+    try {
+        $response = Invoke-WebRequest -UseBasicParsing -Uri $simpleUrl -Headers @{ "Cache-Control" = "no-cache" } -TimeoutSec 15
+    } catch {
+        $statusCode = $null
+        if ($_.Exception.Response) {
+            $statusCode = [int]$_.Exception.Response.StatusCode
+        }
+        if ($statusCode -eq 404) { return $false }
+        return $true
+    }
+
+    $needle = if ($RequestedVersion) { "tokki-$RequestedVersion-" } else { "tokki-" }
+    $anchors = [System.Text.RegularExpressions.Regex]::Matches(
+        [string]$response.Content,
+        "<a\b[^>]*>",
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+    )
+    foreach ($match in $anchors) {
+        $anchor = $match.Value
+        if ($anchor -match "(?i)\bdata-yanked\b") { continue }
+        if ($anchor.Contains($needle)) { return $true }
+    }
+    return $false
+}
+
+function Assert-PyPIInstallableRelease($RequestedVersion) {
+    if (Test-PyPIInstallableRelease $RequestedVersion) { return }
+    if ($RequestedVersion) {
+        [Console]::Error.WriteLine("tokki install: tokki $RequestedVersion is not installable from PyPI; publish protected wheels first or choose an available version")
+    } else {
+        [Console]::Error.WriteLine("tokki install: no installable Tokki release is available on PyPI yet; publish protected wheels first")
+    }
+    exit 2
+}
+
 if ($Version -eq "" -and $env:TOKKI_VERSION) {
     $Version = $env:TOKKI_VERSION
 }
@@ -154,6 +192,9 @@ if ($Version -ne "") {
 }
 
 $defaultToolPath = if ($env:USERPROFILE) { Join-Path $env:USERPROFILE ".local\bin" } else { "" }
+if (-not $Uninstall) {
+    Assert-PyPIInstallableRelease $Version
+}
 $python = Get-PythonCommand
 $pythonScripts = Get-UserScriptsPath $python
 $pathHint = if ($defaultToolPath) { $defaultToolPath } else { $pythonScripts }
