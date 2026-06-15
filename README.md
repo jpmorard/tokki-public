@@ -281,6 +281,10 @@ For a local trust summary before filing anything public, run
 reports omit, and which audit commands to run before sharing artifacts.
 
 For installation or wrapper issues, run `tokki install doctor` first. Use
-`tokki installer-parity` to compare POSIX and Windows installer contracts across
-the private/public surfaces, and `tokki support-bundle --output tokki-support.json`
-to write a metadata-only diagnostic bundle for support.
+`tokki path doctor` / `tokki path repair` for PATH drift, `tokki installer-parity`
+and `tokki installer-matrix` to compare POSIX, Windows, uv, pipx, and user-site
+installer contracts across the private/public surfaces, and `tokki conformance`
+for the composed local suite. `tokki release evidence --output tokki-evidence.json`
+and `tokki release evidence verify --manifest tokki-evidence.json` write and
+verify metadata-only release provenance. `tokki support-bundle --output
+tokki-support.json` writes a metadata-only diagnostic bundle for support.
