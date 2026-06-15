@@ -279,3 +279,8 @@ reporters cannot publish into the fix queue.
 For a local trust summary before filing anything public, run
 `tokki privacy explain`. It describes what Tokki stores locally, what public
 reports omit, and which audit commands to run before sharing artifacts.
+
+For installation or wrapper issues, run `tokki install doctor` first. Use
+`tokki installer-parity` to compare POSIX and Windows installer contracts across
+the private/public surfaces, and `tokki support-bundle --output tokki-support.json`
+to write a metadata-only diagnostic bundle for support.
