@@ -176,6 +176,25 @@ Fast path (PowerShell):
 irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
 ```
 
+The Windows installer attempts native agent wrapper setup by default for
+detected agents and installs wrapper `.exe` shims beside `tokki.exe`. The default
+attempt is best-effort so a core CLI install still succeeds when no supported
+agent is installed. To make wrapper setup strict, run the downloaded script with
+`-WithWrappers` or `-Agent codex`.
+
+To install only the core CLI:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install.ps1 -NoWrappers
+```
+
+For the `irm | iex` path, set the opt-out environment variable first:
+
+```powershell
+$env:TOKKI_NO_WRAPPERS = "1"
+irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
+```
+
 To pin a version, set `TOKKI_VERSION` first (parameters cannot be passed
 through `irm | iex`):
 
@@ -226,10 +245,10 @@ Windows notes:
 
 - The core CLI (`tokki run`, `fix`, `map`, `query`, `model-route`, ...) works
   natively in PowerShell and cmd.
-- Agent wrappers installed by `tokki setup` use POSIX shims and are not
-  supported in native Windows shells; run Tokki inside WSL (recommended) or
-  Git Bash if you want wrapped agent commands. Inside WSL, use the Linux
-  install path above.
+- The installer and `tokki setup` install native `.exe` agent wrappers in the
+  same PATH directory as `tokki.exe` when supported agent commands are present.
+  Use `-NoWrappers` or `TOKKI_NO_WRAPPERS=1` for a core-CLI-only install. POSIX
+  shell shims remain the Unix/WSL path.
 - Tokki stores its runtime config under `%APPDATA%\tokki\runtime.json` and
   logs/reports under `%LOCALAPPDATA%\tokki\`. Set `TOKKI_RUNTIME_CONFIG`,
   `TOKKI_LOG_DIR`, or `TOKKI_REPORT_DIR` to override.
