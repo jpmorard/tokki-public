@@ -1,6 +1,6 @@
 # Tokki Windows installer: installs the compiled Tokki package from PyPI.
 # usage: irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
-# or:    powershell -ExecutionPolicy Bypass -File install.ps1 [-Version X.Y.Z] [-Method auto|uv|pipx|user] [-Uninstall]
+# or:    powershell -ExecutionPolicy Bypass -File install.ps1 [-Version X.Y.Z] [-Method auto|uv|pipx|user] [-Uninstall] [-NoWrappers]
 #
 # When piped through `iex`, parameters cannot be passed; set environment
 # variables before the `irm | iex` line instead:
@@ -8,12 +8,14 @@
 #   $env:TOKKI_INSTALL_METHOD = "uv"
 #   $env:TOKKI_ADD_TO_PATH = "1"
 #   $env:TOKKI_UNINSTALL = "1"
+#   $env:TOKKI_NO_WRAPPERS = "1"
 param(
     [string]$Version = "",
     [string]$Method = "",
     [switch]$Uninstall,
     [switch]$AddToPath,
     [switch]$WithWrappers,
+    [switch]$NoWrappers,
     [string[]]$Agent = @()
 )
 
@@ -103,12 +105,20 @@ if (Test-Truthy $env:TOKKI_ADD_TO_PATH) {
 if (Test-Truthy $env:TOKKI_WITH_WRAPPERS) {
     $WithWrappers = $true
 }
+if (Test-Truthy $env:TOKKI_NO_WRAPPERS) {
+    $NoWrappers = $true
+}
 if ($Agent.Count -eq 0 -and $env:TOKKI_AGENT) {
     $Agent = @($env:TOKKI_AGENT -split "[,; ]+" | Where-Object { $_ -ne "" })
 }
 if ($Agent.Count -gt 0) {
     $WithWrappers = $true
 }
+if ($NoWrappers -and ($WithWrappers -or $Agent.Count -gt 0)) {
+    Write-Error "tokki install: -NoWrappers conflicts with -WithWrappers or -Agent"
+    exit 2
+}
+$InstallWrappers = -not $NoWrappers
 
 if (@("auto", "uv", "pipx", "user") -notcontains $Method) {
     Write-Error "tokki install: -Method must be auto, uv, pipx, or user"
@@ -247,12 +257,33 @@ if ($pathHint -and (($env:Path -split ";") -notcontains $pathHint)) {
     Write-Warning "Rerun with -AddToPath, set TOKKI_ADD_TO_PATH=1, or add it manually and reopen the shell."
 }
 
-if ($WithWrappers) {
+$wrapperBinDir = if ($pathHint) { $pathHint } elseif ($tokkiPath) { Split-Path -Parent $tokkiPath } else { "" }
+
+if ($InstallWrappers) {
     $requested = if ($Agent.Count -gt 0) { $Agent -join ", " } else { "detected agents" }
-    Write-Warning "wrappers: not installed in native Windows PowerShell ($requested requested)."
-    Write-Warning "Tokki agent wrappers are POSIX shims; use WSL or Git Bash and run install.sh --with-wrappers."
+    Write-Host "wrappers: installing native Windows wrappers for $requested"
+    $setupArgs = @("setup")
+    if ($WithWrappers -or $Agent.Count -gt 0) {
+        $setupArgs += "--strict"
+    }
+    if ($wrapperBinDir) {
+        $setupArgs += "--bin-dir"
+        $setupArgs += $wrapperBinDir
+        if (($env:Path -split ";") -notcontains $wrapperBinDir) {
+            $env:Path = "$wrapperBinDir;$env:Path"
+        }
+    }
+    foreach ($item in $Agent) {
+        $setupArgs += "--agent"
+        $setupArgs += $item
+    }
+    & $tokkiPath @setupArgs
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "tokki install: wrapper setup failed"
+        exit 4
+    }
 } else {
-    Write-Host "wrappers: skipped on native Windows; use WSL/Git Bash for POSIX agent shims."
+    Write-Host "wrappers: skipped by -NoWrappers or TOKKI_NO_WRAPPERS=1."
 }
 
 Write-Host "verify: tokki --version passed"
