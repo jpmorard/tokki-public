@@ -263,10 +263,6 @@ if ($InstallWrappers) {
     $requested = if ($Agent.Count -gt 0) { $Agent -join ", " } else { "detected agents" }
     Write-Host "wrappers: installing native Windows wrappers for $requested"
     $setupArgs = @("setup")
-    $StrictWrapperSetup = $WithWrappers -or $Agent.Count -gt 0
-    if ($WithWrappers -or $Agent.Count -gt 0) {
-        $setupArgs += "--strict"
-    }
     if ($wrapperBinDir) {
         $setupArgs += "--bin-dir"
         $setupArgs += $wrapperBinDir
@@ -280,10 +276,6 @@ if ($InstallWrappers) {
     }
     & $tokkiPath @setupArgs
     if ($LASTEXITCODE -ne 0) {
-        if ($StrictWrapperSetup) {
-            Write-Error "tokki install: wrapper setup failed"
-            exit 4
-        }
         Write-Warning "tokki install: wrapper setup was partial; install completed. Run 'tokki setup --strict' to inspect or repair wrappers."
     }
 } else {
