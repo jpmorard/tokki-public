@@ -236,13 +236,13 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 0.3.19`.
+Current public package: `tokki 0.3.20`.
 
-`0.3.19` publishes wheels for:
+`0.3.20` publishes wheels for:
 
-- macOS arm64: `tokki-0.3.19-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-0.3.19-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-0.3.19-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-0.3.20-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-0.3.20-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-0.3.20-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
