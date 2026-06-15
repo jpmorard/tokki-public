@@ -30,23 +30,46 @@ function Test-Truthy($value) {
     return @("1", "true", "yes", "on") -contains ($value.ToString().Trim().ToLowerInvariant())
 }
 
-function Test-RealPython($name) {
+function New-PythonSpec($command, $args = @()) {
+    return [pscustomobject]@{
+        Command = $command
+        Args = @($args)
+    }
+}
+
+function Invoke-Python($python, $args = @()) {
+    & $python.Command @($python.Args + @($args))
+}
+
+function Test-RealPython($name, $args = @()) {
     # The Microsoft Store ships a `python` alias stub that opens the Store
     # instead of running Python; probe the interpreter before trusting it.
     if (-not (Test-Command $name)) { return $false }
-    & $name -c "import sys; raise SystemExit(0 if sys.version_info >= (3, 8) else 1)" 2>$null | Out-Null
+    & $name @($args + @("-c", "import sys; raise SystemExit(0 if sys.version_info >= (3, 8) else 1)")) 2>$null | Out-Null
     return $LASTEXITCODE -eq 0
 }
 
 function Get-PythonCommand() {
-    if (Test-RealPython "python") { return "python" }
-    if (Test-RealPython "py") { return "py" }
+    foreach ($minor in 14..8) {
+        $name = "python3.$minor"
+        if (Test-RealPython $name) { return (New-PythonSpec $name) }
+    }
+    if (Test-Command "py") {
+        foreach ($minor in 14..8) {
+            $args = @("-3.$minor")
+            if (Test-RealPython "py" $args) { return (New-PythonSpec "py" $args) }
+        }
+    }
+    foreach ($name in @("python3", "python")) {
+        if (Test-RealPython $name) { return (New-PythonSpec $name) }
+    }
+    if (Test-RealPython "py") { return (New-PythonSpec "py") }
     return $null
 }
 
 function Get-UserScriptsPath($python) {
     if (-not $python) { return "" }
-    $userBase = (& $python -m site --user-base 2>$null).Trim()
+    $userBase = (Invoke-Python $python @("-m", "site", "--user-base") 2>$null).Trim()
     if ($LASTEXITCODE -ne 0 -or -not $userBase) { return "" }
     return (Join-Path $userBase "Scripts")
 }
@@ -213,7 +236,7 @@ if (-not $installed -and ($Method -eq "auto" -or $Method -eq "pipx")) {
 if (-not $installed -and ($Method -eq "auto" -or $Method -eq "user")) {
     if ($python) {
         Write-Host "trying: pip --user"
-        & $python -m pip install --user --upgrade --force-reinstall $spec
+        Invoke-Python $python @("-m", "pip", "install", "--user", "--upgrade", "--force-reinstall", $spec)
         if ($LASTEXITCODE -eq 0) {
             $installed = $true
             $usedMethod = "pip --user"
@@ -257,7 +280,7 @@ if ($pathHint -and (($env:Path -split ";") -notcontains $pathHint)) {
     Write-Warning "Rerun with -AddToPath, set TOKKI_ADD_TO_PATH=1, or add it manually and reopen the shell."
 }
 
-$wrapperBinDir = if ($pathHint) { $pathHint } elseif ($tokkiPath) { Split-Path -Parent $tokkiPath } else { "" }
+$wrapperBinDir = if ($tokkiPath) { Split-Path -Parent $tokkiPath } elseif ($pathHint) { $pathHint } else { "" }
 
 if ($InstallWrappers) {
     $requested = if ($Agent.Count -gt 0) { $Agent -join ", " } else { "detected agents" }
