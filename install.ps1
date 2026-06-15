@@ -92,8 +92,6 @@ function Add-UserPath($path) {
 }
 
 function Find-TokkiCommand($pathHint) {
-    $command = Get-Command tokki -ErrorAction SilentlyContinue
-    if ($command) { return $command.Source }
     $candidates = @()
     if ($pathHint) {
         $candidates += Join-Path $pathHint "tokki.exe"
@@ -107,6 +105,8 @@ function Find-TokkiCommand($pathHint) {
     foreach ($candidate in $candidates) {
         if ($candidate -and (Test-Path $candidate)) { return $candidate }
     }
+    $command = Get-Command tokki -ErrorAction SilentlyContinue
+    if ($command) { return $command.Source }
     return ""
 }
 

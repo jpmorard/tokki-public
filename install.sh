@@ -301,16 +301,19 @@ require_pypi_release() {
 
 install_with_uv() {
     command -v uv >/dev/null 2>&1 || return 1
-    uv tool install --force "$PACKAGE_SPEC"
+    uv tool install --force "$PACKAGE_SPEC" || return 1
+    INSTALL_BACKEND=uv
 }
 
 install_with_pipx() {
     if command -v pipx >/dev/null 2>&1; then
-        pipx install --force "$PACKAGE_SPEC"
+        pipx install --force "$PACKAGE_SPEC" || return 1
+        INSTALL_BACKEND=pipx
         return 0
     fi
     if "$PYTHON" -m pipx --version >/dev/null 2>&1; then
-        "$PYTHON" -m pipx install --force "$PACKAGE_SPEC"
+        "$PYTHON" -m pipx install --force "$PACKAGE_SPEC" || return 1
+        INSTALL_BACKEND=pipx
         return 0
     fi
     return 1
@@ -330,11 +333,13 @@ install_with_user_pip() {
         printf 'tokki install: install uv (https://docs.astral.sh/uv/) or pipx, then rerun.\n' >&2
         return 1
     fi
-    "$PYTHON" -m pip install --user --upgrade --force-reinstall "$PACKAGE_SPEC"
+    "$PYTHON" -m pip install --user --upgrade --force-reinstall "$PACKAGE_SPEC" || return 1
+    INSTALL_BACKEND=user
 }
 
 require_pypi_release
 
+INSTALL_BACKEND=
 printf 'tokki install\n'
 case "$INSTALL_METHOD" in
     uv)
@@ -364,7 +369,12 @@ if [ -n "${HOME:-}" ]; then
 fi
 
 TOKKI_CMD=
-for candidate in "$BIN_DIR/tokki" "$HOME_TOKKI" "$USER_BIN/tokki"; do
+if [ "$INSTALL_BACKEND" = "user" ]; then
+    set -- "$USER_BIN/tokki" "$BIN_DIR/tokki" "$HOME_TOKKI"
+else
+    set -- "$BIN_DIR/tokki" "$HOME_TOKKI" "$USER_BIN/tokki"
+fi
+for candidate do
     [ -n "$candidate" ] || continue
     if [ -z "$TOKKI_CMD" ] && [ -x "$candidate" ]; then
         TOKKI_CMD=$candidate
