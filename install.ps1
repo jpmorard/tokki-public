@@ -133,7 +133,7 @@ function Test-PyPIInstallableRelease($RequestedVersion) {
     foreach ($match in $anchors) {
         $anchor = $match.Value
         if ($anchor -match "(?i)\bdata-yanked\b") { continue }
-        if ($anchor.Contains($needle)) { return $true }
+        if ($anchor.Contains($needle) -and $anchor.ToLowerInvariant().Contains(".whl")) { return $true }
     }
     return $false
 }

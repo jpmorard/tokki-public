@@ -272,7 +272,7 @@ class SimpleIndexParser(HTMLParser):
         if "data-yanked" in attr:
             return
         href = attr.get("href", "")
-        if needle in href:
+        if needle in href and ".whl" in href.lower():
             self.installable = True
 
 
