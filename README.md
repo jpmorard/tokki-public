@@ -8,7 +8,6 @@
   >
 </p>
 
-[![PyPI](https://img.shields.io/pypi/v/tokki.svg)](https://pypi.org/project/tokki/)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 
 Tokki is a proprietary local developer tool distributed as compiled wheels.
@@ -60,11 +59,10 @@ evidence stays summary-only.
 
 ## Install
 
-Tokki ships as compiled wheels. Use the installer for your OS, then verify with
-`tokki --version` and `tokki doctor --strict`.
-The installers use PyPI wheels only; if no installable Tokki release exists on
-PyPI yet, they stop with a publish-first message instead of falling back to
-private source.
+Compiled wheel files are distributed privately to authorized users. This public
+repo does not host wheel artifacts. After receiving the wheel matching your OS,
+install it from a local path, then verify with `tokki --version` and
+`tokki doctor --strict`.
 
 After install, the non-destructive first-run check is:
 
@@ -83,63 +81,66 @@ tokki setup --guided
 
 ### macOS
 
-Fast path:
+Apple Silicon:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh
-```
-
-Optional agent wrappers for Codex, Claude, Aider, OpenCode, Vibe, and Caveman:
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --with-wrappers
-```
-
-Manual user-site fallback:
-
-```sh
-python3 -m pip install --upgrade --force-reinstall tokki
-mkdir -p "$HOME/.local/bin"
-ln -sf "$(python3 -m site --user-base)/bin/tokki" "$HOME/.local/bin/tokki"
-export PATH="$HOME/.local/bin:$PATH"
+python3 -m pip install --user --upgrade --force-reinstall \
+  /path/to/tokki-0.4.0-py3-none-macosx_11_0_arm64.whl
+export PATH="$HOME/Library/Python/3.*/bin:$HOME/.local/bin:$PATH"
 tokki --version
+```
+
+Optional isolated install with `uv`:
+
+```sh
+uv tool install --force \
+  /path/to/tokki-0.4.0-py3-none-macosx_11_0_arm64.whl
+tokki --version
+```
+
+Install wrappers after the wheel is installed:
+
+```sh
+tokki setup --guided
 ```
 
 Uninstall:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --uninstall
+python3 -m pip uninstall -y tokki
+uv tool uninstall tokki 2>/dev/null || true
 ```
 
 ### Linux
 
-Fast path:
+x86_64:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh
-```
-
-Optional wrappers:
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --with-wrappers
-```
-
-Ubuntu/Debian manual path with `pipx`:
-
-```sh
-sudo apt update
-sudo apt install -y pipx
-python3 -m pipx ensurepath
-python3 -m pipx install --force tokki
+python3 -m pip install --user --upgrade --force-reinstall \
+  /path/to/tokki-0.4.0-py3-none-manylinux_2_35_x86_64.whl
 export PATH="$HOME/.local/bin:$PATH"
 tokki --version
+```
+
+Optional isolated install with `pipx`:
+
+```sh
+python3 -m pipx install --force \
+  /path/to/tokki-0.4.0-py3-none-manylinux_2_35_x86_64.whl
+tokki --version
+```
+
+Install wrappers after the wheel is installed:
+
+```sh
+tokki setup --guided
 ```
 
 Uninstall:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.sh | sh -s -- --uninstall
+python3 -m pip uninstall -y tokki
+python3 -m pipx uninstall tokki 2>/dev/null || true
 ```
 
 ### Agent Wrappers On POSIX
@@ -174,75 +175,35 @@ payload recoverable with `tokki retrieve <handle>`.
 
 ### Windows
 
-Fast path (PowerShell):
+x86_64 PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
+py -m pip install --user --upgrade --force-reinstall `
+  C:\Path\To\tokki-0.4.0-py3-none-win_amd64.whl
+tokki --version
 ```
 
-The Windows installer attempts native agent wrapper setup by default for
-detected agents and installs wrapper `.exe` shims beside `tokki.exe`. The default
-attempt is best-effort so a core CLI install still succeeds when no supported
-agent is installed. To make wrapper setup strict, run the downloaded script with
-`-WithWrappers` or `-Agent codex`.
-
-To install only the core CLI:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File install.ps1 -NoWrappers
-```
-
-For the `irm | iex` path, set the opt-out environment variable first:
-
-```powershell
-$env:TOKKI_NO_WRAPPERS = "1"
-irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
-```
-
-To pin a version, set `TOKKI_VERSION` first (parameters cannot be passed
-through `irm | iex`):
-
-```powershell
-$env:TOKKI_VERSION = "0.3.11"
-irm https://raw.githubusercontent.com/jpmorard/tokki-public/main/install.ps1 | iex
-```
-
-Or download the script and run it with an explicit version:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File install.ps1 -Version 0.3.11
-```
-
-Choose an installer backend explicitly:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File install.ps1 -Method uv
-powershell -ExecutionPolicy Bypass -File install.ps1 -Method pipx
-powershell -ExecutionPolicy Bypass -File install.ps1 -Method user
-```
-
-If `tokki` installs but this shell cannot find it yet, rerun with `-AddToPath`
-or set `TOKKI_ADD_TO_PATH=1` before the `irm | iex` command.
-
-The installer tries `uv tool install`, then `pipx install`, then
-`pip install --user` (via `python` or the `py` launcher), and prints the
-directory to add to `PATH` if `tokki` is not found after install. Typical
-script locations are `%USERPROFILE%\.local\bin` (uv, pipx) or
-`<python user base>\Scripts` (pip `--user`).
-
-Manual install with pipx:
+Optional isolated install with `pipx`:
 
 ```powershell
 py -m pip install --user pipx
 py -m pipx ensurepath
-pipx install --force tokki
+pipx install --force `
+  C:\Path\To\tokki-0.4.0-py3-none-win_amd64.whl
 tokki --version
+```
+
+Install wrappers after the wheel is installed:
+
+```powershell
+tokki setup --guided
 ```
 
 Uninstall:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File install.ps1 -Uninstall
+py -m pip uninstall -y tokki
+pipx uninstall tokki
 ```
 
 Windows notes:
@@ -259,13 +220,13 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 0.3.22`.
+Current public package: `tokki 0.4.0`.
 
-`0.3.22` publishes wheels for:
+`0.4.0` provides private wheelhouse artifacts for:
 
-- macOS arm64: `tokki-0.3.22-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-0.3.22-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-0.3.22-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-0.4.0-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-0.4.0-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-0.4.0-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
