@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 1200 720" role="img" aria-labelledby="tokki-context-engineering-stack-title tokki-context-engineering-stack-desc">
+  <title id="tokki-context-engineering-stack-title">Tokki context engineering stack</title>
+  <desc id="tokki-context-engineering-stack-desc">Tokki turns a user task and local repository evidence into compact recoverable context, a route decision, validation proof, and governed know-how.</desc>
+  <rect x="0" y="0" width="100%" height="100%" fill="#ffffff" />
+  <defs>
+    <marker id="tokki-context-engineering-stack-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#334155" />
+    </marker>
+    <marker id="tokki-context-engineering-stack-arrow-blue" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#2563eb" />
+    </marker>
+    <marker id="tokki-context-engineering-stack-arrow-green" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#059669" />
+    </marker>
+  </defs>
+  <rect fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" x="32" y="28" width="1136" height="664" rx="18" />
+  <text fill="#111827" font-size="34" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="70" y="78" text-anchor="start" dominant-baseline="alphabetic">Tokki context engineering stack</text>
+  <text fill="#475569" font-size="19" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="70" y="110" text-anchor="start" dominant-baseline="alphabetic">
+    <tspan x="70">Local control for evidence, proof, and know-how.</tspan>
+  </text>
+  <rect fill="#fff7ed" stroke="#d97706" stroke-width="2.5" x="64" y="158" width="154" height="170" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="141" y="196" text-anchor="middle" dominant-baseline="alphabetic">Task intent</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="141" y="235" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="141">Request,</tspan>
+    <tspan x="141" dy="22.5">shorthand,</tspan>
+    <tspan x="141" dy="22.5">goal.</tspan>
+  </text>
+  <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2.5" x="256" y="158" width="154" height="170" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="333" y="196" text-anchor="middle" dominant-baseline="alphabetic">Query plan</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="333" y="235" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="333">Alias,</tspan>
+    <tspan x="333" dy="22.5">rewrite,</tspan>
+    <tspan x="333" dy="22.5">expand, and</tspan>
+    <tspan x="333" dy="22.5">decompose.</tspan>
+  </text>
+  <rect fill="#f0fdfa" stroke="#059669" stroke-width="2.5" x="448" y="158" width="154" height="170" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="525" y="196" text-anchor="middle" dominant-baseline="alphabetic">Evidence</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="525" y="235" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="525">Map, query,</tspan>
+    <tspan x="525" dy="22.5">read, log</tspan>
+    <tspan x="525" dy="22.5">digest, and</tspan>
+    <tspan x="525" dy="22.5">handles.</tspan>
+  </text>
+  <rect fill="#ecfdf5" stroke="#059669" stroke-width="2.5" x="640" y="158" width="154" height="170" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="717" y="196" text-anchor="middle" dominant-baseline="alphabetic">Compact</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="717" y="235" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="717">Model-visible</tspan>
+    <tspan x="717" dy="22.5">facts with</tspan>
+    <tspan x="717" dy="22.5">local</tspan>
+    <tspan x="717" dy="22.5">recovery.</tspan>
+  </text>
+  <rect fill="#fefce8" stroke="#d97706" stroke-width="2.5" x="832" y="158" width="154" height="170" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="909" y="196" text-anchor="middle" dominant-baseline="alphabetic">Route</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="909" y="235" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="909">Local,</tspan>
+    <tspan x="909" dy="22.5">small, or</tspan>
+    <tspan x="909" dy="22.5">strong</tspan>
+    <tspan x="909" dy="22.5">route.</tspan>
+  </text>
+  <rect fill="#f8fafc" stroke="#64748b" stroke-width="2.5" x="1024" y="158" width="112" height="170" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1080" y="196" text-anchor="middle" dominant-baseline="alphabetic">Proof</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1080" y="235" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="1080">Validate,</tspan>
+    <tspan x="1080" dy="22.5">report,</tspan>
+    <tspan x="1080" dy="22.5">and</tspan>
+    <tspan x="1080" dy="22.5">promote.</tspan>
+  </text>
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-context-engineering-stack-arrow)" x1="218" y1="243" x2="248" y2="243" />
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-context-engineering-stack-arrow)" x1="410" y1="243" x2="440" y2="243" />
+  <line stroke="#059669" stroke-width="3" marker-end="url(#tokki-context-engineering-stack-arrow-green)" x1="602" y1="243" x2="632" y2="243" />
+  <line stroke="#2563eb" stroke-width="3" marker-end="url(#tokki-context-engineering-stack-arrow-blue)" x1="794" y1="243" x2="824" y2="243" />
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-context-engineering-stack-arrow)" x1="986" y1="243" x2="1016" y2="243" />
+  <rect fill="#fff7ed" stroke="#d97706" stroke-width="2" x="88" y="392" width="462" height="86" rx="14" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="319" y="424" text-anchor="middle" dominant-baseline="alphabetic">Raw evidence stays local</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="319" y="454" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="319">Raw files and logs stay off the prompt.</tspan>
+  </text>
+  <rect fill="#ecfdf5" stroke="#059669" stroke-width="2" x="650" y="392" width="462" height="86" rx="14" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="881" y="424" text-anchor="middle" dominant-baseline="alphabetic">Compact context is recoverable</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="881" y="454" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="881">Handles and hashes preserve recovery.</tspan>
+  </text>
+  <line stroke="#059669" stroke-width="3" marker-end="url(#tokki-context-engineering-stack-arrow-green)" x1="550" y1="435" x2="642" y2="435" />
+  <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2" x="212" y="552" width="776" height="70" rx="16" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="600" y="581" text-anchor="middle" dominant-baseline="alphabetic">Smallest safe evidence surface.</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="600" y="611" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="600">Escalate when compact context is not enough.</tspan>
+  </text>
+</svg>
