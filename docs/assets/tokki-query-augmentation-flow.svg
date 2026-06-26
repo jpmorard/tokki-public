@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 1200 720" role="img" aria-labelledby="tokki-query-augmentation-flow-title tokki-query-augmentation-flow-desc">
+  <title id="tokki-query-augmentation-flow-title">Tokki query augmentation flow</title>
+  <desc id="tokki-query-augmentation-flow-desc">Tokki improves vague task text before retrieval by matching local aliases, rewriting the query, decomposing it into selectors, and emitting evidence handles.</desc>
+  <rect x="0" y="0" width="100%" height="100%" fill="#ffffff" />
+  <defs>
+    <marker id="tokki-query-augmentation-flow-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#334155" />
+    </marker>
+    <marker id="tokki-query-augmentation-flow-arrow-blue" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#2563eb" />
+    </marker>
+    <marker id="tokki-query-augmentation-flow-arrow-green" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#059669" />
+    </marker>
+  </defs>
+  <rect fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" x="34" y="30" width="1132" height="660" rx="18" />
+  <text fill="#111827" font-size="34" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="70" y="78" text-anchor="start" dominant-baseline="alphabetic">Query augmentation before retrieval</text>
+  <text fill="#475569" font-size="19" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="70" y="110" text-anchor="start" dominant-baseline="alphabetic">
+    <tspan x="70">Local selectors before broad context.</tspan>
+  </text>
+  <rect fill="#fff7ed" stroke="#d97706" stroke-width="2.4" x="78" y="170" width="236" height="132" rx="14" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="196" y="210" text-anchor="middle" dominant-baseline="alphabetic">Vague task</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="196" y="248" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="196">short prompt,</tspan>
+    <tspan x="196" dy="22.5">local nickname,</tspan>
+    <tspan x="196" dy="22.5">or missing nouns</tspan>
+  </text>
+  <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2.2" x="410" y="152" width="170" height="84" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="495" y="187" text-anchor="middle" dominant-baseline="alphabetic">Alias match</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="495" y="214" text-anchor="middle" dominant-baseline="alphabetic">.tokki config</text>
+  <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2.2" x="410" y="274" width="170" height="84" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="495" y="309" text-anchor="middle" dominant-baseline="alphabetic">Rewrite</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="495" y="336" text-anchor="middle" dominant-baseline="alphabetic">stable terms</text>
+  <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2.2" x="410" y="396" width="170" height="84" rx="12" />
+  <text fill="#111827" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="495" y="431" text-anchor="middle" dominant-baseline="alphabetic">Decompose</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="495" y="458" text-anchor="middle" dominant-baseline="alphabetic">subqueries</text>
+  <rect fill="#f0fdfa" stroke="#059669" stroke-width="2.4" x="686" y="204" width="212" height="204" rx="14" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="792" y="244" text-anchor="middle" dominant-baseline="alphabetic">Repo selectors</text>
+  <text fill="#334155" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="792" y="286" text-anchor="middle" dominant-baseline="alphabetic">tokki map</text>
+  <text fill="#334155" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="792" y="318" text-anchor="middle" dominant-baseline="alphabetic">tokki query</text>
+  <text fill="#334155" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="792" y="350" text-anchor="middle" dominant-baseline="alphabetic">tokki read</text>
+  <rect fill="#ecfdf5" stroke="#059669" stroke-width="2.4" x="972" y="170" width="156" height="132" rx="14" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1050" y="210" text-anchor="middle" dominant-baseline="alphabetic">Handles</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1050" y="248" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="1050">compact</tspan>
+    <tspan x="1050" dy="22.5">facts plus</tspan>
+    <tspan x="1050" dy="22.5">recovery</tspan>
+  </text>
+  <rect fill="#fefce8" stroke="#d97706" stroke-width="2.4" x="972" y="380" width="156" height="100" rx="14" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1050" y="420" text-anchor="middle" dominant-baseline="alphabetic">Route</text>
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1050" y="450" text-anchor="middle" dominant-baseline="alphabetic">local or model</text>
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow)" x1="314" y1="236" x2="402" y2="194" />
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow)" x1="314" y1="236" x2="402" y2="316" />
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow)" x1="314" y1="236" x2="402" y2="438" />
+  <line stroke="#2563eb" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow-blue)" x1="580" y1="194" x2="678" y2="272" />
+  <line stroke="#2563eb" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow-blue)" x1="580" y1="316" x2="678" y2="306" />
+  <line stroke="#2563eb" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow-blue)" x1="580" y1="438" x2="678" y2="342" />
+  <line stroke="#059669" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow-green)" x1="898" y1="306" x2="964" y2="236" />
+  <line stroke="#059669" stroke-width="3" marker-end="url(#tokki-query-augmentation-flow-arrow-green)" x1="898" y1="330" x2="964" y2="430" />
+  <rect fill="#ffffff" stroke="#cbd5e1" stroke-width="2" x="98" y="548" width="1004" height="66" rx="14" />
+  <text fill="#334155" font-size="18" font-weight="400" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="600" y="575" text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan x="600">Privacy: emit matches; keep raw config local.</tspan>
+  </text>
+</svg>
