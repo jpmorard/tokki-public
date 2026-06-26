@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 1200 720" role="img" aria-labelledby="tokki-compact-context-ordering-title tokki-compact-context-ordering-desc">
+  <title id="tokki-compact-context-ordering-title">Tokki compact context ordering gate</title>
+  <desc id="tokki-compact-context-ordering-desc">Fresh policy and objective facts are ordered before older memory, duplicate rendered companions and stale context are suppressed, and missing evidence escalates before model handoff.</desc>
+  <rect x="0" y="0" width="100%" height="100%" fill="#ffffff" />
+  <defs>
+    <marker id="tokki-compact-context-ordering-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#334155" />
+    </marker>
+    <marker id="tokki-compact-context-ordering-amber-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#d97706" />
+    </marker>
+  </defs>
+  <text fill="#111827" font-size="32" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="600" y="44" text-anchor="middle" dominant-baseline="alphabetic">Compact Context Ordering Gate</text>
+  <text fill="#475569" font-size="20" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="600" y="78" text-anchor="middle" dominant-baseline="alphabetic">Fresh facts before older memory</text>
+  <rect fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" x="48" y="116" width="258" height="424" rx="8" ry="8" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="78" y="154" text-anchor="start" dominant-baseline="alphabetic">Input Signals</text>
+  <text fill="#64748b" font-size="18" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="78" y="188" text-anchor="start" dominant-baseline="alphabetic">Metadata only</text>
+  <g id="tokki-compact-context-ordering-inputs">
+    <rect fill="#ffffff" stroke="#2563eb" stroke-width="2" x="78" y="226" width="198" height="46" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="98" y="255" text-anchor="start" dominant-baseline="alphabetic">Objective hash</text>
+    <rect fill="#ffffff" stroke="#059669" stroke-width="2" x="78" y="292" width="198" height="46" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="98" y="321" text-anchor="start" dominant-baseline="alphabetic">Session counts</text>
+    <rect fill="#ffffff" stroke="#334155" stroke-width="2" x="78" y="358" width="198" height="46" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="98" y="387" text-anchor="start" dominant-baseline="alphabetic">Map handles</text>
+    <rect fill="#ffffff" stroke="#d97706" stroke-width="2" x="78" y="424" width="198" height="46" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="98" y="453" text-anchor="start" dominant-baseline="alphabetic">Deferred raw</text>
+  </g>
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-compact-context-ordering-arrow)" x1="306" y1="328" x2="358" y2="328" />
+  <rect fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" x="360" y="116" width="296" height="424" rx="8" ry="8" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="508" y="154" text-anchor="middle" dominant-baseline="alphabetic">Ordered Tiers</text>
+  <g id="tokki-compact-context-ordering-tiers">
+    <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2" x="402" y="188" width="212" height="50" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="508" y="219" text-anchor="middle" dominant-baseline="alphabetic">1 Fresh must-have</text>
+    <rect fill="#ecfdf5" stroke="#059669" stroke-width="2" x="402" y="254" width="212" height="50" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="508" y="285" text-anchor="middle" dominant-baseline="alphabetic">2 Hot session</text>
+    <rect fill="#ffffff" stroke="#334155" stroke-width="2" x="402" y="320" width="212" height="50" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="508" y="351" text-anchor="middle" dominant-baseline="alphabetic">3 Warm repo</text>
+    <rect fill="#f8fafc" stroke="#64748b" stroke-width="2" x="402" y="386" width="212" height="50" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="508" y="417" text-anchor="middle" dominant-baseline="alphabetic">4 Cold memory</text>
+    <rect fill="#fffbeb" stroke="#d97706" stroke-width="2" x="402" y="452" width="212" height="50" rx="8" ry="8" />
+    <text fill="#172026" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="508" y="483" text-anchor="middle" dominant-baseline="alphabetic">5 Archive handles</text>
+  </g>
+  <line stroke="#334155" stroke-width="3" marker-end="url(#tokki-compact-context-ordering-arrow)" x1="656" y1="328" x2="710" y2="328" />
+  <rect fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" x="712" y="116" width="440" height="424" rx="8" ry="8" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="932" y="154" text-anchor="middle" dominant-baseline="alphabetic">Model-Visible Surface</text>
+  <rect fill="#ffffff" stroke="#334155" stroke-width="2" x="752" y="190" width="360" height="190" rx="8" ry="8" />
+  <rect fill="#eff6ff" stroke="#2563eb" stroke-width="2" x="780" y="218" width="304" height="42" rx="8" ry="8" />
+  <text fill="#172026" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="932" y="245" text-anchor="middle" dominant-baseline="alphabetic">First: policy + goal</text>
+  <rect fill="#ecfdf5" stroke="#059669" stroke-width="2" x="780" y="292" width="304" height="42" rx="8" ry="8" />
+  <text fill="#172026" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="932" y="319" text-anchor="middle" dominant-baseline="alphabetic">Bottom: privacy + retrieval</text>
+  <text fill="#111827" font-size="21" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="776" y="418" text-anchor="start" dominant-baseline="alphabetic">Suppressed</text>
+  <g id="tokki-compact-context-ordering-suppressed">
+    <rect fill="#fff7ed" stroke="#d97706" stroke-width="2" x="776" y="442" width="146" height="42" rx="8" ry="8" />
+    <text fill="#172026" font-size="17" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="849" y="469" text-anchor="middle" dominant-baseline="alphabetic">Stale facts</text>
+    <rect fill="#fef2f2" stroke="#dc2626" stroke-width="2" x="934" y="442" width="160" height="42" rx="8" ry="8" />
+    <text fill="#172026" font-size="17" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1014" y="469" text-anchor="middle" dominant-baseline="alphabetic">Duplicate PDFs</text>
+    <rect fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 6" x="776" y="494" width="318" height="34" rx="8" ry="8" />
+    <text fill="#334155" font-size="16" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="935" y="516" text-anchor="middle" dominant-baseline="alphabetic">Raw broad search stays local</text>
+  </g>
+  <line stroke="#d97706" stroke-width="3" marker-end="url(#tokki-compact-context-ordering-amber-arrow)" x1="932" y1="540" x2="932" y2="576" />
+  <rect fill="#fffbeb" stroke="#d97706" stroke-width="3" x="76" y="578" width="1048" height="92" rx="8" ry="8" />
+  <text fill="#111827" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="106" y="616" text-anchor="start" dominant-baseline="alphabetic">Escalate before handoff</text>
+  <text fill="#475569" font-size="19" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="106" y="646" text-anchor="start" dominant-baseline="alphabetic">Fresh goal, decisive fact, required elision</text>
+  <text fill="#d97706" font-size="19" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif" x="1088" y="646" text-anchor="end" dominant-baseline="alphabetic">tokki compact-order</text>
+</svg>
