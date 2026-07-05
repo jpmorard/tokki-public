@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="306" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Tokki deployment flow</title>
+  <desc id="desc">A deployment diagram showing Tokki installers using a private wheelhouse, installing the local CLI, optionally adding agent wrappers, and running strict doctor checks while source and raw payloads stay private.</desc>
+  <rect width="960" height="420" fill="#f5f7f3"/>
+  <rect x="40" y="36" width="880" height="344" rx="8" fill="#ffffff" stroke="#d8ded2"/>
+
+  <text x="72" y="78" fill="#24645b" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="700">WHEEL-FIRST LOCAL DEPLOYMENT</text>
+  <text x="72" y="114" fill="#1f2a27" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="700">Tokki Deployment Flow</text>
+  <text x="72" y="142" fill="#61706a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">Private wheels install the local CLI.</text>
+  <text x="72" y="161" fill="#61706a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">source and raw payloads stay private.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#24645b"/>
+    </marker>
+  </defs>
+
+  <rect x="72" y="190" width="166" height="92" rx="8" fill="#eef7f4" stroke="#aacdc6"/>
+  <text x="96" y="226" fill="#1f2a27" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="19" font-weight="700">Installer</text>
+  <text x="96" y="252" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">macOS, Linux, or</text>
+  <text x="96" y="270" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">Windows entrypoint</text>
+
+  <line x1="238" y1="236" x2="316" y2="236" stroke="#24645b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="326" y="190" width="166" height="92" rx="8" fill="#ffffff" stroke="#d8ded2"/>
+  <text x="350" y="226" fill="#1f2a27" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="19" font-weight="700">Private Wheels</text>
+  <text x="350" y="252" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">wheelhouse artifact</text>
+  <text x="350" y="270" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">no public source</text>
+
+  <line x1="492" y1="236" x2="570" y2="236" stroke="#24645b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="580" y="190" width="166" height="92" rx="8" fill="#ffffff" stroke="#d8ded2"/>
+  <text x="604" y="226" fill="#1f2a27" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="19" font-weight="700">Local CLI</text>
+  <text x="604" y="252" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">tokki command</text>
+  <text x="604" y="270" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">plus protected runtime</text>
+
+  <line x1="746" y1="236" x2="824" y2="236" stroke="#24645b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="758" y="104" width="130" height="52" rx="8" fill="#fff8ea" stroke="#dfbd73"/>
+  <text x="823" y="127" text-anchor="middle" fill="#7a5609" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="700">private source</text>
+  <text x="823" y="145" text-anchor="middle" fill="#7a5609" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">stays local</text>
+
+  <rect x="800" y="190" width="88" height="92" rx="8" fill="#eef7f4" stroke="#aacdc6"/>
+  <text x="844" y="226" text-anchor="middle" fill="#1f2a27" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="700">Verify</text>
+  <text x="844" y="252" text-anchor="middle" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">doctor</text>
+  <text x="844" y="270" text-anchor="middle" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">strict</text>
+
+  <path d="M663 282 C663 326 548 330 548 312 L548 302" fill="none" stroke="#7d8a85" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <rect x="316" y="302" width="244" height="66" rx="8" fill="#f8faf7" stroke="#d8ded2"/>
+  <text x="438" y="326" text-anchor="middle" fill="#1f2a27" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="700">Optional wrappers</text>
+  <text x="438" y="345" text-anchor="middle" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">Agent CLI, IDE, local tools,</text>
+  <text x="438" y="361" text-anchor="middle" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">and local agent launchers</text>
+
+  <rect x="72" y="318" width="190" height="38" rx="8" fill="#f8faf7" stroke="#d8ded2"/>
+  <text x="96" y="342" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">raw logs and prompts hidden</text>
+
+  <rect x="604" y="318" width="284" height="38" rx="8" fill="#f8faf7" stroke="#d8ded2"/>
+  <text x="746" y="342" text-anchor="middle" fill="#53625d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14">metadata-only checks and private-repo evidence</text>
+</svg>
