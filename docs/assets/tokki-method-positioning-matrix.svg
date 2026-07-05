@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="443" viewBox="0 0 1200 760" role="img" aria-labelledby="tokki-method-positioning-title tokki-method-positioning-desc">
+  <title id="tokki-method-positioning-title">Tokki method positioning</title>
+  <desc id="tokki-method-positioning-desc">Tokki is shown as a local control layer that lightly touches retrieval while reaching into system adaptation without changing LLM weights.</desc>
+  <defs>
+    <marker id="tokki-method-positioning-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#334155" />
+    </marker>
+    <marker id="tokki-method-positioning-green-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#059669" />
+    </marker>
+    <marker id="tokki-method-positioning-blue-arrow" viewBox="0 0 10 10" markerWidth="8" markerHeight="8" refX="8.5" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#2563eb" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="760" fill="#ffffff" />
+  <text x="600" y="52" text-anchor="middle" fill="#111827" font-size="34" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Where Tokki Fits</text>
+  <text x="600" y="82" text-anchor="middle" fill="#475569" font-size="20" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Local control plus system adaptation</text>
+  <text x="600" y="108" text-anchor="middle" fill="#475569" font-size="20" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">not LLM weight tuning</text>
+
+  <line x1="250" y1="610" x2="910" y2="610" stroke="#334155" stroke-width="4" marker-end="url(#tokki-method-positioning-arrow)" />
+  <line x1="250" y1="610" x2="250" y2="130" stroke="#334155" stroke-width="4" marker-end="url(#tokki-method-positioning-arrow)" />
+  <line x1="580" y1="150" x2="580" y2="610" stroke="#64748b" stroke-width="2" stroke-dasharray="10 10" />
+  <line x1="250" y1="380" x2="900" y2="380" stroke="#64748b" stroke-width="2" stroke-dasharray="10 10" />
+
+  <text x="96" y="178" fill="#111827" font-size="25" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">External</text>
+  <text x="66" y="210" fill="#111827" font-size="25" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">knowledge</text>
+  <text x="98" y="242" fill="#111827" font-size="25" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">required</text>
+  <text x="226" y="285" text-anchor="end" fill="#334155" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">HIGH</text>
+  <text x="226" y="505" text-anchor="end" fill="#334155" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">LOW</text>
+  <text x="360" y="664" text-anchor="middle" fill="#334155" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">LOW</text>
+  <text x="745" y="664" text-anchor="middle" fill="#334155" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">HIGH</text>
+  <text x="1018" y="570" text-anchor="middle" fill="#111827" font-size="25" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Model</text>
+  <text x="1018" y="602" text-anchor="middle" fill="#111827" font-size="25" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">adaptation</text>
+  <text x="1018" y="634" text-anchor="middle" fill="#111827" font-size="25" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">required</text>
+
+  <rect x="292" y="188" width="236" height="128" rx="18" fill="#fff7ed" stroke="#dc2626" stroke-width="3" />
+  <text x="410" y="262" text-anchor="middle" fill="#dc2626" font-size="30" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">RAG</text>
+  <rect x="632" y="188" width="236" height="128" rx="18" fill="#fffbeb" stroke="#d97706" stroke-width="3" />
+  <text x="750" y="246" text-anchor="middle" fill="#d97706" font-size="28" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Hybrid</text>
+  <text x="750" y="278" text-anchor="middle" fill="#d97706" font-size="21" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">RAG + tuning</text>
+  <rect x="292" y="434" width="236" height="128" rx="18" fill="#eff6ff" stroke="#2563eb" stroke-width="3" />
+  <text x="410" y="490" text-anchor="middle" fill="#2563eb" font-size="26" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Prompt</text>
+  <text x="410" y="522" text-anchor="middle" fill="#2563eb" font-size="26" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">engineering</text>
+  <rect x="632" y="434" width="236" height="128" rx="18" fill="#ecfdf5" stroke="#059669" stroke-width="3" />
+  <text x="750" y="494" text-anchor="middle" fill="#059669" font-size="28" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Fine-tuning</text>
+  <text x="750" y="529" text-anchor="middle" fill="#047857" font-size="19" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">LLM weights</text>
+
+  <rect x="420" y="300" width="190" height="262" rx="22" fill="#dbeafe" fill-opacity="0.78" stroke="#2563eb" stroke-width="4" />
+  <text x="515" y="364" text-anchor="middle" fill="#172026" font-size="28" font-weight="900" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">Tokki</text>
+  <text x="515" y="398" text-anchor="middle" fill="#172026" font-size="19" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">control layer</text>
+  <rect x="438" y="420" width="154" height="34" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+  <text x="515" y="443" text-anchor="middle" fill="#172026" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">local evidence</text>
+  <rect x="438" y="464" width="154" height="34" rx="8" fill="#ffffff" stroke="#059669" stroke-width="2" />
+  <text x="515" y="487" text-anchor="middle" fill="#172026" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">compact state</text>
+  <rect x="438" y="508" width="154" height="34" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="2" />
+  <text x="515" y="531" text-anchor="middle" fill="#172026" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">route policy</text>
+  <rect x="594" y="410" width="212" height="72" rx="18" fill="#dbeafe" fill-opacity="0.24" stroke="#2563eb" stroke-width="3" stroke-dasharray="12 9" />
+  <text x="700" y="440" text-anchor="middle" fill="#172026" font-size="21" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">system</text>
+  <text x="700" y="466" text-anchor="middle" fill="#172026" font-size="21" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">adaptation</text>
+
+  <rect x="256" y="690" width="326" height="44" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="3" />
+  <text x="419" y="719" text-anchor="middle" fill="#047857" font-size="20" font-weight="800" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">model-free local route</text>
+  <line x1="420" y1="610" x2="420" y2="684" stroke="#059669" stroke-width="3" marker-end="url(#tokki-method-positioning-green-arrow)" />
+  <text x="620" y="718" fill="#475569" font-size="18" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif">no model call when deterministic</text>
+</svg>
