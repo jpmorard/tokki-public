@@ -220,9 +220,9 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 1.0.22`.
+Current public package: `tokki 1.0.24`.
 
-`1.0.22` provides private wheelhouse artifacts for:
+`1.0.24` provides private wheelhouse artifacts for:
 
 - macOS arm64: `tokki-1.0.24-py3-none-macosx_11_0_arm64.whl`
 - Linux x86_64: `tokki-1.0.24-py3-none-manylinux_2_35_x86_64.whl`
