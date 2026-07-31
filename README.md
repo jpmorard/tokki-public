@@ -21,17 +21,46 @@ Implementation source and detailed operational documentation are private.
 
 ## Public Report
 
-Proof figures from the maintainer checkout (2026-06-05, local metadata only;
-summary-only public evidence):
+Proof figures from the maintainer checkout, local metadata only and
+summary-only public evidence. The benchmark rows are a dated snapshot captured
+on 2026-07-31 through the private benchmark path with exact tokenizer counting.
+The underlying repository/context inputs and a reusable capture receipt are not
+published, so this is a dated reported result, not a reproducible fixture; a
+later rerun can differ. The remaining rows are the 2026-06-05 reading:
 
 | Signal | Figure | Public evidence boundary |
 |---|---:|---|
 | Current-session demo | 99.0% avoidable context removed | summary-only local ledger; no prompts, raw logs, paths, or file bodies |
 | Current-session net result | 4,233,059 tokens kept local | aggregate public proof, no per-event details |
-| Repeatable benchmark pack | 80,485 net tokens saved | tokenizer-counted benchmark bundle; source hidden |
-| Dirty-worktree context | 80,263 baseline -> 136 Tokki tokens, 590x | source-hidden repository context benchmark |
-| Cost projection | $8.218 projected avoided | default demo prices; not billing evidence |
+| Dated benchmark snapshot | 9,448 baseline -> 2,766 Tokki tokens, 3.4x | reported exact-count pack, 2 scenarios, captured 2026-07-31; source hidden |
+| Dirty-worktree context | 6,004 baseline -> 1,687 Tokki tokens, 3.6x | source-hidden repository context benchmark |
+| Supplied failure-log digest | 48,752 baseline -> 719 Tokki tokens, 67.8x | opt-in supplied-log scenario; log stays local |
+| Cost projection | currency-aware projected avoided | configured price inputs; not billing evidence |
 | Privacy guard | 0 strict findings | public-surface privacy scan passed |
+
+<p align="center">
+  <img
+    src="docs/assets/tokki-context-cost-frontier.svg"
+    alt="Projected input cost for a dated Tokki benchmark snapshot across GPT-5.6 tiers, baseline context versus Tokki evidence"
+    width="920"
+  >
+</p>
+
+The figure prices that dated snapshot against standard input prices read from
+the official GPT-5.6 model cards on 2026-07-31:
+[Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol) $5.00,
+[Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra) $2.00, and
+[Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna) $0.20 per
+million input tokens. They are converted with the
+[ECB euro reference rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
+for 2026-07-30, 1.1476 USD per EUR. These are projected input costs for the
+dated snapshot only: output tokens are excluded, and this is not billing
+evidence. A [French companion](docs/assets/tokki-context-cost-frontier-fr.svg)
+carries the same values.
+
+Prior published readings of 590x on the dirty-worktree row and 80,485 net
+tokens on the pack do not reproduce under exact counting on the current
+runtime; the figures above supersede them.
 
 This is a public teaser, not an operational manual. Detailed mechanisms,
 commands, source paths, raw logs, and private reports stay out of this
@@ -85,7 +114,7 @@ Apple Silicon:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.40-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.41-py3-none-macosx_11_0_arm64.whl
 export PATH="$HOME/Library/Python/3.*/bin:$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -94,7 +123,7 @@ Optional isolated install with `uv`:
 
 ```sh
 uv tool install --force \
-/path/to/tokki-1.0.40-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.41-py3-none-macosx_11_0_arm64.whl
 tokki --version
 ```
 
@@ -117,7 +146,7 @@ x86_64:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.40-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.41-py3-none-manylinux_2_35_x86_64.whl
 export PATH="$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -126,7 +155,7 @@ Optional isolated install with `pipx`:
 
 ```sh
 python3 -m pipx install --force \
-/path/to/tokki-1.0.40-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.41-py3-none-manylinux_2_35_x86_64.whl
 tokki --version
 ```
 
@@ -179,7 +208,7 @@ x86_64 PowerShell:
 
 ```powershell
 py -m pip install --user --upgrade --force-reinstall `
-C:\Path\To\tokki-1.0.40-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.41-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -189,7 +218,7 @@ Optional isolated install with `pipx`:
 py -m pip install --user pipx
 py -m pipx ensurepath
 pipx install --force `
-C:\Path\To\tokki-1.0.40-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.41-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -220,13 +249,13 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 1.0.40`.
+Current public package: `tokki 1.0.41`.
 
-`1.0.40` provides private wheelhouse artifacts for:
+`1.0.41` provides private wheelhouse artifacts for:
 
-- macOS arm64: `tokki-1.0.40-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-1.0.40-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-1.0.40-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-1.0.41-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-1.0.41-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-1.0.41-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
