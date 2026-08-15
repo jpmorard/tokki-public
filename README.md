@@ -95,6 +95,14 @@ repo does not host wheel artifacts. After receiving the wheel matching your OS,
 install it from a local path, then verify with `tokki --version` and
 `tokki doctor --strict`.
 
+### PyPI status
+
+The only PyPI upload is `tokki 1.0.0`. It is yanked, obsolete, and must not be
+used for installation or benchmark claims. The current private runtime is
+`Tokki 1.0.53`; its public integrity record is
+[v1.0.53 release evidence](RELEASES.md). PyPI publishing is retired and is not
+the Tokki distribution channel.
+
 After install, the non-destructive first-run check is:
 
 ```sh
