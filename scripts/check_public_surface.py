@@ -34,6 +34,9 @@ if signature.get("schema") != "tokki.release_artifacts_signature.v1":
     raise SystemExit("release signature has an unexpected schema")
 if not re.fullmatch(r"ed25519:[0-9a-f]{128}", signature.get("signature", "")):
     raise SystemExit("release signature is not canonical Ed25519 hex")
+canonical_manifest = json.dumps(manifest, separators=(",", ":")).encode("utf-8")
+if signature.get("manifest_sha256") != hashlib.sha256(canonical_manifest).hexdigest():
+    raise SystemExit("release signature does not bind the published manifest")
 if sbom.get("spdxVersion") != "SPDX-2.3" or not sbom.get("packages"):
     raise SystemExit("release SBOM is missing SPDX-2.3 package inventory")
 

@@ -3,7 +3,7 @@
 ## Supported versions
 
 Only the latest public release record and its corresponding authorized wheel
-are supported. At publication time, that version is `1.0.54`.
+are supported. At publication time, that version is `1.0.53`.
 
 ## Report a vulnerability
 

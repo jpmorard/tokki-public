@@ -2,8 +2,8 @@
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "name": "tokki-1.0.54-source-dependency-inventory",
-  "documentNamespace": "https://github.com/jpmorard/tokki-public/releases/1.0.54/sbom-source-dependency-inventory",
+  "name": "tokki-1.0.53-source-dependency-inventory",
+  "documentNamespace": "https://github.com/jpmorard/tokki-public/releases/1.0.53/sbom-source-dependency-inventory",
   "creationInfo": {
     "creators": [
       "Tool: cargo metadata --locked",
@@ -12,7 +12,7 @@
     "created": "2026-08-15T00:00:00Z"
   },
   "documentDescribes": [
-    "SPDXRef-Package-tokki-protected-1.0.54"
+    "SPDXRef-Package-tokki-protected-1.0.53"
   ],
   "packages": [
     {
@@ -1237,9 +1237,9 @@
       "primaryPackagePurpose": "LIBRARY"
     },
     {
-      "SPDXID": "SPDXRef-Package-tokki-protected-1.0.54",
+      "SPDXID": "SPDXRef-Package-tokki-protected-1.0.53",
       "name": "tokki-protected",
-      "versionInfo": "1.0.54",
+      "versionInfo": "1.0.53",
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": false,
       "licenseConcluded": "LicenseRef-Proprietary",
