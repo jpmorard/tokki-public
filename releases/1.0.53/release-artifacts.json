@@ -1,0 +1,25 @@
+{
+  "artifact_count": 3,
+  "artifacts": [
+    {"filename": "tokki-1.0.53-py3-none-macosx_11_0_arm64.whl", "kind": "wheel", "platform": "macosx_11_0_arm64", "sha256": "fe62569f3acf61b698afd062ea6dbfcbab1b88e12bc2ea2c0e8e21a973b537e6", "size": 11427690},
+    {"filename": "tokki-1.0.53-py3-none-manylinux_2_35_x86_64.whl", "kind": "wheel", "platform": "manylinux_2_35_x86_64", "sha256": "d1c3d773abe0b3ac9b8c05fe543ce31227d26423fc0429316dd8398e3a33b394", "size": 12286629},
+    {"filename": "tokki-1.0.53-py3-none-win_amd64.whl", "kind": "wheel", "platform": "win_amd64", "sha256": "f6c7e1bc0a1e9672d5092bc994ccd888f93579291894b95b2d4008bb0f5163c6", "size": 12024410}
+  ],
+  "build_provenance": {
+    "artifacts": [
+      {"filename": "tokki-1.0.53-py3-none-macosx_11_0_arm64.whl", "sha256": "fe62569f3acf61b698afd062ea6dbfcbab1b88e12bc2ea2c0e8e21a973b537e6", "size": 11427690},
+      {"filename": "tokki-1.0.53-py3-none-manylinux_2_35_x86_64.whl", "sha256": "d1c3d773abe0b3ac9b8c05fe543ce31227d26423fc0429316dd8398e3a33b394", "size": 12286629},
+      {"filename": "tokki-1.0.53-py3-none-win_amd64.whl", "sha256": "f6c7e1bc0a1e9672d5092bc994ccd888f93579291894b95b2d4008bb0f5163c6", "size": 12024410}
+    ],
+    "package": "tokki",
+    "schema": "tokki.build_provenance.v1",
+    "source_commit": "29f038ae2599a9bf83f841af2738a1765bc6c978",
+    "source_tree": "61efff7ffea1931ac8c4783851cf4fac9b3e3fdf",
+    "trust_anchor_fingerprints": {"license": "8fe62a44fd9912c06d48813aa55578995b3d8ace3fa6b5f82429687444b91175", "release": "ff2bfbef745c462e9bf449d2f5214b079a5732fbe9ad962564788c2fcf49d90d", "release_transition": "0e6d05de9ce0c6695c0e4d72e274b8de72cd266671325b703b2158c95e0da50c"},
+    "version": "1.0.53"
+  },
+  "package": "tokki",
+  "schema": "tokki.release_artifacts.v1",
+  "sha256sums": "SHA256SUMS",
+  "version": "1.0.53"
+}
