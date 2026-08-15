@@ -17,3 +17,7 @@ it contains the retired exposure surface.
 
 The cleanup is followed by a signed public checkpoint. The repository policy
 requires future public changes to pass the `verify` workflow before merge.
+
+GitHub's rebase operation can rewrite committer metadata. A second cleanup pass
+therefore normalised the rewritten commits before the signed checkpoint was
+published.
