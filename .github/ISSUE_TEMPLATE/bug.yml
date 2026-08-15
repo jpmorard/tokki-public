@@ -1,0 +1,21 @@
+name: Public documentation or package metadata issue
+description: Report a safe, public issue with Tokki documentation or release metadata.
+title: "docs: "
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, prompts, raw logs, customer material, private paths, or private repository contents. For security reports, use Private Vulnerability Reporting.
+  - type: input
+    id: version
+    attributes:
+      label: Tokki version and platform
+      description: Use only publicly safe version/platform information.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Publicly safe description
+      description: Describe the documentation or package-metadata problem without sensitive content.
+    validations:
+      required: true

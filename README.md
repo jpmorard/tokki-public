@@ -9,6 +9,7 @@
 </p>
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+[![Release evidence](https://img.shields.io/badge/release%20evidence-signed-blue.svg)](RELEASES.md)
 
 Tokki is a proprietary local developer tool distributed as compiled wheels.
 It is a token killer for local developer sessions: built to cut avoidable local
@@ -26,17 +27,19 @@ summary-only public evidence. The benchmark rows are a dated snapshot captured
 on 2026-07-31 through the private benchmark path with exact tokenizer counting.
 The underlying repository/context inputs and a reusable capture receipt are not
 published, so this is a dated reported result, not a reproducible fixture; a
-later rerun can differ. The remaining rows are the 2026-06-05 reading:
+later rerun can differ. Token counts are exact for the `gpt-4o` tokenizer used
+by the capture path and are only a GPT-5.6 input-cost approximation. The
+remaining rows are the 2026-06-05 reading:
 
 | Signal | Figure | Public evidence boundary |
 |---|---:|---|
 | Current-session demo | 99.0% avoidable context removed | summary-only local ledger; no prompts, raw logs, paths, or file bodies |
 | Current-session net result | 4,233,059 tokens kept local | aggregate public proof, no per-event details |
-| Dated benchmark snapshot | 9,448 baseline -> 2,766 Tokki tokens, 3.4x | reported exact-count pack, 2 scenarios, captured 2026-07-31; source hidden |
+| Dated benchmark snapshot | 9,448 baseline -> 2,766 Tokki tokens, 3.4x | exact `gpt-4o` tokenizer count, 2 scenarios, captured 2026-07-31; source hidden |
 | Dirty-worktree context | 6,004 baseline -> 1,687 Tokki tokens, 3.6x | source-hidden repository context benchmark |
 | Supplied failure-log digest | 48,752 baseline -> 719 Tokki tokens, 67.8x | opt-in supplied-log scenario; log stays local |
 | Cost projection | currency-aware projected avoided | configured price inputs; not billing evidence |
-| Privacy guard | 0 strict findings | public-surface privacy scan passed |
+| Privacy guard | 0 strict findings | tracked `HEAD` content only; Git history, forks, caches, and external services are outside this claim |
 
 <p align="center">
   <img
@@ -82,9 +85,8 @@ use. The two can complement each other: Tokki can install wrappers with
 `tokki setup` without making the Tokki source public.
 
 The private CLI also includes `tokki benchmark` for comparing report-path
-timings. Its log-digest benchmark path uses the native Rust helper when
-available and falls back to Python only for compatibility, while public
-evidence stays summary-only.
+timings. Public claims, the cost model, and the non-reproducible fixture
+boundary are defined in [BENCHMARK.md](BENCHMARK.md).
 
 ## Install
 
@@ -114,8 +116,8 @@ Apple Silicon:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.53-py3-none-macosx_11_0_arm64.whl
-export PATH="$HOME/Library/Python/3.*/bin:$HOME/.local/bin:$PATH"
+/path/to/tokki-1.0.54-py3-none-macosx_11_0_arm64.whl
+export PATH="$(python3 -m site --user-base)/bin:$HOME/.local/bin:$PATH"
 tokki --version
 ```
 
@@ -123,7 +125,7 @@ Optional isolated install with `uv`:
 
 ```sh
 uv tool install --force \
-/path/to/tokki-1.0.53-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.54-py3-none-macosx_11_0_arm64.whl
 tokki --version
 ```
 
@@ -146,7 +148,7 @@ x86_64:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.53-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.54-py3-none-manylinux_2_35_x86_64.whl
 export PATH="$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -155,7 +157,7 @@ Optional isolated install with `pipx`:
 
 ```sh
 python3 -m pipx install --force \
-/path/to/tokki-1.0.53-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.54-py3-none-manylinux_2_35_x86_64.whl
 tokki --version
 ```
 
@@ -208,7 +210,7 @@ x86_64 PowerShell:
 
 ```powershell
 py -m pip install --user --upgrade --force-reinstall `
-C:\Path\To\tokki-1.0.53-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.54-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -217,10 +219,13 @@ Optional isolated install with `pipx`:
 ```powershell
 py -m pip install --user pipx
 py -m pipx ensurepath
-pipx install --force `
-C:\Path\To\tokki-1.0.53-py3-none-win_amd64.whl
+py -m pipx install --force `
+C:\Path\To\tokki-1.0.54-py3-none-win_amd64.whl
 tokki --version
 ```
+
+`ensurepath` affects future shells. If `tokki` is not found in this PowerShell
+window, open a new one before running it.
 
 Install wrappers after the wheel is installed:
 
@@ -249,30 +254,41 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 1.0.53`.
+Current public package: `tokki 1.0.54`.
 
 `1.0.53` provides private wheelhouse artifacts for:
 
-- macOS arm64: `tokki-1.0.53-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-1.0.53-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-1.0.53-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-1.0.54-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-1.0.54-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-1.0.54-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
 
+Supported wheel targets are macOS 11+ on Apple Silicon, glibc Linux compatible
+with `manylinux_2_35` on x86_64, and 64-bit Windows on x86_64. Python 3.9 or
+newer is required. macOS Intel and Linux ARM64 wheels are not currently
+distributed. Check [RELEASES.md](RELEASES.md) before installing: an authorized
+wheel must match both its published SHA-256 and signed release manifest.
+
 ## Support
 
 Use GitHub issues for installation problems and public package metadata issues.
-For failure reports, prefer `tokki issue report` so Tokki can send a bounded,
-privacy-filtered digest with the issue. Use `tokki issue fix` to read a
-`tokki-auto` issue back into a local fix bundle. Do not post secrets, prompts, command output,
-private repository contents, or customer material in public issues. The
-`tokki-auto` label should stay restricted to trusted triage users so untrusted
-reporters cannot publish into the fix queue.
+For failure reports, `tokki issue report --dry-run` prepares a bounded,
+privacy-filtered **local preview only**. Tokki does not post the preview:
+review it and take a separate explicit user action if it is safe to share.
+`tokki issue fix` is unsupported in the protected runtime; no GitHub issue is
+converted into an executable or automatically applied local bundle. Do not post
+secrets, prompts, command output, private repository contents, customer
+material, absolute paths, or private branch names in public issues.
 
 For a local trust summary before filing anything public, run
 `tokki privacy explain`. It describes what Tokki stores locally, what public
 reports omit, and which audit commands to run before sharing artifacts.
+
+See [PRIVACY.md](PRIVACY.md) for the public data boundary,
+[SECURITY.md](SECURITY.md) for vulnerability reporting, and
+[RELEASES.md](RELEASES.md) to verify an authorized wheel before installation.
 
 For installation or wrapper issues, run `tokki install doctor` first. Use
 `tokki path doctor` / `tokki path repair` for PATH drift, `tokki installer-parity`
