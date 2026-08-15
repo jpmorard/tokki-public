@@ -14,3 +14,6 @@ maintainer's control and may retain the prior history.
 The pre-rewrite complete-history backup is retained privately, with a recorded
 SHA-256, for recovery and audit purposes. It is not a public artifact because
 it contains the retired exposure surface.
+
+The cleanup is followed by a signed public checkpoint. The repository policy
+requires future public changes to pass the `verify` workflow before merge.
