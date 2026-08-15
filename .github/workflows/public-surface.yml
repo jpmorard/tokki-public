@@ -16,10 +16,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Verify signed public tip
+        env:
+          TARGET_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           git config gpg.format ssh
           git config gpg.ssh.allowedSignersFile "$GITHUB_WORKSPACE/.github/allowed_signers"
-          git verify-commit "${GITHUB_HEAD_SHA:-$GITHUB_SHA}"
+          git verify-commit "$TARGET_SHA"
       - name: Reject exposed Git identities in reachable history
         run: |
           ! git log --all --format='%ae%n%ce' | grep -Ei '@(thalesgroup|thales)\.com$'
