@@ -68,7 +68,7 @@ for forbidden in (
     ):
         raise SystemExit(f"forbidden public-surface marker: {forbidden}")
 
-if "PyPI contains a single inert name-retention wheel: `tokki 0.0.0.post1`." not in README:
+if "PyPI's current inert name-retention placeholder is `tokki 0.0.1`." not in README:
     raise SystemExit("README must disclose the inert PyPI name-retention wheel")
 
 print(f"public surface: pass ({version}, {len(artifacts)} signed artifacts)")
