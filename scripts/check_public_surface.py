@@ -68,7 +68,7 @@ for forbidden in (
     ):
         raise SystemExit(f"forbidden public-surface marker: {forbidden}")
 
-if "The only PyPI upload is `tokki 1.0.0`. It is yanked, obsolete" not in README:
-    raise SystemExit("README must disclose the obsolete yanked PyPI release")
+if "PyPI contains a single inert name-retention wheel: `tokki 0.0.0.post1`." not in README:
+    raise SystemExit("README must disclose the inert PyPI name-retention wheel")
 
 print(f"public surface: pass ({version}, {len(artifacts)} signed artifacts)")

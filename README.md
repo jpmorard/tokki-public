@@ -97,9 +97,11 @@ install it from a local path, then verify with `tokki --version` and
 
 ### PyPI status
 
-The only PyPI upload is `tokki 1.0.0`. It is yanked, obsolete, and must not be
-used for installation or benchmark claims. The current private runtime is
-`Tokki 1.0.53`; its public integrity record is
+PyPI contains a single inert name-retention wheel: `tokki 0.0.0.post1`. It
+contains no Tokki runtime and declares `Requires-Python >=99`, so `pip` will
+not install it in supported Python environments. It exists solely to retain the
+Tokki project name. The current private runtime is `Tokki 1.0.53`; its public
+integrity record is
 [v1.0.53 release evidence](RELEASES.md). PyPI publishing is retired and is not
 the Tokki distribution channel.
 
