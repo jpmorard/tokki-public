@@ -59,6 +59,7 @@ for forbidden in (
     "@" + "thalesgroup.com",
     'export PATH="$HOME/Library/Python/3.' + '*/bin',
     "Use `tokki issue fix` to " + "read",
+    "claude-3-5-" + "haiku-latest",
 ):
     if forbidden in README or any(
         forbidden in path.read_text(encoding="utf-8", errors="ignore")

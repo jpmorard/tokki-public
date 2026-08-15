@@ -188,12 +188,11 @@ one-shot prompt, is opt-in. The installer can write a small `install.env`
 config that sets `TOKKI_MODEL_LOW_AGENT`, `TOKKI_MODEL_ALLOW_CROSS_AGENT_HANDOFF`,
 and optionally `TOKKI_MODEL_LOW_HANDOFF_MODEL`; env vars still override that
 file. Set the agent to `codex` to route to the latest GPT mini model, `claude`
-to stay on Claude with the canonical low-model preset
-`claude-3-5-haiku-latest`, or `ollama` with an explicit model name. Set the
-agent to `local` with a command name and optional fixed args to use another
-local model CLI instead of Ollama. Claude handoff model aliases are allowlisted;
-stale or invalid aliases fall back to `claude-3-5-haiku-latest` and are recorded
-as metadata-only invalid config events.
+to stay on Claude with the provider-resolved low-model alias `haiku`, or
+`ollama` with an explicit model name. The `haiku` alias is intentionally used
+so the installed Claude CLI resolves its supported current Haiku release rather
+than Tokki pinning a retired snapshot. Set the agent to `local` with a command
+name and optional fixed args to use another local model CLI instead of Ollama.
 
 Tokki also honors `TOKKI_TOKEN_SAVING_MODE=aggressive`,
 `TOKKI_TOKEN_SAVING_MODE=ultimate`, or `TOKKI_TOKEN_SAVING_MODE=emergency`.
