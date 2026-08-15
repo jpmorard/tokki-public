@@ -23,7 +23,9 @@ jobs:
           git config gpg.ssh.allowedSignersFile "$GITHUB_WORKSPACE/.github/allowed_signers"
           git verify-commit "$TARGET_SHA"
       - name: Reject exposed Git identities in reachable history
+        env:
+          TARGET_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          ! git log --all --format='%ae%n%ce' | grep -Ei '@(thalesgroup|thales)\.com$'
+          ! git log "$TARGET_SHA" --format='%ae%n%ce' | grep -Ei '@(thalesgroup|thales)\.com$'
       - name: Verify public claims and release evidence
         run: python3 scripts/check_public_surface.py
