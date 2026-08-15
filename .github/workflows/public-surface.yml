@@ -19,7 +19,7 @@ jobs:
         run: |
           git config gpg.format ssh
           git config gpg.ssh.allowedSignersFile "$GITHUB_WORKSPACE/.github/allowed_signers"
-          git verify-commit HEAD
+          git verify-commit "${GITHUB_HEAD_SHA:-$GITHUB_SHA}"
       - name: Reject exposed Git identities in reachable history
         run: |
           ! git log --all --format='%ae%n%ce' | grep -Ei '@(thalesgroup|thales)\.com$'
