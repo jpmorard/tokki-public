@@ -13,6 +13,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 README = (ROOT / "README.md").read_text(encoding="utf-8")
 RELEASES = (ROOT / "RELEASES.md").read_text(encoding="utf-8")
+
+workflow_root = ROOT / ".github" / "workflows"
+active_workflows = sorted(
+    path
+    for path in workflow_root.rglob("*")
+    if path.is_file() and path.suffix.lower() in {".yml", ".yaml"}
+)
+if active_workflows:
+    names = ", ".join(path.name for path in active_workflows)
+    raise SystemExit(f"GitHub Actions must stay source-disabled; found: {names}")
+workflow_policy = workflow_root / "README.md"
+if not workflow_policy.is_file() or "GitHub Actions is disabled" not in workflow_policy.read_text(
+    encoding="utf-8"
+):
+    raise SystemExit("missing GitHub Actions retirement policy")
+if not (ROOT / ".github" / "retired-actions" / "public-surface.yml").is_file():
+    raise SystemExit("missing inert public-surface workflow snapshot")
+
 VERSION = re.search(r"Current public package: `tokki ([0-9]+\.[0-9]+\.[0-9]+)`\.", README)
 if VERSION is None:
     raise SystemExit("missing canonical public package version")

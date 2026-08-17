@@ -1,4 +1,4 @@
-name: public-surface
+name: retired-public-surface-snapshot
 
 on:
   pull_request:

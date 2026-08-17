@@ -18,6 +18,10 @@ details and local payloads private.
 
 This public package and repository contain limited package information, license
 terms, public proof figures, and security-contact guidance only.
+
+Repository validation runs through local maintainer gates. GitHub Actions is
+disabled and this repository intentionally contains no active workflow YAML, so
+pushes do not create Actions logs, artifacts, or caches.
 Implementation source and detailed operational documentation are private.
 
 ## Public Report
