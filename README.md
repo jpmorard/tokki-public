@@ -287,9 +287,9 @@ For failure reports, `tokki issue report --dry-run` prepares a bounded,
 privacy-filtered **local preview only**. Tokki does not post the preview:
 review it and take a separate explicit user action if it is safe to share.
 `tokki issue fix` is unsupported in the protected runtime; no GitHub issue is
-converted into an executable or automatically applied local bundle. Do not post
-secrets, prompts, command output, private repository contents, customer
-material, absolute paths, or private branch names in public issues.
+converted into an executable or automatically applied local bundle. Do not post secrets, prompts, command output,
+private repository contents, customer material, absolute paths, or private
+branch names in public issues.
 
 For a local trust summary before filing anything public, run
 `tokki privacy explain`. It describes what Tokki stores locally, what public
