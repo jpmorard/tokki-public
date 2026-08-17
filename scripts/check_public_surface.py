@@ -12,10 +12,40 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 README = (ROOT / "README.md").read_text(encoding="utf-8")
+RELEASES = (ROOT / "RELEASES.md").read_text(encoding="utf-8")
 VERSION = re.search(r"Current public package: `tokki ([0-9]+\.[0-9]+\.[0-9]+)`\.", README)
 if VERSION is None:
     raise SystemExit("missing canonical public package version")
 version = VERSION.group(1)
+
+runtime_versions = re.findall(
+    r"current private runtime is `Tokki ([0-9]+\.[0-9]+\.[0-9]+)`", README
+)
+if runtime_versions != [version]:
+    raise SystemExit("README private runtime version does not match the public package")
+evidence_versions = re.findall(
+    r"\[v([0-9]+\.[0-9]+\.[0-9]+) release evidence\]\(RELEASES\.md\)", README
+)
+if evidence_versions != [version]:
+    raise SystemExit("README release-evidence link does not match the public package")
+release_versions = re.findall(
+    r"^## Current release: ([0-9]+\.[0-9]+\.[0-9]+)$", RELEASES, re.MULTILINE
+)
+if release_versions != [version]:
+    raise SystemExit("RELEASES current version does not match the public package")
+for filename in (
+    "release-artifacts.json",
+    "release-artifacts.sig",
+    "SHA256SUMS",
+    "SBOM.spdx.json",
+):
+    if f"releases/{version}/{filename}" not in RELEASES:
+        raise SystemExit(f"RELEASES is missing current evidence link: {filename}")
+if "tokki release evidence verify" in RELEASES:
+    raise SystemExit("RELEASES uses the wrong verifier for release-artifacts.json")
+if f"tokki release verify-artifacts /path/to/tokki-{version} --json" not in RELEASES:
+    raise SystemExit("RELEASES is missing the current full-wheelhouse verification command")
+
 release = ROOT / "releases" / version
 manifest_path = release / "release-artifacts.json"
 signature_path = release / "release-artifacts.sig"
