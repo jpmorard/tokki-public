@@ -31,6 +31,15 @@ if not workflow_policy.is_file() or "GitHub Actions is disabled" not in workflow
 if not (ROOT / ".github" / "retired-actions" / "public-surface.yml").is_file():
     raise SystemExit("missing inert public-surface workflow snapshot")
 
+public_wheels = sorted(
+    path.relative_to(ROOT)
+    for path in ROOT.rglob("*.whl")
+    if ".git" not in path.parts
+)
+if public_wheels:
+    names = ", ".join(str(path) for path in public_wheels)
+    raise SystemExit(f"public repository must not contain wheel files: {names}")
+
 VERSION = re.search(r"Current public package: `tokki ([0-9]+\.[0-9]+\.[0-9]+)`\.", README)
 if VERSION is None:
     raise SystemExit("missing canonical public package version")
@@ -46,6 +55,11 @@ evidence_versions = re.findall(
 )
 if evidence_versions != [version]:
     raise SystemExit("README release-evidence link does not match the public package")
+artifact_intro_versions = re.findall(
+    r"`([0-9]+\.[0-9]+\.[0-9]+)` provides private wheelhouse artifacts for:", README
+)
+if artifact_intro_versions != [version]:
+    raise SystemExit("README wheelhouse artifact version does not match the public package")
 release_versions = re.findall(
     r"^## Current release: ([0-9]+\.[0-9]+\.[0-9]+)$", RELEASES, re.MULTILINE
 )
@@ -65,13 +79,32 @@ if f"tokki release verify-artifacts /path/to/tokki-{version} --json" not in RELE
     raise SystemExit("RELEASES is missing the current full-wheelhouse verification command")
 
 release = ROOT / "releases" / version
-manifest_path = release / "release-artifacts.json"
-signature_path = release / "release-artifacts.sig"
-sums_path = release / "SHA256SUMS"
-sbom_path = release / "SBOM.spdx.json"
-for path in (manifest_path, signature_path, sums_path, sbom_path):
-    if not path.is_file():
-        raise SystemExit(f"missing release evidence: {path.relative_to(ROOT)}")
+evidence_names = {
+    "release-artifacts.json",
+    "release-artifacts.sig",
+    "SHA256SUMS",
+    "SBOM.spdx.json",
+}
+if release.is_symlink() or not release.is_dir():
+    raise SystemExit(f"release evidence directory must be regular and non-symlinked: {release.relative_to(ROOT)}")
+release_entries = {path.name: path for path in release.iterdir()}
+if set(release_entries) != evidence_names:
+    missing = sorted(evidence_names - set(release_entries))
+    unexpected = sorted(set(release_entries) - evidence_names)
+    raise SystemExit(
+        "release evidence directory must contain exactly the four published metadata files; "
+        f"missing={missing}, unexpected={unexpected}"
+    )
+for path in release_entries.values():
+    if path.is_symlink() or not path.is_file():
+        raise SystemExit(
+            f"release evidence must be a regular non-symlink file: {path.relative_to(ROOT)}"
+        )
+
+manifest_path = release_entries["release-artifacts.json"]
+signature_path = release_entries["release-artifacts.sig"]
+sums_path = release_entries["SHA256SUMS"]
+sbom_path = release_entries["SBOM.spdx.json"]
 
 manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 signature = json.loads(signature_path.read_text(encoding="utf-8"))
@@ -119,4 +152,7 @@ for forbidden in (
 if "PyPI's current inert name-retention placeholder is `tokki 0.0.1`." not in README:
     raise SystemExit("README must disclose the inert PyPI name-retention wheel")
 
-print(f"public surface: pass ({version}, {len(artifacts)} signed artifacts)")
+print(
+    f"public surface: pass "
+    f"({version}, {len(artifacts)} structurally checked artifact records)"
+)

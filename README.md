@@ -104,9 +104,9 @@ install it from a local path, then verify with `tokki --version` and
 PyPI's current inert name-retention placeholder is `tokki 0.0.1`. It contains
 no Tokki runtime and declares `Requires-Python >=99`, so `pip` will not install
 it in supported Python environments. It exists solely to retain the Tokki
-project name. The current private runtime is `Tokki 1.0.57`; its public
+project name. The current private runtime is `Tokki 1.0.62`; its public
 integrity record is
-[v1.0.57 release evidence](RELEASES.md). PyPI publishing is retired and is not
+[v1.0.62 release evidence](RELEASES.md). PyPI publishing is retired and is not
 the Tokki distribution channel.
 
 After install, the non-destructive first-run check is:
@@ -269,7 +269,7 @@ Windows notes:
 
 Current public package: `tokki 1.0.62`.
 
-`1.0.58` provides private wheelhouse artifacts for:
+`1.0.62` provides private wheelhouse artifacts for:
 
 - macOS arm64: `tokki-1.0.62-py3-none-macosx_11_0_arm64.whl`
 - Linux x86_64: `tokki-1.0.62-py3-none-manylinux_2_35_x86_64.whl`
