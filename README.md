@@ -104,9 +104,9 @@ install it from a local path, then verify with `tokki --version` and
 PyPI's current inert name-retention placeholder is `tokki 0.0.1`. It contains
 no Tokki runtime and declares `Requires-Python >=99`, so `pip` will not install
 it in supported Python environments. It exists solely to retain the Tokki
-project name. The current private runtime is `Tokki 1.0.62`; its public
+project name. The current private runtime is `Tokki 1.0.63`; its public
 integrity record is
-[v1.0.62 release evidence](RELEASES.md). PyPI publishing is retired and is not
+[v1.0.63 release evidence](RELEASES.md). PyPI publishing is retired and is not
 the Tokki distribution channel.
 
 After install, the non-destructive first-run check is:
@@ -130,7 +130,7 @@ Apple Silicon:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.62-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.63-py3-none-macosx_11_0_arm64.whl
 export PATH="$(python3 -m site --user-base)/bin:$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -139,7 +139,7 @@ Optional isolated install with `uv`:
 
 ```sh
 uv tool install --force \
-/path/to/tokki-1.0.62-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.63-py3-none-macosx_11_0_arm64.whl
 tokki --version
 ```
 
@@ -162,7 +162,7 @@ x86_64:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.62-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.63-py3-none-manylinux_2_35_x86_64.whl
 export PATH="$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -171,7 +171,7 @@ Optional isolated install with `pipx`:
 
 ```sh
 python3 -m pipx install --force \
-/path/to/tokki-1.0.62-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.63-py3-none-manylinux_2_35_x86_64.whl
 tokki --version
 ```
 
@@ -223,7 +223,7 @@ x86_64 PowerShell:
 
 ```powershell
 py -m pip install --user --upgrade --force-reinstall `
-C:\Path\To\tokki-1.0.62-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.63-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -233,7 +233,7 @@ Optional isolated install with `pipx`:
 py -m pip install --user pipx
 py -m pipx ensurepath
 py -m pipx install --force `
-C:\Path\To\tokki-1.0.62-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.63-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -267,13 +267,13 @@ Windows notes:
 
 ## Public Package
 
-Current public package: `tokki 1.0.62`.
+Current public package: `tokki 1.0.63`.
 
-`1.0.62` provides private wheelhouse artifacts for:
+`1.0.63` provides private wheelhouse artifacts for:
 
-- macOS arm64: `tokki-1.0.62-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-1.0.62-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-1.0.62-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-1.0.63-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-1.0.63-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-1.0.63-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
