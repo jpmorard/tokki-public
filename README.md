@@ -24,23 +24,23 @@ disabled and this repository intentionally contains no active workflow YAML, so
 pushes do not create Actions logs, artifacts, or caches.
 Implementation source and detailed operational documentation are private.
 
-## Tokki 2.0 — teaser
+## Tokki — teaser
 
 **A control tower for AI agents.** Less repeated context, recoverable work
 traces, and results you can check.
 
 <p align="center">
-  <a href="docs/assets/tokki-2.0-teaser-fr.jpg">
+  <a href="docs/assets/tokki-teaser-fr.jpg">
     <img
-      src="docs/assets/tokki-2.0-teaser-fr.jpg"
-      alt="Tokki Version 2.0: a control tower connecting context, memory, tools and verification around AI agents, leading to results with verifiable traces. French visual with the Thales logo."
+      src="docs/assets/tokki-teaser-fr.jpg"
+      alt="Tokki: a control tower connecting context, memory, tools and verification around AI agents, leading to results with verifiable traces. French visual with the Tokki and Thales logos."
       width="680"
     >
   </a>
 </p>
 
-*Preview of the next version. See [release information](RELEASES.md) for the
-currently distributed version.*
+*Discover Tokki's approach. See [release information](RELEASES.md) for current
+availability.*
 
 ## Public Report
 
