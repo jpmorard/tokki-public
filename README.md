@@ -3,7 +3,8 @@
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Release evidence](https://img.shields.io/badge/release%20evidence-signed-blue.svg)](RELEASES.md)
 
-Tokki is a proprietary local developer tool distributed as compiled wheels.
+Tokki is a proprietary local developer tool with a **pure Rust runtime**,
+distributed as compiled wheels.
 It is a token killer for local developer sessions: built to cut avoidable local
 agent context before it becomes prompt spend, while keeping implementation
 details and local payloads private.
