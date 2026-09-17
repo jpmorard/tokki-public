@@ -59,6 +59,8 @@ and [aggregate measurement receipt](docs/evidence/token-cost-snapshot-2026-09-17
 
 ## Public Report
 
+This report contains summary-only public evidence from local metadata.
+
 The benchmark pack was rerun on **2026-09-17**, using Tokki **1.0.63** and exact
 `gpt-4o` token counting (grade A). The two available scenarios cover scoped
 agent policy and repository context. Their counts are retained in an
