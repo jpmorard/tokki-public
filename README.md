@@ -4,7 +4,7 @@
   <img
     src="https://raw.githubusercontent.com/jpmorard/tokki-public/main/docs/assets/tokki-logo.jpg"
     alt="Tokki logo"
-    width="720"
+    width="360"
   >
 </p>
 
@@ -23,6 +23,24 @@ Repository validation runs through local maintainer gates. GitHub Actions is
 disabled and this repository intentionally contains no active workflow YAML, so
 pushes do not create Actions logs, artifacts, or caches.
 Implementation source and detailed operational documentation are private.
+
+## Tokki 2.0 — teaser
+
+**A control tower for AI agents.** Less repeated context, recoverable work
+traces, and results you can check.
+
+<p align="center">
+  <a href="docs/assets/tokki-2.0-teaser-fr.jpg">
+    <img
+      src="docs/assets/tokki-2.0-teaser-fr.jpg"
+      alt="Tokki Version 2.0: a control tower connecting context, memory, tools and verification around AI agents, leading to results with verifiable traces. French visual with the Thales logo."
+      width="680"
+    >
+  </a>
+</p>
+
+*Preview of the next version. See [release information](RELEASES.md) for the
+currently distributed version.*
 
 ## Public Report
 
@@ -44,26 +62,6 @@ remaining rows are the 2026-06-05 reading:
 | Supplied failure-log digest | 48,752 baseline -> 719 Tokki tokens, 67.8x | opt-in supplied-log scenario; log stays local |
 | Cost projection | currency-aware projected avoided | configured price inputs; not billing evidence |
 | Privacy guard | 0 strict findings | tracked `HEAD` content only; Git history, forks, caches, and external services are outside this claim |
-
-<p align="center">
-  <img
-    src="docs/assets/tokki-context-cost-frontier.svg"
-    alt="Projected input cost for a dated Tokki benchmark snapshot across GPT-5.6 tiers, baseline context versus Tokki evidence"
-    width="920"
-  >
-</p>
-
-The figure prices that dated snapshot against standard input prices read from
-the official GPT-5.6 model cards on 2026-07-31:
-[Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol) $5.00,
-[Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra) $2.00, and
-[Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna) $0.20 per
-million input tokens. They are converted with the
-[ECB euro reference rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
-for 2026-07-30, 1.1476 USD per EUR. These are projected input costs for the
-dated snapshot only: output tokens are excluded, and this is not billing
-evidence. A [French companion](docs/assets/tokki-context-cost-frontier-fr.svg)
-carries the same values.
 
 Prior published readings of 590x on the dirty-worktree row and 80,485 net
 tokens on the pack do not reproduce under exact counting on the current
