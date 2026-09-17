@@ -1,0 +1,4 @@
+# This public repository contains documentation, distribution metadata and
+# maintainer checks. The Rust product source is maintained privately.
+# Hide language statistics that would describe these support files instead.
+* -linguist-detectable
