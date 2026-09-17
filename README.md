@@ -1,13 +1,5 @@
 # Tokki
 
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/jpmorard/tokki-public/main/docs/assets/tokki-logo.jpg"
-    alt="Tokki logo"
-    width="360"
-  >
-</p>
-
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Release evidence](https://img.shields.io/badge/release%20evidence-signed-blue.svg)](RELEASES.md)
 
