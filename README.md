@@ -35,6 +35,26 @@ traces, and results you can check.
 *Discover Tokki's approach. See [release information](RELEASES.md) for current
 availability.*
 
+## Token-cost teaser
+
+**Less context, lower projected input cost.** The July benchmark snapshot
+went from 9,448 to 2,766 input tokens: a 3.4x reduction.
+
+<p align="center">
+  <a href="docs/assets/tokki-context-cost-frontier.svg">
+    <img
+      src="docs/assets/tokki-context-cost-frontier.svg"
+      alt="Projected input costs with and without Tokki for GPT-6 Astra, GPT-5.6 Sol, Terra and Luna, using the same dated token snapshot."
+      width="700"
+    >
+  </a>
+</p>
+
+[Version française](docs/assets/tokki-context-cost-frontier-fr.svg).
+Prices checked on 2026-09-17; historical token counts and exchange rate held
+fixed. Input-cost projection only; see the [Public Report](#public-report)
+below for sources and assumptions.
+
 ## Public Report
 
 Proof figures from the maintainer checkout, local metadata only and
@@ -43,8 +63,8 @@ on 2026-07-31 through the private benchmark path with exact tokenizer counting.
 The underlying repository/context inputs and a reusable capture receipt are not
 published, so this is a dated reported result, not a reproducible fixture; a
 later rerun can differ. Token counts are exact for the `gpt-4o` tokenizer used
-by the capture path and are only a GPT-5.6 input-cost approximation. The
-remaining rows are the 2026-06-05 reading:
+by the capture path. Projected costs for the displayed models are estimates.
+The remaining rows are the 2026-06-05 reading:
 
 | Signal | Figure | Public evidence boundary |
 |---|---:|---|
