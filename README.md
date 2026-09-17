@@ -63,6 +63,20 @@ remaining rows are the 2026-06-05 reading:
 | Cost projection | currency-aware projected avoided | configured price inputs; not billing evidence |
 | Privacy guard | 0 strict findings | tracked `HEAD` content only; Git history, forks, caches, and external services are outside this claim |
 
+The [input-cost comparison](docs/assets/tokki-context-cost-frontier.svg)
+([French](docs/assets/tokki-context-cost-frontier-fr.svg)) now includes
+[GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra).
+Standard uncached input prices checked on 2026-09-17 are $10.00 for Astra,
+$4.00 for [Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol),
+$2.00 for [Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
+and $0.20 for [Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna)
+per million tokens. The chart holds the historical
+[ECB exchange rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
+fixed at 1.1476 USD per EUR (2026-07-30). It reuses the July snapshot's
+`gpt-4o` token counts; this is a price projection, not an Astra benchmark or
+a quality comparison. Output, caching, tools and Codex subscription quotas
+are excluded. A later benchmark rerun can differ.
+
 Prior published readings of 590x on the dirty-worktree row and 80,485 net
 tokens on the pack do not reproduce under exact counting on the current
 runtime; the figures above supersede them.
