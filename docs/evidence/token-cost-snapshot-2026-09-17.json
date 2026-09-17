@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "captured_on": "2026-09-17",
+  "runtime_version": "1.0.63",
+  "measurement": "local_context_counterfactual",
+  "token_counting": "exact",
+  "token_model": "gpt-4o",
+  "evidence_grade": "A",
+  "scenarios": [
+    {
+      "scenario": "scoped_agents_policy",
+      "baseline_tokens": 4796,
+      "tokki_tokens": 352,
+      "net_tokens_saved": 4444,
+      "evidence_grade": "A"
+    },
+    {
+      "scenario": "dirty_worktree_context",
+      "baseline_tokens": 7193,
+      "tokki_tokens": 1384,
+      "net_tokens_saved": 5809,
+      "evidence_grade": "A"
+    }
+  ],
+  "unavailable_scenarios": [
+    "failed_repo_update_log",
+    "cluster_install_failure_log"
+  ],
+  "totals": {
+    "baseline_tokens": 11989,
+    "tokki_tokens": 1736,
+    "net_tokens_saved": 10253
+  },
+  "pricing": {
+    "checked_on": "2026-09-17",
+    "basis": "standard_uncached_input",
+    "currency": "USD",
+    "usd_per_million_input_tokens": {
+      "gpt-6-astra": 10,
+      "gpt-5.6-sol": 4,
+      "gpt-5.6-terra": 2,
+      "gpt-5.6-luna": 0.2
+    },
+    "sources": [
+      "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
+      "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+    ]
+  },
+  "exchange_rate": {
+    "date": "2026-09-17",
+    "usd_per_eur": 1.1481,
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+  },
+  "limitations": [
+    "Exact counts apply only to the gpt-4o tokenizer; displayed model costs are estimates.",
+    "Private inputs are not published. This aggregate receipt is not a reproducible benchmark fixture.",
+    "The two scenarios measure context reduction, not equivalent task success or model quality.",
+    "Failure-log scenarios were unavailable in this capture and are excluded from totals.",
+    "Output, caching, tools, latency, retries and Codex subscription quotas are excluded; this is not billing evidence.",
+    "Workload and repository state differ from the July capture; the ratio change is not a like-for-like product improvement."
+  ],
+  "projection": {
+    "baseline_input_tokens": 1000000,
+    "aggregation": "across requests",
+    "max_input_tokens_per_request": 272000
+  }
+}

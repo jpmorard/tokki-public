@@ -37,8 +37,9 @@ availability.*
 
 ## Token-cost teaser
 
-**Less context, lower projected input cost.** The July benchmark snapshot
-went from 9,448 to 2,766 input tokens: a 3.4x reduction.
+**For 1 million baseline input tokens: approximately 0.145 million with Tokki.**
+The chart applies the 6.9x reduction measured on 2026-09-17 to this shared
+volume, making projected costs easier to compare.
 
 <p align="center">
   <a href="docs/assets/tokki-context-cost-frontier.svg">
@@ -51,28 +52,30 @@ went from 9,448 to 2,766 input tokens: a 3.4x reduction.
 </p>
 
 [Version française](docs/assets/tokki-context-cost-frontier-fr.svg).
-Prices checked on 2026-09-17; historical token counts and exchange rate held
-fixed. Input-cost projection only; see the [Public Report](#public-report)
-below for sources and assumptions.
+Token counts, prices and ECB exchange rate updated on 2026-09-17.
+This is a normalized input-cost projection across requests, not a measured
+million-token workload. See the [Public Report](#public-report)
+and [aggregate measurement receipt](docs/evidence/token-cost-snapshot-2026-09-17.json).
 
 ## Public Report
 
-Proof figures from the maintainer checkout, local metadata only and
-summary-only public evidence. The benchmark rows are a dated snapshot captured
-on 2026-07-31 through the private benchmark path with exact tokenizer counting.
-The underlying repository/context inputs and a reusable capture receipt are not
-published, so this is a dated reported result, not a reproducible fixture; a
-later rerun can differ. Token counts are exact for the `gpt-4o` tokenizer used
-by the capture path. Projected costs for the displayed models are estimates.
-The remaining rows are the 2026-06-05 reading:
+The benchmark pack was rerun on **2026-09-17**, using Tokki **1.0.63** and exact
+`gpt-4o` token counting (grade A). The two available scenarios cover scoped
+agent policy and repository context. Their counts are retained in an
+[aggregate receipt](docs/evidence/token-cost-snapshot-2026-09-17.json).
+Private inputs are not published: this is not a reproducible fixture, and a
+later rerun can differ. The workload differs from July, so the ratio change
+does not establish a like-for-like product improvement. Projected model costs
+are estimates; task success and model quality were not measured.
 
 | Signal | Figure | Public evidence boundary |
 |---|---:|---|
-| Current-session demo | 99.0% avoidable context removed | summary-only local ledger; no prompts, raw logs, paths, or file bodies |
-| Current-session net result | 4,233,059 tokens kept local | aggregate public proof, no per-event details |
-| Dated benchmark snapshot | 9,448 baseline -> 2,766 Tokki tokens, 3.4x | exact `gpt-4o` tokenizer count, 2 scenarios, captured 2026-07-31; source hidden |
-| Dirty-worktree context | 6,004 baseline -> 1,687 Tokki tokens, 3.6x | source-hidden repository context benchmark |
-| Supplied failure-log digest | 48,752 baseline -> 719 Tokki tokens, 67.8x | opt-in supplied-log scenario; log stays local |
+| Published session demo (2026-06-05) | 99.0% avoidable context removed | historical local-ledger summary; not rerun in this capture |
+| Published session net result (2026-06-05) | 4,233,059 tokens kept local | historical aggregate public proof; not rerun in this capture |
+| Dated benchmark snapshot (2026-09-17) | 11,989 baseline -> 1,736 Tokki tokens, 6.9x | exact `gpt-4o` count, 2 available scenarios; aggregate receipt published |
+| Scoped agent policy (2026-09-17) | 4,796 baseline -> 352 Tokki tokens, 13.6x | full policy context versus compact policy summary |
+| Dirty-worktree context (2026-09-17) | 7,193 baseline -> 1,384 Tokki tokens, 5.2x | repository orientation context versus compact opening brief |
+| Supplied failure-log digest (2026-07-31) | 48,752 baseline -> 719 Tokki tokens, 67.8x | historical result; unavailable in the new run and excluded from its totals |
 | Cost projection | currency-aware projected avoided | configured price inputs; not billing evidence |
 | Privacy guard | 0 strict findings | tracked `HEAD` content only; Git history, forks, caches, and external services are outside this claim |
 
@@ -83,12 +86,15 @@ Standard uncached input prices checked on 2026-09-17 are $10.00 for Astra,
 $4.00 for [Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol),
 $2.00 for [Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
 and $0.20 for [Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna)
-per million tokens. The chart holds the historical
+per million tokens. The chart uses the
 [ECB exchange rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
-fixed at 1.1476 USD per EUR (2026-07-30). It reuses the July snapshot's
-`gpt-4o` token counts; this is a price projection, not an Astra benchmark or
-a quality comparison. Output, caching, tools and Codex subscription quotas
-are excluded. A later benchmark rerun can differ.
+of 1.1481 USD per EUR (2026-09-17). It scales the freshly measured `gpt-4o`
+token ratio to 1 million baseline input tokens (approximately 0.145 million
+with Tokki), accumulated across requests of at most 272,000 input tokens
+each, so standard rates apply. This is a normalized price projection, not a
+measured million-token workload, an Astra benchmark or a quality comparison.
+Output, caching, tools and Codex subscription quotas are excluded.
+A later benchmark rerun can differ.
 
 Prior published readings of 590x on the dirty-worktree row and 80,485 net
 tokens on the pack do not reproduce under exact counting on the current
