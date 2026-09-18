@@ -12,7 +12,7 @@ license: bsd-3-clause
 short_description: Agentic solution
 ---
 
-# Tokki · From one request to a working app
+# Optional native Gradio demo
 
 Try a real notebook-to-app result built through Tokki's autonomous agent workflow
 with AGILAB. No account or AI provider subscription is needed to try this public
@@ -34,8 +34,10 @@ with your own local Tokki installation and provider. Successful builders may
 voluntarily share a content-free completion receipt; nothing is submitted
 automatically.
 
-The Gradio page needs no GPU callbacks, model downloads or secrets. It preserves
-this Space's existing Gradio/ZeroGPU configuration.
+This CPU app runs locally or on CPU hosting. ZeroGPU rejects it because it has
+no GPU callbacks. The live free [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki)
+uses the [static page](static/README.md) and the existing AGILAB app instead.
+No model downloads, private runtime or secrets are needed.
 
 ## Source and licenses
 
