@@ -14,7 +14,7 @@ terms, public proof figures, a live demo link, and security-contact guidance.
 
 ## Try Tokki × AGILAB on Hugging Face
 
-**[Open the interactive demo →](https://jpmorard-agilab.hf.space/AGENT_DEMO)**
+**[Open the interactive demo →](https://jpmorard-tokki.hf.space)**
 
 One request turned a pinned
 [Géron decision-tree notebook](https://github.com/ageron/handson-ml3/blob/e707c2d659abafb9b1f9fd927907619a128db8d7/06_decision_trees.ipynb)
@@ -28,7 +28,7 @@ subscription is required to try this public app.
 The Space hosts the completed app and its verification evidence. Fresh
 autonomous builds run locally through Tokki with your configured AI provider.
 Explore the [AGILAB source](https://github.com/ThalesGroup/agilab) or open the
-[Hugging Face Space](https://huggingface.co/spaces/jpmorard/agilab).
+[Hugging Face Space](https://huggingface.co/spaces/jpmorard/tokki).
 
 **Next: [build from your own notebook](https://github.com/ThalesGroup/agilab#build-from-your-own-notebook).**
 Use a local notebook or a GitHub notebook pinned to a commit, your own Tokki
