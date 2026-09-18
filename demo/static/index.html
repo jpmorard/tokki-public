@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Try an app built by an autonomous agent through Tokki and AGILAB. Compare models, predict and check the result.">
+  <meta name="description" content="Explore Chronos-2 Small forecasting through Tokki and AGILAB: from an official notebook to an agent-built app with verification evidence.">
   <title>Tokki · From one request to a working app</title>
   <style>
     :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; color: #12233b; background: #f3f7f5; }
@@ -44,9 +44,15 @@
     </header>
     <section class="intro" aria-labelledby="title">
       <div class="eyebrow">Agentic build · Verifiable result</div>
-      <h1 id="title">From one request to a working app.</h1>
-      <p>Tokki coordinated the autonomous agent and verification. AGILAB imported the resulting workflow.
-        Try the completed notebook-to-app build: compare models, classify a flower, and rerun the checks.</p>
+      <h1 id="title">From a forecasting notebook to an app.</h1>
+      <p>Explore time-series forecasts with <strong>Chronos-2 Small</strong>.
+        The workflow starts with the official Chronos notebook: Tokki coordinates the agent build,
+        and AGILAB presents the generated app with its recorded checks.</p>
+      <p>Inspect the
+        <a href="https://github.com/amazon-science/chronos-forecasting/blob/10afa9ebe016e514f9d7dc1aa873f66af57e116b/notebooks/chronos-2-quickstart.ipynb" target="_blank" rel="noopener noreferrer">pinned source notebook</a>
+        and the Apache-licensed
+        <a href="https://huggingface.co/autogluon/chronos-2-small" target="_blank" rel="noopener noreferrer">Chronos-2 Small model</a>.
+        The app records which checks passed and what they cover.</p>
     </section>
     <details>
       <summary>Build from your own notebook</summary>
@@ -63,12 +69,15 @@ agilab-notebook-demo --ui</code></pre>
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
     <div class="bar">
-      <span class="badge">Try the completed app · No AI subscription needed</span>
-      <a href="https://jpmorard-agilab.hf.space/AGENT_DEMO?embed=true" target="_blank" rel="noopener noreferrer">Open app in a new tab ↗</a>
+      <span class="badge">Forecasting demo · No AI subscription needed</span>
+      <nav aria-label="Demo choices">
+        <a href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true" target="_blank" rel="noopener noreferrer">Open Chronos forecast app ↗</a>
+        <a href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true" target="_blank" rel="noopener noreferrer">Original Iris demo ↗</a>
+      </nav>
     </div>
     <section class="demo" aria-label="Interactive Tokki and AGILAB demo">
-      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?embed=true"
-              title="Verified notebook-to-app demo built through Tokki and AGILAB"
+      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true"
+              title="Chronos-2 Small forecasting demo through Tokki and AGILAB"
               allow="clipboard-write" loading="eager"></iframe>
     </section>
     <footer>
