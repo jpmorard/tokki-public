@@ -25,8 +25,8 @@ Compare three classifiers, change tree depth, classify a flower, and rerun the
 model, notebook, and interface checks in your browser. No account or AI provider
 subscription is required to try this public app.
 
-The Tokki Space presents the completed app and its verification evidence,
-embedded from the existing AGILAB Space. Fresh
+The Tokki Space runs a public Gradio interface using the verified model code,
+with the original generated app, notebook, workflow and checks included. Fresh
 autonomous builds run locally through Tokki with your configured AI provider.
 Explore the [AGILAB source](https://github.com/ThalesGroup/agilab) or open the
 [Hugging Face Space](https://huggingface.co/spaces/jpmorard/tokki).
