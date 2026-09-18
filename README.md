@@ -9,8 +9,32 @@ It is a token killer for local developer sessions: built to cut avoidable local
 agent context before it becomes prompt spend, while keeping implementation
 details and local payloads private.
 
-This public package and repository contain limited package information, license
-terms, public proof figures, and security-contact guidance only.
+This public package and repository contain package information, license
+terms, public proof figures, a live demo link, and security-contact guidance.
+
+## Try Tokki × AGILAB on Hugging Face
+
+**[Open the interactive demo →](https://jpmorard-agilab.hf.space/AGENT_DEMO)**
+
+One request turned a pinned
+[Géron decision-tree notebook](https://github.com/ageron/handson-ml3/blob/e707c2d659abafb9b1f9fd927907619a128db8d7/06_decision_trees.ipynb)
+into a tested app in **4 min 45 sec**. Tokki coordinated the autonomous agent and
+verification; AGILAB imported three workflow stages.
+
+Compare three classifiers, change tree depth, classify a flower, and rerun the
+model, notebook, and interface checks in your browser. No account or AI provider
+subscription is required to try this public app.
+
+The Space hosts the completed app and its verification evidence. Fresh
+autonomous builds run locally through Tokki with your configured AI provider.
+Explore the [AGILAB source](https://github.com/ThalesGroup/agilab) or open the
+[Hugging Face Space](https://huggingface.co/spaces/jpmorard/agilab).
+
+**Next: [build from your own notebook](https://github.com/ThalesGroup/agilab#build-from-your-own-notebook).**
+Use a local notebook or a GitHub notebook pinned to a commit, your own Tokki
+installation and provider. The local builder verifies execution and interface
+behavior, then imports the AGILAB workflow. Successful builders can voluntarily
+report a content-free completion receipt; nothing is uploaded automatically.
 
 Repository validation runs through local maintainer gates. GitHub Actions is
 disabled and this repository intentionally contains no active workflow YAML, so
