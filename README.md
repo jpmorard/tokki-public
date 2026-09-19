@@ -16,14 +16,26 @@ terms, public proof figures, a live demo link, and security-contact guidance.
 
 **[Open the interactive demo →](https://huggingface.co/spaces/jpmorard/tokki)**
 
-One request turned a pinned
+Explore five agent-built apps: **MILP Energy Lab**, **Free-threading lab**, an
+**INRIA Text Atlas**, **Chronos-2 demand forecasting**, and the original **Iris
+decision lab**. Each includes its autonomous build credit, measured build time,
+downloadable workflow, and **Build from your own notebook** instructions.
+
+The new [MILP Energy Lab](https://huggingface.co/spaces/jpmorard/tokki?demo=milp)
+turns a pinned 2026 PyPSA notebook (CC BY 4.0) into an interactive workbench for
+energy planning. Inspect integer schedules, compare saved scenarios, and measure
+identical batches on one and multiple AGILAB workers using the free HiGHS solver.
+Its recorded autonomous build took **24 minutes** and produced three workflow
+stages. Measurements include startup overhead, so parallel runs can be slower.
+
+For the original Iris example, one request turned a pinned
 [Géron decision-tree notebook](https://github.com/ageron/handson-ml3/blob/e707c2d659abafb9b1f9fd927907619a128db8d7/06_decision_trees.ipynb)
 into a tested app in **4 min 45 sec**. Tokki coordinated the autonomous agent and
 verification; AGILAB imported three workflow stages.
 
-Compare three classifiers, change tree depth, classify a flower, and rerun the
-model, notebook, and interface checks in your browser. No account or AI provider
-subscription is required to try this public app.
+In Iris, compare three classifiers, change tree depth, classify a flower, and
+rerun the model, notebook, and interface checks in your browser. No account or AI
+provider subscription is required to try the public apps.
 
 The Tokki Space presents the working app hosted by the existing public AGILAB
 Space. Its public page includes the local notebook setup steps. A standalone
