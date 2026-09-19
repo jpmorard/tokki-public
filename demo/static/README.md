@@ -10,15 +10,29 @@ license: bsd-3-clause
 short_description: Agentic solution
 ---
 
-# Tokki · From one request to a working app
+# Tokki · From notebooks to working apps
 
-Explore **Chronos-2 Small forecasting** through Tokki and AGILAB.
-The workflow starts with an official forecasting notebook, uses Tokki to
-coordinate the agent build, and presents the generated app and its recorded
-checks in AGILAB. No AI provider subscription is needed to try the public demo.
+Explore three notebook demos through Tokki and AGILAB: the original Iris
+classifier, **Chronos-2 Small forecasting**, and an **INRIA Text Atlas** built
+from TF-IDF, dimensionality reduction and clustering. No AI provider
+subscription is needed to try the public demos.
 
+- [Open the INRIA text atlas](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true)
 - [Open the Chronos forecast app](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true)
 - [Open the original Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
+
+The text atlas source is INRIA's
+[dimred_text notebook](https://github.com/INRIA/scikit-learn-mooc/blob/3d1e8cdf7df6675d8a47d352d66b29dfea36587c/notebooks/dimred_text.ipynb),
+pinned at `3d1e8cdf7df6675d8a47d352d66b29dfea36587c` and released under
+CC-BY-4.0. The lesson was introduced on 5 August 2026 and this notebook version
+was updated on 2 September 2026. The bundled historical `wiki_news.csv` corpus
+has its own **CC-BY-2.5** license: Wikinews contributors, curated by The Mega
+Rhyme Rhyming Dictionary and subsampled by INRIA. The app reports vocabulary,
+projection variance and a silhouette diagnostic; clusters are exploratory.
+
+Select a demo card to switch the embedded app. Direct links remain usable
+without JavaScript. Add `?demo=text`, `?demo=forecast` or `?demo=iris` to the
+static page URL to share a particular demo.
 
 The forecasting source is Amazon Science's
 [Chronos-2 quickstart notebook](https://github.com/amazon-science/chronos-forecasting/blob/10afa9ebe016e514f9d7dc1aa873f66af57e116b/notebooks/chronos-2-quickstart.ipynb),

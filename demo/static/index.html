@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore Chronos-2 Small forecasting through Tokki and AGILAB: from an official notebook to an agent-built app with verification evidence.">
-  <title>Tokki · From one request to a working app</title>
+  <meta name="description" content="Explore three verified notebook demos through Tokki and AGILAB: Iris classification, Chronos-2 forecasting and INRIA text clustering.">
+  <title>Tokki · From notebooks to working apps</title>
   <style>
     :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; color: #12233b; background: #f3f7f5; }
     * { box-sizing: border-box; }
@@ -27,6 +27,13 @@
     pre { overflow-x: auto; padding: 14px; background: #f3f7f5; border-radius: 8px; line-height: 1.6; }
     .bar { margin: 22px 0 12px; font-size: 14px; }
     .badge { padding: 7px 12px; border-radius: 999px; color: #106957; background: #dfefe7; font-weight: 650; }
+    .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; margin: 24px 0 12px; }
+    .choice { display: block; padding: 20px; border: 1px solid #cbded7; border-radius: 14px; text-decoration: none; background: #fff; color: #18394e; }
+    .choice:hover { border-color: #087d72; }
+    .choice[aria-current="true"] { background: #e7f4ee; border: 2px solid #087d72; padding: 19px; }
+    .choice strong { display: block; font-size: 20px; margin: 6px 0; }
+    .choice small { display: block; color: #426172; line-height: 1.5; }
+    .choice span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #08766c; font-weight: 750; }
     .demo { background: white; border: 1px solid #d5e3df; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px #143a4b0b; }
     iframe { display: block; border: 0; width: 100%; height: 1200px; min-height: 75vh; }
     footer { padding: 18px 0 8px; font-size: 13px; line-height: 1.7; color: #596c7b; }
@@ -44,15 +51,9 @@
     </header>
     <section class="intro" aria-labelledby="title">
       <div class="eyebrow">Agentic build · Verifiable result</div>
-      <h1 id="title">From a forecasting notebook to an app.</h1>
-      <p>Explore time-series forecasts with <strong>Chronos-2 Small</strong>.
-        The workflow starts with the official Chronos notebook: Tokki coordinates the agent build,
-        and AGILAB presents the generated app with its recorded checks.</p>
-      <p>Inspect the
-        <a href="https://github.com/amazon-science/chronos-forecasting/blob/10afa9ebe016e514f9d7dc1aa873f66af57e116b/notebooks/chronos-2-quickstart.ipynb" target="_blank" rel="noopener noreferrer">pinned source notebook</a>
-        and the Apache-licensed
-        <a href="https://huggingface.co/autogluon/chronos-2-small" target="_blank" rel="noopener noreferrer">Chronos-2 Small model</a>.
-        The app records which checks passed and what they cover.</p>
+      <h1 id="title">From notebooks to working apps.</h1>
+      <p>Three notebooks, three interactive experiments. Explore a news atlas, forecast demand, or compare classifiers.
+        Tokki coordinates each agent build; AGILAB presents the working app, its source, and its recorded checks.</p>
     </section>
     <details>
       <summary>Build from your own notebook</summary>
@@ -68,16 +69,27 @@ agilab-notebook-demo --ui</code></pre>
         It excludes notebook contents, prompts, paths and credentials.
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
+    <nav class="choices" aria-label="Choose a notebook demo">
+      <a class="choice" data-demo="text" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
+        <span>New · INRIA · September 2026 notebook</span><strong>Text atlas</strong>
+        <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
+      </a>
+      <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
+        <span>Amazon Science · Chronos-2 Small</span><strong>Demand forecast</strong>
+        <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
+      </a>
+      <a class="choice" data-demo="iris" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true">
+        <span>Aurélien Géron · Original demo</span><strong>Iris decision lab</strong>
+        <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
+      </a>
+    </nav>
     <div class="bar">
-      <span class="badge">Forecasting demo · No AI subscription needed</span>
-      <nav aria-label="Demo choices">
-        <a href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true" target="_blank" rel="noopener noreferrer">Open Chronos forecast app ↗</a>
-        <a href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true" target="_blank" rel="noopener noreferrer">Original Iris demo ↗</a>
-      </nav>
+      <span class="badge">Try it free · No AI subscription needed</span>
+      <a id="open-demo" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true" target="_blank" rel="noopener noreferrer">Open text atlas in a new tab ↗</a>
     </div>
     <section class="demo" aria-label="Interactive Tokki and AGILAB demo">
-      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true"
-              title="Chronos-2 Small forecasting demo through Tokki and AGILAB"
+      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true"
+              title="INRIA text atlas through Tokki and AGILAB"
               allow="clipboard-write" loading="eager"></iframe>
     </section>
     <footer>
@@ -87,5 +99,37 @@ agilab-notebook-demo --ui</code></pre>
       Neither this page nor the embedded public demo uses the creator’s AI subscription.
     </footer>
   </main>
+  <script>
+    const choices = [...document.querySelectorAll('[data-demo]')];
+    let frame = document.querySelector('iframe');
+    const openDemo = document.getElementById('open-demo');
+    function selectDemo(name, updateUrl) {
+      const selected = choices.find(link => link.dataset.demo === name) || choices[0];
+      choices.forEach(link => link.setAttribute('aria-current', String(link === selected)));
+      if (frame.src !== selected.href) {
+        // A fresh frame avoids adding a second, nested browser-history entry.
+        const next = frame.cloneNode(false);
+        next.src = selected.href;
+        frame.replaceWith(next);
+        frame = next;
+      }
+      const title = selected.querySelector('strong').textContent;
+      frame.title = title + ' through Tokki and AGILAB';
+      openDemo.href = selected.href;
+      openDemo.textContent = 'Open ' + title.toLowerCase() + ' in a new tab ↗';
+      if (updateUrl) {
+        const url = new URL(location.href);
+        url.searchParams.set('demo', selected.dataset.demo);
+        history.pushState(null, '', url);
+      }
+    }
+    choices.forEach(link => link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      selectDemo(link.dataset.demo, true);
+    }));
+    window.addEventListener('popstate', () => selectDemo(new URLSearchParams(location.search).get('demo'), false));
+    selectDemo(new URLSearchParams(location.search).get('demo'), false);
+  </script>
 </body>
 </html>
