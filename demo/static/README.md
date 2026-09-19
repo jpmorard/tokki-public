@@ -12,15 +12,29 @@ short_description: Agentic solution
 
 # Tokki · From notebooks to working apps
 
-Explore four build-agent apps through Tokki and AGILAB: **Free-threading lab**,
+Explore five build-agent apps through Tokki and AGILAB: **MILP Energy Lab**, **Free-threading lab**,
 the original Iris classifier, **Chronos-2 Small forecasting**, and an
 **INRIA Text Atlas** built from TF-IDF, dimensionality reduction and clustering. No AI provider
 subscription is needed to try the public demos.
 
+- [Open the MILP energy lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true)
 - [Open the free-threading lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true)
 - [Open the INRIA text atlas](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true)
 - [Open the Chronos forecast app](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true)
 - [Open the original Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
+
+The MILP Energy Lab adapts PyPSA contributors'
+[Modular Expansion with Unit Commitment notebook](https://github.com/PyPSA/PyPSA/blob/c838aa498557cc8e27a9d3ed10d45e35c4b0b442/docs/examples/modular-committable.ipynb),
+introduced on 17 February 2026 and updated on 5 August 2026 for matplotlib compatibility.
+The notebook, including its code, is **CC BY 4.0**; the PyPSA library is MIT licensed.
+The agent-built adaptation adds interactive energy experiments, the open-source HiGHS
+solver, configurable scenarios, solution checks, and AGILAB batch measurements.
+Visitors can inspect capacity and dispatch, compare saved scenarios, and reproduce results.
+Scaling compares independent scenarios through the unchanged AGILAB pool engine on
+the Space's available CPUs, with one solver thread per scenario. Measurements include
+startup costs and may show slower parallel runs. They do not prove distributed scaling
+or acceleration of an individual MILP. Original source, attribution, licenses, and
+the generated workflow are included in the lab download.
 
 The free-threading lab starts from an original AGILAB notebook created on
 19 September 2026. A real build-agent run produces its app and imported workflow.

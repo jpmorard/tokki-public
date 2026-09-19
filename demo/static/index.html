@@ -52,7 +52,7 @@
     <section class="intro" aria-labelledby="title">
       <div class="eyebrow">Agentic build · Verifiable result</div>
       <h1 id="title">From notebooks to working apps.</h1>
-      <p>Four notebooks, four interactive experiments. Measure Python CPU scaling, explore a news atlas, forecast demand, or compare classifiers.
+      <p>Five notebooks, five interactive experiments. Plan an energy system, measure AGILAB scenario and CPU scaling, explore a news atlas, forecast demand, or compare classifiers.
         Tokki coordinates each agent build; AGILAB presents the working app, its source, and its recorded checks.</p>
     </section>
     <details>
@@ -70,8 +70,12 @@ agilab-notebook-demo --ui</code></pre>
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
     <nav class="choices" aria-label="Choose a notebook demo">
-      <a class="choice" data-demo="threading" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true">
-        <span>New · AGILAB · Python free-threading</span><strong>Free-threading lab</strong>
+      <a class="choice" data-demo="milp" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
+        <span>New · PyPSA · 2026 notebook</span><strong>MILP Energy Lab</strong>
+        <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
+      </a>
+      <a class="choice" data-demo="threading" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true">
+        <span>AGILAB · Python free-threading</span><strong>Free-threading lab</strong>
         <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
       </a>
       <a class="choice" data-demo="text" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
@@ -89,11 +93,11 @@ agilab-notebook-demo --ui</code></pre>
     </nav>
     <div class="bar">
       <span class="badge">Try it free · No AI subscription needed</span>
-      <a id="open-demo" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true" target="_blank" rel="noopener noreferrer">Open free-threading lab in a new tab ↗</a>
+      <a id="open-demo" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true" target="_blank" rel="noopener noreferrer">Open MILP energy lab in a new tab ↗</a>
     </div>
     <section class="demo" aria-label="Interactive Tokki and AGILAB demo">
-      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true"
-              title="Free-threading lab through Tokki and AGILAB"
+      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true"
+              title="MILP Energy Lab through Tokki and AGILAB"
               allow="clipboard-write" loading="eager"></iframe>
     </section>
     <footer>
