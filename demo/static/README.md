@@ -12,14 +12,24 @@ short_description: Agentic solution
 
 # Tokki · From notebooks to working apps
 
-Explore three notebook demos through Tokki and AGILAB: the original Iris
-classifier, **Chronos-2 Small forecasting**, and an **INRIA Text Atlas** built
-from TF-IDF, dimensionality reduction and clustering. No AI provider
+Explore four build-agent apps through Tokki and AGILAB: **Free-threading lab**,
+the original Iris classifier, **Chronos-2 Small forecasting**, and an
+**INRIA Text Atlas** built from TF-IDF, dimensionality reduction and clustering. No AI provider
 subscription is needed to try the public demos.
 
+- [Open the free-threading lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true)
 - [Open the INRIA text atlas](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true)
 - [Open the Chronos forecast app](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true)
 - [Open the original Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
+
+The free-threading lab starts from an original AGILAB notebook created on
+19 September 2026. A real build-agent run produces its app and imported workflow.
+It uses an unchanged, hash-bound AGILAB pool engine to render identical fractals
+with GIL-on threads, GIL-off threads, and spawned processes. All three use the
+same free-threaded Python build. The app measures repeated runs on its actual CPU
+allowance, verifies image hashes, and exposes recorded worker activity. This is
+local CPU scaling evidence; it does not certify the whole AGILAB dependency stack
+for free-threaded Python or demonstrate multi-machine scaling.
 
 The text atlas source is INRIA's
 [dimred_text notebook](https://github.com/INRIA/scikit-learn-mooc/blob/3d1e8cdf7df6675d8a47d352d66b29dfea36587c/notebooks/dimred_text.ipynb),
@@ -31,7 +41,7 @@ Rhyme Rhyming Dictionary and subsampled by INRIA. The app reports vocabulary,
 projection variance and a silhouette diagnostic; clusters are exploratory.
 
 Select a demo card to switch the embedded app. Direct links remain usable
-without JavaScript. Add `?demo=text`, `?demo=forecast` or `?demo=iris` to the
+without JavaScript. Add `?demo=threading`, `?demo=text`, `?demo=forecast` or `?demo=iris` to the
 static page URL to share a particular demo.
 
 The forecasting source is Amazon Science's
