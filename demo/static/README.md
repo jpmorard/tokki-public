@@ -90,12 +90,12 @@ The **build model** generated the application. The **app model or algorithm** ru
 | Demo | Build model | App model or algorithm |
 | --- | --- | --- |
 | Iris decision lab · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Decision tree, random forest and logistic regression |
-| Iris decision lab · local | Qwen 3.5 4B (`qwen3.5:4b`, local Ollama) | Decision tree, random forest and logistic regression |
+| Iris decision lab · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | Decision tree, random forest and logistic regression |
 | Text atlas | GPT-6 Astra (`gpt-6-astra`, OpenAI) | TF-IDF, dimensionality reduction and clustering |
 | Demand forecast | GPT-6 Astra (`gpt-6-astra`, OpenAI) | autogluon/chronos-2-small |
 | Free-threading lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Mandelbrot benchmark; no inference model |
 | MILP Energy Lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | PyPSA and HiGHS optimization; no inference model |
 
-The local Iris application Python was generated and repaired by local Ollama `qwen3.5:4b` (Q4_K_M), without cloud code-generation fallback. A coordinating assistant decomposed the task, ran independent checks and reviewed the outputs; assembly and formatting were deterministic. Generation used the native Ollama API; Tokki wrapped the commands, but these calls were not routed through Tokki offloading. This describes local application code generation, not fully offline coordination. The [build receipt](https://huggingface.co/spaces/jpmorard/agilab/blob/9d33d193b2e50303cfe11e0637b5aa02957a66d9/src/agilab/resources/notebook_agent_local_demo/result.json) records the model digest and validation.
+The local Iris application Python was generated and repaired by local MLX `ddalcu/Qwen3.8-27B-MLX-Serve-4bit` (4-bit), without cloud code-generation fallback. A coordinating assistant prepared requests, ran independent checks and reviewed the outputs. The local model produced the complete application files and a bounded repair. Generation used the native local MLX API; Tokki wrapped the commands, but these calls were not routed through Tokki offloading. This describes local application code generation, not fully offline coordination. The [build receipt](https://huggingface.co/spaces/jpmorard/agilab/blob/d6d4cf41ad40c917c7f792d544b59157fd198fc6/src/agilab/resources/notebook_agent_local_demo/result.json) records the model revision and validation.
 
 The other five build-model identities were checked against their original run headers. The public apps do not call their build provider when visitors use them.
