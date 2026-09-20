@@ -103,3 +103,17 @@ The three remaining GPT-6 Astra build-model identities (original Iris, Free-thre
 Text Atlas was also rebuilt with the same local Qwen3.8 model, without cloud code-generation fallback. Its application Python and notebook cells came from the local model; a coordinating assistant integrated the bundle and ran independent checks. Generation used the native local API and is not claimed as a Tokki agent offload. The verified build took **20.14 minutes**, including notebook, workflow, numerical and interface checks; local inference took 935.18 seconds. The pinned source notebook, 1,250-article corpus and licenses are preserved. Its [build receipt](https://github.com/ThalesGroup/agilab/blob/46dc6690457a8bc606352cbb0e19aeb083781965/src/agilab/resources/text_notebook_demo/result.json) records the exact model revisions and verification scope.
 
 Demand Forecast was also rebuilt with local Qwen 3.8 27B, with no cloud code-generation fallback. The application runs the pinned Chronos-2-small checkpoint locally. Its receipt includes exact build-model revisions, measured build duration, notebook and workflow replay, and independent real-inference checks across three seeds. Both Iris flavours are preserved.
+
+## Publishing the static Space
+
+Prepare a fresh, empty staging directory with:
+
+    python3 demo/static/prepare_space.py --output /tmp/tokki-space-staging
+
+Upload only the resulting four files to jpmorard/tokki. The preparation script
+copies the public page and license and sets the deployed README's app_file to
+a filename derived from the page's SHA-256. A changed page therefore gets a new
+embedded URL when the Space is reloaded. The source README remains a template;
+do not upload it directly. The stable index.html copy keeps existing direct
+links working. The public Space URL remains
+https://huggingface.co/spaces/jpmorard/tokki.
