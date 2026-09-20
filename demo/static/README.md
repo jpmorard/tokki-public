@@ -92,7 +92,7 @@ The **build model** generated the application. The **app model or algorithm** ru
 | Iris decision lab · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Decision tree, random forest and logistic regression |
 | Iris decision lab · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | Decision tree, random forest and logistic regression |
 | Text atlas | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | TF-IDF, dimensionality reduction and clustering |
-| Demand forecast | GPT-6 Astra (`gpt-6-astra`, OpenAI) | autogluon/chronos-2-small |
+| Demand forecast | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | autogluon/chronos-2-small |
 | Free-threading lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Mandelbrot benchmark; no inference model |
 | MILP Energy Lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | PyPSA and HiGHS optimization; no inference model |
 
@@ -101,3 +101,5 @@ The local Iris application Python was generated and repaired by local MLX `ddalc
 The four remaining GPT-6 Astra build-model identities (original Iris, Forecast, Free-threading and MILP) were checked against their original run headers. The public apps do not call their build provider when visitors use them.
 
 Text Atlas was also rebuilt with the same local Qwen3.8 model, without cloud code-generation fallback. Its application Python and notebook cells came from the local model; a coordinating assistant integrated the bundle and ran independent checks. Generation used the native local API and is not claimed as a Tokki agent offload. The verified build took **20.14 minutes**, including notebook, workflow, numerical and interface checks; local inference took 935.18 seconds. The pinned source notebook, 1,250-article corpus and licenses are preserved. Its [build receipt](https://github.com/ThalesGroup/agilab/blob/46dc6690457a8bc606352cbb0e19aeb083781965/src/agilab/resources/text_notebook_demo/result.json) records the exact model revisions and verification scope.
+
+Demand Forecast was also rebuilt with local Qwen 3.8 27B, with no cloud code-generation fallback. The application runs the pinned Chronos-2-small checkpoint locally. Its receipt includes exact build-model revisions, measured build duration, notebook and workflow replay, and independent real-inference checks across three seeds. Both Iris flavours are preserved.

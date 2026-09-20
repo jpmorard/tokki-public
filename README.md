@@ -384,3 +384,5 @@ for the composed local suite. `tokki release evidence --output tokki-evidence.js
 and `tokki release evidence verify --manifest tokki-evidence.json` write and
 verify metadata-only release provenance. `tokki support-bundle --output
 tokki-support.json` writes a metadata-only diagnostic bundle for support.
+
+The [Demand Forecast demo](https://huggingface.co/spaces/jpmorard/tokki?demo=forecast) is also built by local Qwen 3.8 27B and runs Chronos-2-small locally. Notebook replay, controls, and three-seed real-inference checks passed; the public card names both the build model and the forecasting model.
