@@ -81,3 +81,17 @@ credential or user notebook in this Space.
 The repository also includes an optional native Gradio version under demo/.
 That CPU version can run locally or on hosting with CPU support; it is not
 the runtime used by this static Space.
+
+## Models used
+
+The **build model** generated the application. The **app model or algorithm** runs when a visitor uses the completed demo.
+
+| Demo | Build model | App model or algorithm |
+| --- | --- | --- |
+| Iris decision lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Decision tree, random forest and logistic regression |
+| Text atlas | GPT-6 Astra (`gpt-6-astra`, OpenAI) | TF-IDF, dimensionality reduction and clustering |
+| Demand forecast | GPT-6 Astra (`gpt-6-astra`, OpenAI) | autogluon/chronos-2-small |
+| Free-threading lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Mandelbrot benchmark; no inference model |
+| MILP Energy Lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | PyPSA and HiGHS optimization; no inference model |
+
+Build-model identities were checked against the original run headers. The public apps do not call that build provider when visitors use them.

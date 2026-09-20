@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore four verified build-agent apps through Tokki and AGILAB: Python free-threading, Iris classification, Chronos-2 forecasting and INRIA text clustering.">
+  <meta name="description" content="Explore five build-agent apps through Tokki and AGILAB: MILP energy planning, Python free-threading, Iris classification, Chronos-2 forecasting and INRIA text clustering.">
   <title>Tokki · From notebooks to working apps</title>
   <style>
     :root { color-scheme: light; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; color: #12233b; background: #f3f7f5; }
@@ -33,6 +33,7 @@
     .choice[aria-current="true"] { background: #e7f4ee; border: 2px solid #087d72; padding: 19px; }
     .choice strong { display: block; font-size: 20px; margin: 6px 0; }
     .choice small { display: block; color: #426172; line-height: 1.5; }
+    .choice .model-info { margin-top: 10px; font-size: 12px; }
     .choice span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #08766c; font-weight: 750; }
     .demo { background: white; border: 1px solid #d5e3df; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px #143a4b0b; }
     iframe { display: block; border: 0; width: 100%; height: 1200px; min-height: 75vh; }
@@ -73,22 +74,27 @@ agilab-notebook-demo --ui</code></pre>
       <a class="choice" data-demo="milp" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
         <span>New · PyPSA · 2026 notebook</span><strong>MILP Energy Lab</strong>
         <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
+        <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
       <a class="choice" data-demo="threading" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true">
         <span>AGILAB · Python free-threading</span><strong>Free-threading lab</strong>
         <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
+        <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Mandelbrot benchmark; no inference model</small>
       </a>
       <a class="choice" data-demo="text" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
         <span>INRIA · September 2026 notebook</span><strong>Text atlas</strong>
         <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
+        <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
       </a>
       <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
         <span>Amazon Science · Chronos-2 Small</span><strong>Demand forecast</strong>
         <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
+        <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: autogluon/chronos-2-small</small>
       </a>
       <a class="choice" data-demo="iris" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true">
         <span>Aurélien Géron · Original demo</span><strong>Iris decision lab</strong>
         <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
+        <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Decision tree, random forest and logistic regression</small>
       </a>
     </nav>
     <div class="bar">
