@@ -12,15 +12,15 @@ short_description: Agentic solution
 
 # Tokki · From notebooks to working apps
 
-Explore Tokki and AGILAB demos: **MILP Energy Lab**, **Free-threading lab**,
-**Iris in two flavours (GPT-6 Astra and local Qwen)**, **Chronos-2 Small forecasting**, and an
-**INRIA Text Atlas** built from TF-IDF, dimensionality reduction and clustering. No AI provider
-subscription is needed to try the public demos.
+The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) opens **Text Atlas** by default.
+The first two cards are **Text Atlas** and **Demand forecast**, both rebuilt with local Qwen 3.8.
+Also explore **MILP Energy Lab**, **Free-threading lab**, and **Iris in two flavours
+(GPT-6 Astra and local Qwen)**. No AI provider subscription is needed to try the public demos.
 
-- [Open the MILP energy lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true)
-- [Open the free-threading lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true)
 - [Open the INRIA text atlas](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true)
 - [Open the Chronos forecast app](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true)
+- [Open the MILP energy lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true)
+- [Open the free-threading lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true)
 - [Open the original GPT-6 Astra Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
 - [Open the local Qwen Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true)
 
@@ -98,7 +98,7 @@ The **build model** generated the application. The **app model or algorithm** ru
 
 The local Iris application Python was generated and repaired by local MLX `ddalcu/Qwen3.8-27B-MLX-Serve-4bit` (4-bit), without cloud code-generation fallback. A coordinating assistant prepared requests, ran independent checks and reviewed the outputs. The local model produced the complete application files and a bounded repair. Generation used the native local MLX API; Tokki wrapped the commands, but these calls were not routed through Tokki offloading. This describes local application code generation, not fully offline coordination. The [build receipt](https://huggingface.co/spaces/jpmorard/agilab/blob/d6d4cf41ad40c917c7f792d544b59157fd198fc6/src/agilab/resources/notebook_agent_local_demo/result.json) records the model revision and validation.
 
-The four remaining GPT-6 Astra build-model identities (original Iris, Forecast, Free-threading and MILP) were checked against their original run headers. The public apps do not call their build provider when visitors use them.
+The three remaining GPT-6 Astra build-model identities (original Iris, Free-threading and MILP) were checked against their original run headers. The public apps do not call their build provider when visitors use them.
 
 Text Atlas was also rebuilt with the same local Qwen3.8 model, without cloud code-generation fallback. Its application Python and notebook cells came from the local model; a coordinating assistant integrated the bundle and ran independent checks. Generation used the native local API and is not claimed as a Tokki agent offload. The verified build took **20.14 minutes**, including notebook, workflow, numerical and interface checks; local inference took 935.18 seconds. The pinned source notebook, 1,250-article corpus and licenses are preserved. Its [build receipt](https://github.com/ThalesGroup/agilab/blob/46dc6690457a8bc606352cbb0e19aeb083781965/src/agilab/resources/text_notebook_demo/result.json) records the exact model revisions and verification scope.
 

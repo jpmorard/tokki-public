@@ -53,7 +53,7 @@
     <section class="intro" aria-labelledby="title">
       <div class="eyebrow">Agentic build · Verifiable result</div>
       <h1 id="title">From notebooks to working apps.</h1>
-      <p>Five notebooks, six app builds — including Iris from GPT-6 Astra and local Qwen. Plan an energy system, measure AGILAB scenario and CPU scaling, explore a news atlas, forecast demand, or compare classifiers.
+      <p>Five notebooks, six app builds. Start with Text Atlas and demand forecasting, now rebuilt with local Qwen. Compare both Iris flavours, plan an energy system, or measure CPU scaling.
         Tokki coordinates each agent build; AGILAB presents the working app, its source, and its recorded checks.</p>
     </section>
     <details>
@@ -71,8 +71,18 @@ agilab-notebook-demo --ui</code></pre>
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
     <nav class="choices" aria-label="Choose a notebook demo">
-      <a class="choice" data-demo="milp" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
-        <span>New · PyPSA · 2026 notebook</span><strong>MILP Energy Lab</strong>
+      <a class="choice" data-demo="text" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
+        <span>New · Local Qwen · INRIA</span><strong>Text atlas</strong>
+        <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
+      </a>
+      <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
+        <span>New · Local Qwen · Chronos-2 Small</span><strong>Demand forecast</strong>
+        <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: autogluon/chronos-2-small</small>
+      </a>
+      <a class="choice" data-demo="milp" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
+        <span>PyPSA · 2026 notebook</span><strong>MILP Energy Lab</strong>
         <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
@@ -80,16 +90,6 @@ agilab-notebook-demo --ui</code></pre>
         <span>AGILAB · Python free-threading</span><strong>Free-threading lab</strong>
         <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Mandelbrot benchmark; no inference model</small>
-      </a>
-      <a class="choice" data-demo="text" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
-        <span>INRIA · September 2026 notebook</span><strong>Text atlas</strong>
-        <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
-        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
-      </a>
-      <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
-        <span>Amazon Science · Chronos-2 Small</span><strong>Demand forecast</strong>
-        <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
-        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: autogluon/chronos-2-small</small>
       </a>
       <a class="choice" data-demo="iris" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true">
         <span>Aurélien Géron · Original demo</span><strong>Iris decision lab</strong>
@@ -104,11 +104,11 @@ agilab-notebook-demo --ui</code></pre>
     </nav>
     <div class="bar">
       <span class="badge">Try it free · No AI subscription needed</span>
-      <a id="open-demo" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true" target="_blank" rel="noopener noreferrer">Open MILP energy lab in a new tab ↗</a>
+      <a id="open-demo" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true" target="_blank" rel="noopener noreferrer">Open text atlas in a new tab ↗</a>
     </div>
     <section class="demo" aria-label="Interactive Tokki and AGILAB demo">
-      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true"
-              title="MILP Energy Lab through Tokki and AGILAB"
+      <iframe src="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true"
+              title="Text atlas through Tokki and AGILAB"
               allow="clipboard-write" loading="eager"></iframe>
     </section>
     <footer>
@@ -120,10 +120,11 @@ agilab-notebook-demo --ui</code></pre>
   </main>
   <script>
     const choices = [...document.querySelectorAll('[data-demo]')];
+    const defaultDemo = 'text';
     let frame = document.querySelector('iframe');
     const openDemo = document.getElementById('open-demo');
     function selectDemo(name, updateUrl) {
-      const selected = choices.find(link => link.dataset.demo === name) || choices[0];
+      const selected = choices.find(link => link.dataset.demo === name) || choices.find(link => link.dataset.demo === defaultDemo);
       choices.forEach(link => link.setAttribute('aria-current', String(link === selected)));
       if (frame.src !== selected.href) {
         // A fresh frame avoids adding a second, nested browser-history entry.

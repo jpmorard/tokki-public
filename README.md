@@ -16,12 +16,13 @@ terms, public proof figures, a live demo link, and security-contact guidance.
 
 **[Open the interactive demo →](https://huggingface.co/spaces/jpmorard/tokki)**
 
-Explore five agent-built apps: **MILP Energy Lab**, **Free-threading lab**, an
-**INRIA Text Atlas**, **Chronos-2 demand forecasting**, and the original **Iris
-decision lab**. Each includes its autonomous build credit, measured build time,
-downloadable workflow, and **Build from your own notebook** instructions.
+The Space opens **Text Atlas** by default, with **Demand forecast** alongside it.
+Both were rebuilt with local Qwen 3.8. Explore six app builds from five notebooks,
+including **MILP Energy Lab**, **Free-threading lab**, and **Iris in two flavours
+(GPT-6 Astra and local Qwen)**. Each includes its autonomous build credit, measured
+build time, downloadable workflow, and **Build from your own notebook** instructions.
 
-The new [MILP Energy Lab](https://huggingface.co/spaces/jpmorard/tokki?demo=milp)
+The [MILP Energy Lab](https://huggingface.co/spaces/jpmorard/tokki?demo=milp)
 turns a pinned 2026 PyPSA notebook (CC BY 4.0) into an interactive workbench for
 energy planning. Inspect integer schedules, compare saved scenarios, and measure
 identical batches on one and multiple AGILAB workers using the free HiGHS solver.
