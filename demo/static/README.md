@@ -12,8 +12,8 @@ short_description: Agentic solution
 
 # Tokki · From notebooks to working apps
 
-Explore five build-agent apps through Tokki and AGILAB: **MILP Energy Lab**, **Free-threading lab**,
-the original Iris classifier, **Chronos-2 Small forecasting**, and an
+Explore Tokki and AGILAB demos: **MILP Energy Lab**, **Free-threading lab**,
+**Iris in two flavours (GPT-6 Astra and local Qwen)**, **Chronos-2 Small forecasting**, and an
 **INRIA Text Atlas** built from TF-IDF, dimensionality reduction and clustering. No AI provider
 subscription is needed to try the public demos.
 
@@ -21,7 +21,8 @@ subscription is needed to try the public demos.
 - [Open the free-threading lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true)
 - [Open the INRIA text atlas](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true)
 - [Open the Chronos forecast app](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true)
-- [Open the original Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
+- [Open the original GPT-6 Astra Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
+- [Open the local Qwen Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true)
 
 The MILP Energy Lab adapts PyPSA contributors'
 [Modular Expansion with Unit Commitment notebook](https://github.com/PyPSA/PyPSA/blob/c838aa498557cc8e27a9d3ed10d45e35c4b0b442/docs/examples/modular-committable.ipynb),
@@ -55,7 +56,7 @@ Rhyme Rhyming Dictionary and subsampled by INRIA. The app reports vocabulary,
 projection variance and a silhouette diagnostic; clusters are exploratory.
 
 Select a demo card to switch the embedded app. Direct links remain usable
-without JavaScript. Add `?demo=threading`, `?demo=text`, `?demo=forecast` or `?demo=iris` to the
+without JavaScript. Add `?demo=threading`, `?demo=text`, `?demo=forecast` or `?demo=iris` / `?demo=iris_local` to the
 static page URL to share a particular demo.
 
 The forecasting source is Amazon Science's
@@ -88,10 +89,13 @@ The **build model** generated the application. The **app model or algorithm** ru
 
 | Demo | Build model | App model or algorithm |
 | --- | --- | --- |
-| Iris decision lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Decision tree, random forest and logistic regression |
+| Iris decision lab · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Decision tree, random forest and logistic regression |
+| Iris decision lab · local | Qwen 3.5 4B (`qwen3.5:4b`, local Ollama) | Decision tree, random forest and logistic regression |
 | Text atlas | GPT-6 Astra (`gpt-6-astra`, OpenAI) | TF-IDF, dimensionality reduction and clustering |
 | Demand forecast | GPT-6 Astra (`gpt-6-astra`, OpenAI) | autogluon/chronos-2-small |
 | Free-threading lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Mandelbrot benchmark; no inference model |
 | MILP Energy Lab | GPT-6 Astra (`gpt-6-astra`, OpenAI) | PyPSA and HiGHS optimization; no inference model |
 
-Build-model identities were checked against the original run headers. The public apps do not call that build provider when visitors use them.
+The local Iris application Python was generated and repaired by local Ollama `qwen3.5:4b` (Q4_K_M), without cloud code-generation fallback. A coordinating assistant decomposed the task, ran independent checks and reviewed the outputs; assembly and formatting were deterministic. Generation used the native Ollama API; Tokki wrapped the commands, but these calls were not routed through Tokki offloading. This describes local application code generation, not fully offline coordination. The [build receipt](https://huggingface.co/spaces/jpmorard/agilab/blob/9d33d193b2e50303cfe11e0637b5aa02957a66d9/src/agilab/resources/notebook_agent_local_demo/result.json) records the model digest and validation.
+
+The other five build-model identities were checked against their original run headers. The public apps do not call their build provider when visitors use them.
