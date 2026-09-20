@@ -33,6 +33,8 @@ For the original Iris example, one request turned a pinned
 into a tested app in **4 min 45 sec**. Tokki coordinated the autonomous agent and
 verification; AGILAB imported three workflow stages.
 
+The [Text Atlas](https://huggingface.co/spaces/jpmorard/tokki?demo=text) is now rebuilt with local Qwen3.8 27B. Its recorded build took **20.14 minutes**, including independent checks, and preserves the original notebook and 1,250-article corpus. The public cards distinguish the model that generated each app from the algorithms it runs.
+
 In Iris, compare three classifiers, change tree depth, classify a flower, and
 rerun the model, notebook, and interface checks in your browser. No account or AI
 provider subscription is required to try the public apps.
