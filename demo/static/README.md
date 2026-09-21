@@ -109,6 +109,28 @@ Text Atlas was also rebuilt with the same local Qwen3.8 model, without cloud cod
 
 Demand Forecast was also rebuilt with local Qwen 3.8 27B, with no cloud code-generation fallback. The application runs the pinned Chronos-2-small checkpoint locally. Its receipt includes exact build-model revisions, measured build duration, notebook and workflow replay, and independent real-inference checks across three seeds. Both flavours of all five apps are preserved.
 
+## Browser validation
+
+**21 September 2026: all 10 variants passed all 50 browser checks.**
+The [dated validation report](https://github.com/jpmorard/tokki-public/blob/main/demo/validation/2026-09-21.json)
+records the deployed app revision, actions, timings and browser diagnostics.
+No application-code correction was required.
+
+The [live UI robot](https://github.com/jpmorard/tokki-public/blob/main/demo/validate_live_apps.py)
+checks all ten published variants in Chromium. It runs analyses, changes inputs,
+checks predictions and numerical results, exercises CPU and MILP scaling,
+downloads every workflow bundle and verifies its recorded file hashes, and
+checks mobile rendering and browser errors. Streamlit's two page-path startup
+probes are recorded separately only after the root endpoints and live connection
+pass their health checks.
+
+From the repository root, with Playwright and its Chromium browser installed:
+
+    python demo/validate_live_apps.py --output /tmp/tokki-live-ui-validation
+
+The robot saves screenshots and JSON evidence and exits unsuccessfully if any
+variant fails. Use `--routes` to rerun specific variants.
+
 ## Publishing the static Space
 
 Prepare a fresh, empty staging directory with:

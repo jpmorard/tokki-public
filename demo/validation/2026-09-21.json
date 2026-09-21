@@ -1,0 +1,456 @@
+{
+  "schema": "tokki.demo.ui.validation.v1",
+  "checked_at_utc": "2026-09-21T08:03:37.444736+00:00",
+  "status": "passed",
+  "application_space": "https://huggingface.co/spaces/jpmorard/agilab",
+  "application_revision": "61500142c9e143f8e222cf25f7b0e50f2a12db68",
+  "launcher_space": "https://huggingface.co/spaces/jpmorard/tokki",
+  "launcher_revision_at_validation": "26edf203b306fcd83eeabc7438f314afee2b15a8",
+  "browser_engine": "Chromium",
+  "playwright_version": "1.63.0",
+  "desktop_viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "mobile_viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "variant_count": 10,
+  "passed_checks": 50,
+  "timing_scope": "Elapsed seconds for browser validation scenarios",
+  "reproduction_script": "demo/validate_live_apps.py",
+  "expected_startup_probes": "Streamlit probes AGENT_DEMO/_stcore/health and host-config before connecting at the root; only those 404s are allowed after root success and a CONNECTED browser session.",
+  "variants": [
+    {
+      "route": "iris",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 3.46,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 6.15,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.63,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 10.93,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ]
+    },
+    {
+      "route": "iris_local",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 3.2,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 11.39,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.48,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 15.75,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ]
+    },
+    {
+      "route": "text",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 3.27,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 7.97,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.51,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 12.44,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ]
+    },
+    {
+      "route": "text_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.82,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 6.57,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.54,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 10.63,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ]
+    },
+    {
+      "route": "forecast",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.28,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 3.89,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.57,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 7.41,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ]
+    },
+    {
+      "route": "forecast_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.31,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 4.43,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.49,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 7.92,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ]
+    },
+    {
+      "route": "threading",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.53,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 8.82,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.5,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.07,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.03,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 12.71,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ]
+    },
+    {
+      "route": "threading_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.54,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 5.02,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.46,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 8.73,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ]
+    },
+    {
+      "route": "milp",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.52,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 30.83,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.55,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 34.58,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ]
+    },
+    {
+      "route": "milp_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.15,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 27.95,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.49,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.02,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 31.31,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ]
+    }
+  ]
+}
