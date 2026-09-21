@@ -1,11 +1,16 @@
 {
-  "schema": "tokki.demo.ui.validation.v1",
-  "checked_at_utc": "2026-09-21T08:03:37.444736+00:00",
+  "schema": "tokki.demo.ui.validation.v2",
+  "checked_at_utc": "2026-09-21T08:51:25.394711+00:00",
   "status": "passed",
   "application_space": "https://huggingface.co/spaces/jpmorard/agilab",
-  "application_revision": "61500142c9e143f8e222cf25f7b0e50f2a12db68",
+  "application_revision": "b92a338dd088422b54bfc3dc853a8da94eb78081",
+  "runtime_revision_before_and_after": "b92a338dd088422b54bfc3dc853a8da94eb78081",
+  "source_commit": "27359bec8ff28610c887a91b45c1586532b826da",
+  "source_fix": "https://github.com/ThalesGroup/agilab/pull/1038",
+  "fixed_file": "src/agilab/core/agi-env/src/agi_env/ui/sidecar_registry.py",
+  "fixed_file_sha256": "961a728e8dbd92415281decc38edffb57d2a8858cba43d15103144876e8fd5c8",
   "launcher_space": "https://huggingface.co/spaces/jpmorard/tokki",
-  "launcher_revision_at_validation": "26edf203b306fcd83eeabc7438f314afee2b15a8",
+  "launcher_revision_at_validation": "805ff1b6c92ff6bb949489e7baecd9f7483f00cb",
   "browser_engine": "Chromium",
   "playwright_version": "1.63.0",
   "desktop_viewport": {
@@ -17,10 +22,33 @@
     "height": 844
   },
   "variant_count": 10,
-  "passed_checks": 50,
-  "timing_scope": "Elapsed seconds for browser validation scenarios",
+  "scenario_count": 11,
+  "passed_checks": 76,
+  "independent_session_checks": 50,
+  "shared_session_checks": 26,
+  "timing_scope": "Elapsed seconds for browser validation actions, not app build times or model-speed benchmarks.",
   "reproduction_script": "demo/validate_live_apps.py",
-  "expected_startup_probes": "Streamlit probes AGENT_DEMO/_stcore/health and host-config before connecting at the root; only those 404s are allowed after root success and a CONNECTED browser session.",
+  "published_script_sha256": "ea064cffedc1a1b7f4205d66b5f8a0f01ea8e154d1b492fc0bdf672a7edfa615",
+  "executed_script_sha256": "a8775a6e3ddd17cae77373a56463cd003e1246573730fb32bdbe68800b833a23",
+  "script_equivalence": "Only formatting changed after execution; parsed syntax trees are identical.",
+  "script_ast_sha256": "3b3c33018c4400ce35df8e53643b7d21e94d50974e314583f00bb9310bc30c4d",
+  "regression_evidence": {
+    "original_application_revision": "61500142c9e143f8e222cf25f7b0e50f2a12db68",
+    "browser_reproduction": "Run the Qwen forecast, then open PROJECT in the same session: ModuleNotFoundError for torchvision during import cleanup.",
+    "before_fix_lazy_import_failures": 14,
+    "additional_proxy_regression": "The Windows core job exposed a CFFI proxy that spoofs __class__; a local regression reproduced the descriptor TypeError before the actual-type check was added.",
+    "new_runtime_cases": 20,
+    "focused_local_tests_passed": 59,
+    "local_suites": {
+      "sidecar_registry": 42,
+      "notebook_runtime_and_showcase": 14,
+      "page_loader": 3
+    },
+    "local_rerun": "One AppTest timed out during a cold matplotlib font-cache build; its isolated rerun passed.",
+    "robot_error_detection_tests_passed": 5,
+    "robot_error_detection_test_file": "demo/test_validate_live_apps.py",
+    "expected_startup_probes": "Only the two AGENT_DEMO/_stcore startup 404s are accepted after successful root health/host-config responses and a CONNECTED browser session."
+  },
   "variants": [
     {
       "route": "iris",
@@ -28,12 +56,104 @@
       "steps": [
         {
           "action": "open",
-          "seconds": 3.46,
+          "seconds": 7.86,
           "status": "passed"
         },
         {
           "action": "compute, change controls and verify results",
-          "seconds": 6.15,
+          "seconds": 5.97,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.62,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 15.14,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "iris_local",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 4.69,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 10.2,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.49,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 16.06,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "text",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 4.34,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 7.72,
           "status": "passed"
         },
         {
@@ -52,103 +172,20 @@
           "status": "passed"
         }
       ],
-      "elapsed_seconds": 10.93,
+      "elapsed_seconds": 13.36,
       "js_errors": [],
       "startup_probes": [
         {
           "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
         },
         {
           "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        }
-      ]
-    },
-    {
-      "route": "iris_local",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 3.2,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 11.39,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.48,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.01,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.0,
-          "status": "passed"
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
         }
       ],
-      "elapsed_seconds": 15.75,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        }
-      ]
-    },
-    {
-      "route": "text",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 3.27,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 7.97,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.51,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.01,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.0,
-          "status": "passed"
-        }
-      ],
-      "elapsed_seconds": 12.44,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        }
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
       ]
     },
     {
@@ -157,227 +194,12 @@
       "steps": [
         {
           "action": "open",
-          "seconds": 2.82,
+          "seconds": 3.9,
           "status": "passed"
         },
         {
           "action": "compute, change controls and verify results",
-          "seconds": 6.57,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.54,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.01,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.0,
-          "status": "passed"
-        }
-      ],
-      "elapsed_seconds": 10.63,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        }
-      ]
-    },
-    {
-      "route": "forecast",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 2.28,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 3.89,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.57,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.01,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.0,
-          "status": "passed"
-        }
-      ],
-      "elapsed_seconds": 7.41,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        }
-      ]
-    },
-    {
-      "route": "forecast_astra",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 2.31,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 4.43,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.49,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.01,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.0,
-          "status": "passed"
-        }
-      ],
-      "elapsed_seconds": 7.92,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        }
-      ]
-    },
-    {
-      "route": "threading",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 2.53,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 8.82,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.5,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.07,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.03,
-          "status": "passed"
-        }
-      ],
-      "elapsed_seconds": 12.71,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        }
-      ]
-    },
-    {
-      "route": "threading_astra",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 2.54,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 5.02,
-          "status": "passed"
-        },
-        {
-          "action": "download and verify workflow bundle",
-          "seconds": 0.46,
-          "status": "passed"
-        },
-        {
-          "action": "mobile render",
-          "seconds": 0.01,
-          "status": "passed"
-        },
-        {
-          "action": "browser console and connection",
-          "seconds": 0.0,
-          "status": "passed"
-        }
-      ],
-      "elapsed_seconds": 8.73,
-      "js_errors": [],
-      "startup_probes": [
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
-        },
-        {
-          "message": "Failed to load resource: the server responded with a status of 404 ()",
-          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
-        }
-      ]
-    },
-    {
-      "route": "milp",
-      "status": "passed",
-      "steps": [
-        {
-          "action": "open",
-          "seconds": 2.52,
-          "status": "passed"
-        },
-        {
-          "action": "compute, change controls and verify results",
-          "seconds": 30.83,
+          "seconds": 7.68,
           "status": "passed"
         },
         {
@@ -396,7 +218,7 @@
           "status": "passed"
         }
       ],
-      "elapsed_seconds": 34.58,
+      "elapsed_seconds": 12.79,
       "js_errors": [],
       "startup_probes": [
         {
@@ -407,20 +229,207 @@
           "message": "Failed to load resource: the server responded with a status of 404 ()",
           "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
         }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
       ]
     },
     {
-      "route": "milp_astra",
+      "route": "forecast",
       "status": "passed",
       "steps": [
         {
           "action": "open",
-          "seconds": 2.15,
+          "seconds": 5.64,
           "status": "passed"
         },
         {
           "action": "compute, change controls and verify results",
-          "seconds": 27.95,
+          "seconds": 31.5,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.48,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 38.31,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "forecast_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.52,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 13.38,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.5,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 17.08,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "threading",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 4.71,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 8.02,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.58,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.09,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.05,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 14.15,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "threading_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 3.19,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 5.64,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.46,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 10.05,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "milp",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.45,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 32.39,
           "status": "passed"
         },
         {
@@ -430,16 +439,16 @@
         },
         {
           "action": "mobile render",
-          "seconds": 0.02,
+          "seconds": 0.01,
           "status": "passed"
         },
         {
           "action": "browser console and connection",
-          "seconds": 0.0,
+          "seconds": 0.01,
           "status": "passed"
         }
       ],
-      "elapsed_seconds": 31.31,
+      "elapsed_seconds": 36.03,
       "js_errors": [],
       "startup_probes": [
         {
@@ -450,15 +459,223 @@
           "message": "Failed to load resource: the server responded with a status of 404 ()",
           "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
         }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
+      ]
+    },
+    {
+      "route": "milp_astra",
+      "status": "passed",
+      "steps": [
+        {
+          "action": "open",
+          "seconds": 2.52,
+          "status": "passed"
+        },
+        {
+          "action": "compute, change controls and verify results",
+          "seconds": 31.6,
+          "status": "passed"
+        },
+        {
+          "action": "download and verify workflow bundle",
+          "seconds": 0.54,
+          "status": "passed"
+        },
+        {
+          "action": "mobile render",
+          "seconds": 0.01,
+          "status": "passed"
+        },
+        {
+          "action": "browser console and connection",
+          "seconds": 0.0,
+          "status": "passed"
+        }
+      ],
+      "elapsed_seconds": 35.36,
+      "js_errors": [],
+      "startup_probes": [
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 404 ()",
+          "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+        }
+      ],
+      "streamlit_connections": [
+        "wss://jpmorard-agilab.hf.space/_stcore/stream"
       ]
     }
   ],
-  "coverage_scope": "Ten independent Streamlit sessions; no navigation between pages or variants in a shared session.",
-  "reproduction_script_revision": "d0e8ef5edab584d5282f93b1ef33c0e217d38ec9",
-  "subsequent_finding": {
-    "scenario": "Run the forecast, then open PROJECT in the same session",
-    "error": "ModuleNotFoundError: No module named 'torchvision' during import cleanup",
-    "scope_limitation": "This earlier pass did not cover the failing transition."
+  "shared_session_navigation": {
+    "route": "navigation",
+    "status": "passed",
+    "steps": [
+      {
+        "action": "open forecast in shared session",
+        "seconds": 5.19,
+        "status": "passed"
+      },
+      {
+        "action": "execute Chronos before page navigation",
+        "seconds": 7.55,
+        "status": "passed"
+      },
+      {
+        "action": "forecast to PROJECT and back without reloading",
+        "seconds": 50.82,
+        "status": "passed"
+      },
+      {
+        "action": "forecast to ORCHESTRATE and back without reloading",
+        "seconds": 8.61,
+        "status": "passed"
+      },
+      {
+        "action": "forecast to WORKFLOW and back without reloading",
+        "seconds": 12.24,
+        "status": "passed"
+      },
+      {
+        "action": "forecast to ANALYSIS and back without reloading",
+        "seconds": 6.26,
+        "status": "passed"
+      },
+      {
+        "action": "switch to iris",
+        "seconds": 3.03,
+        "status": "passed"
+      },
+      {
+        "action": "compute iris in shared session",
+        "seconds": 14.39,
+        "status": "passed"
+      },
+      {
+        "action": "switch to text",
+        "seconds": 1.94,
+        "status": "passed"
+      },
+      {
+        "action": "compute text in shared session",
+        "seconds": 8.92,
+        "status": "passed"
+      },
+      {
+        "action": "switch to threading",
+        "seconds": 1.31,
+        "status": "passed"
+      },
+      {
+        "action": "compute threading in shared session",
+        "seconds": 9.38,
+        "status": "passed"
+      },
+      {
+        "action": "switch to milp",
+        "seconds": 1.79,
+        "status": "passed"
+      },
+      {
+        "action": "compute milp in shared session",
+        "seconds": 34.58,
+        "status": "passed"
+      },
+      {
+        "action": "switch to forecast_astra",
+        "seconds": 1.77,
+        "status": "passed"
+      },
+      {
+        "action": "compute forecast_astra in shared session",
+        "seconds": 4.78,
+        "status": "passed"
+      },
+      {
+        "action": "switch to iris_local",
+        "seconds": 2.31,
+        "status": "passed"
+      },
+      {
+        "action": "compute iris_local in shared session",
+        "seconds": 13.1,
+        "status": "passed"
+      },
+      {
+        "action": "switch to text_astra",
+        "seconds": 1.95,
+        "status": "passed"
+      },
+      {
+        "action": "compute text_astra in shared session",
+        "seconds": 7.26,
+        "status": "passed"
+      },
+      {
+        "action": "switch to threading_astra",
+        "seconds": 1.33,
+        "status": "passed"
+      },
+      {
+        "action": "compute threading_astra in shared session",
+        "seconds": 6.64,
+        "status": "passed"
+      },
+      {
+        "action": "switch to milp_astra",
+        "seconds": 1.33,
+        "status": "passed"
+      },
+      {
+        "action": "compute milp_astra in shared session",
+        "seconds": 31.28,
+        "status": "passed"
+      },
+      {
+        "action": "return to forecast after all ten variants",
+        "seconds": 1.58,
+        "status": "passed"
+      },
+      {
+        "action": "browser console and connection",
+        "seconds": 0.0,
+        "status": "passed"
+      }
+    ],
+    "elapsed_seconds": 240.37,
+    "js_errors": [],
+    "startup_probes": [
+      {
+        "message": "Failed to load resource: the server responded with a status of 404 ()",
+        "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/health"
+      },
+      {
+        "message": "Failed to load resource: the server responded with a status of 404 ()",
+        "url": "https://jpmorard-agilab.hf.space/AGENT_DEMO/_stcore/host-config"
+      }
+    ],
+    "streamlit_connections": [
+      "wss://jpmorard-agilab.hf.space/_stcore/stream"
+    ]
   },
-  "superseded_by": "2026-09-21-lazy-import-regression.json"
+  "merged_source_commit": "476b36ce6a9806dc23409e02f363ebc446ab0042",
+  "ci": {
+    "head": "27359bec8ff28610c887a91b45c1586532b826da",
+    "root_tests": "passed",
+    "windows_core_tests": "passed",
+    "clean_installs": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "python_compatibility": [
+      "3.12",
+      "3.14"
+    ],
+    "public_demo_smoke": "GitHub skipped by path filter; replaced by the recorded live browser checks"
+  }
 }

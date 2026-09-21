@@ -8,6 +8,7 @@ import time
 import traceback
 import zipfile
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 from playwright.sync_api import sync_playwright
 
@@ -23,6 +24,18 @@ ROUTES = [
     "milp",
     "milp_astra",
 ]
+DEMO_LABELS = {
+    "iris": "Iris · Astra",
+    "iris_local": "Iris · Qwen",
+    "text": "Text Atlas · Qwen",
+    "text_astra": "Text Atlas · Astra",
+    "forecast": "Forecast · Qwen",
+    "forecast_astra": "Forecast · Astra",
+    "threading": "Free-threading · Qwen",
+    "threading_astra": "Free-threading · Astra",
+    "milp": "MILP · Qwen",
+    "milp_astra": "MILP · Astra",
+}
 
 
 class Robot:
@@ -33,6 +46,27 @@ class Robot:
         self.console_errors = []
         self.startup_probes = []
         self.healthy_endpoints = set()
+        self.streamlit_connections = []
+        page.on(
+            "websocket",
+            lambda socket: (
+                self.streamlit_connections.append(socket.url)
+                if "/_stcore/stream" in socket.url
+                else None
+            ),
+        )
+        # Retain server exceptions even if a subsequent rerun removes their DOM.
+        page.add_init_script("""
+            window.__robotStreamlitExceptions = [];
+            new MutationObserver(() => {
+                document.querySelectorAll('[data-testid="stException"]').forEach(node => {
+                    const text = node.textContent.trim();
+                    if (text && !window.__robotStreamlitExceptions.includes(text)) {
+                        window.__robotStreamlitExceptions.push(text);
+                    }
+                });
+            }).observe(document, {subtree: true, childList: true, characterData: true});
+        """)
         page.on("pageerror", lambda error: self.errors.append(str(error)))
         page.on(
             "console",
@@ -54,6 +88,21 @@ class Robot:
     def body(self):
         return self.page.locator("body").inner_text()
 
+    def assert_ui_healthy(self):
+        exceptions = self.page.evaluate("window.__robotStreamlitExceptions || []")
+        exceptions += self.page.locator('[data-testid="stException"]').all_inner_texts()
+        assert not exceptions, exceptions
+        alerts = self.page.locator('[data-testid="stAlert"]').all_inner_texts()
+        fatal = [
+            text
+            for text in alerts
+            if re.search(
+                r"^(Run failed:|Benchmark failed:|Validation failed:|.*could not be prepared|.*demo unavailable:)",
+                text,
+            )
+        ]
+        assert not fatal, fatal
+
     def idle(self):
         # A result may render before Streamlit finishes the rerun. Opening a
         # select menu during that transition can close it before selection.
@@ -63,23 +112,14 @@ class Robot:
                 "document.querySelector('[data-testid=stApp]')?.getAttribute('data-test-script-state') === 'notRunning'",
                 timeout=210000,
             )
+        self.assert_ui_healthy()
 
     def wait(self, predicate, timeout=60):
         deadline = time.monotonic() + timeout
         while True:
-            exceptions = self.page.locator(
-                '[data-testid="stException"]'
-            ).all_inner_texts()
-            assert not exceptions, exceptions
+            self.assert_ui_healthy()
             if predicate():
                 return
-            alerts = self.page.locator('[data-testid="stAlert"]').all_inner_texts()
-            fatal = [
-                x
-                for x in alerts
-                if re.search(r"^(Run failed:|Benchmark failed:|Validation failed:)", x)
-            ]
-            assert not fatal, fatal
             if time.monotonic() > deadline:
                 raise TimeoutError(
                     "Expected UI result did not appear; tail=" + self.body()[-1500:]
@@ -98,8 +138,7 @@ class Robot:
             json.dumps({"step": label, "completed": self.steps})
         )
         function()
-        exceptions = self.page.locator('[data-testid="stException"]').all_inner_texts()
-        assert not exceptions, exceptions
+        self.assert_ui_healthy()
         self.steps.append(
             {
                 "action": label,
@@ -151,6 +190,9 @@ class Robot:
             wait_until="domcontentloaded",
             timeout=60000,
         )
+        self.ready()
+
+    def ready(self):
         marker = {"iris": "Predicted species", "iris_local": "Classify a Flower"}.get(
             self.route, "Run analysis"
         )
@@ -340,6 +382,15 @@ class Robot:
 
     def run(self):
         self.step("open", self.open)
+        self.step("compute, change controls and verify results", self.compute)
+        self.step("download and verify workflow bundle", self.bundle)
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.wait_for_timeout(500)
+        self.step("mobile render", self.mobile)
+        self.step("browser console and connection", self.check_console)
+        assert not self.errors, self.errors
+
+    def compute(self):
         function = (
             self.iris
             if self.route.startswith("iris")
@@ -351,12 +402,66 @@ class Robot:
             if self.route.startswith("threading")
             else self.milp
         )
-        self.step("compute, change controls and verify results", function)
-        self.step("download and verify workflow bundle", self.bundle)
-        self.page.set_viewport_size({"width": 390, "height": 844})
-        self.page.wait_for_timeout(500)
-        self.step("mobile render", self.mobile)
+        function()
+        self.idle()
+
+    def select_demo(self, route):
+        self.idle()
+        radio = self.page.get_by_role("radio", name=DEMO_LABELS[route], exact=True)
+        if not radio.is_checked():
+            radio.focus()
+            radio.press("Space")
+        self.route = route
+        self.wait(
+            lambda: (
+                radio.is_checked()
+                and parse_qs(urlsplit(self.page.url).query).get("demo") == [route]
+            )
+        )
+        self.ready()
+
+    def page_roundtrip(self, destination):
+        # This exact transition reproduced the lazy torchvision import crash.
+        self.page.get_by_role("link", name=destination, exact=True).click()
+        self.page.wait_for_url("**/" + destination + "?*", timeout=60000)
+        self.idle()
+        self.page.get_by_role("link", name="AGENT DEMO", exact=True).click()
+        self.page.wait_for_url("**/AGENT_DEMO?*", timeout=60000)
+        self.idle()
+        self.select_demo("forecast")
+
+    def run_navigation(self):
+        self.route = "forecast"
+        self.step("open forecast in shared session", self.open)
+        self.step("execute Chronos before page navigation", self.compute)
+        for destination in ["PROJECT", "ORCHESTRATE", "WORKFLOW", "ANALYSIS"]:
+            self.step(
+                "forecast to " + destination + " and back without reloading",
+                lambda destination=destination: self.page_roundtrip(destination),
+            )
+        for route in [
+            "iris",
+            "text",
+            "threading",
+            "milp",
+            "forecast_astra",
+            "iris_local",
+            "text_astra",
+            "threading_astra",
+            "milp_astra",
+        ]:
+            self.step("switch to " + route, lambda route=route: self.select_demo(route))
+            self.step("compute " + route + " in shared session", self.compute)
+        self.step(
+            "return to forecast after all ten variants",
+            lambda: self.select_demo("forecast"),
+        )
         self.step("browser console and connection", self.check_console)
+        self.route = "navigation"
+        assert len(self.streamlit_connections) == 1, (
+            "Navigation must retain one Streamlit connection",
+            self.streamlit_connections,
+        )
         assert not self.errors, self.errors
 
     def check_console(self):
@@ -396,6 +501,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--routes", nargs="+", choices=ROUTES, default=ROUTES)
+    parser.add_argument("--navigation-only", action="store_true")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     reports = []
@@ -404,7 +510,7 @@ def main():
         context = browser.new_context(
             viewport={"width": 1440, "height": 1100}, accept_downloads=True
         )
-        for route in args.routes:
+        for route in ([] if args.navigation_only else args.routes) + ["navigation"]:
             # Share the asset cache while retaining a fresh Streamlit session
             # in each page. New contexts per app needlessly stress the host.
             page = context.new_page()
@@ -412,7 +518,10 @@ def main():
             start = time.monotonic()
             report = {"route": route}
             try:
-                robot.run()
+                if route == "navigation":
+                    robot.run_navigation()
+                else:
+                    robot.run()
                 report["status"] = "passed"
             except Exception as error:  # noqa: BLE001 - retain evidence and check the remaining apps
                 report.update(
@@ -423,6 +532,7 @@ def main():
                 elapsed_seconds=round(time.monotonic() - start, 2),
                 js_errors=robot.errors,
                 startup_probes=robot.startup_probes,
+                streamlit_connections=robot.streamlit_connections,
                 body=robot.body(),
             )
             (args.output / (route + "-robot.json")).write_text(

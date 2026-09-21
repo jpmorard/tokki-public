@@ -111,16 +111,25 @@ Demand Forecast was also rebuilt with local Qwen 3.8 27B, with no cloud code-gen
 
 ## Browser validation
 
-**21 September 2026: all 10 variants passed all 50 browser checks.**
-The [dated validation report](https://github.com/jpmorard/tokki-public/blob/main/demo/validation/2026-09-21.json)
-records the deployed app revision, actions, timings and browser diagnostics.
-No application-code correction was required.
+**21 September 2026: all 10 variants passed 76 live browser checks**, including
+26 checks across a shared session. The [expanded validation report](https://github.com/jpmorard/tokki-public/blob/main/demo/validation/2026-09-21-lazy-import-regression.json)
+records the final deployed revision, actions, timings and browser diagnostics.
+The [import-cleanup fix](https://github.com/ThalesGroup/agilab/pull/1038) adds 20
+regression cases; 59 focused local tests and five robot error-detection tests pass.
+
+The [initial report](https://github.com/jpmorard/tokki-public/blob/main/demo/validation/2026-09-21.json)
+covered 50 checks in separate sessions. It missed a crash when opening PROJECT
+after running a forecast in the same session. Shared import cleanup now inspects
+stored module metadata without activating optional dependencies or CFFI proxy hooks.
 
 The [live UI robot](https://github.com/jpmorard/tokki-public/blob/main/demo/validate_live_apps.py)
 checks all ten published variants in Chromium. It runs analyses, changes inputs,
 checks predictions and numerical results, exercises CPU and MILP scaling,
 downloads every workflow bundle and verifies its recorded file hashes, and
-checks mobile rendering and browser errors. Streamlit's two page-path startup
+checks mobile rendering and browser errors. It also computes all ten variants
+over one Streamlit connection, navigates from the forecast through PROJECT,
+ORCHESTRATE, WORKFLOW and ANALYSIS and back, and retains server exceptions even
+if a rerun removes them from the page. Streamlit's two page-path startup
 probes are recorded separately only after the root endpoints and live connection
 pass their health checks.
 
@@ -129,7 +138,11 @@ From the repository root, with Playwright and its Chromium browser installed:
     python demo/validate_live_apps.py --output /tmp/tokki-live-ui-validation
 
 The robot saves screenshots and JSON evidence and exits unsuccessfully if any
-variant fails. Use `--routes` to rerun specific variants.
+variant or navigation scenario fails. Use `--routes` to rerun specific variants
+plus the shared-session scenario, or `--navigation-only` to run that scenario alone.
+Five offline browser tests protect the robot's error detection:
+
+    python -m unittest discover -s demo -p test_validate_live_apps.py
 
 ## Publishing the static Space
 
