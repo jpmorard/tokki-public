@@ -12,18 +12,17 @@ short_description: Agentic solution
 
 # Tokki · From notebooks to working apps
 
-The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) opens **Text Atlas** by default.
-The first two cards are **Text Atlas** and **Demand forecast**, both rebuilt with local Qwen 3.8.
-**MILP Energy Lab** and **Free-threading lab** now also use verified local Qwen builds.
-Also explore **MILP Energy Lab**, **Free-threading lab**, and **Iris in two flavours
-(GPT-6 Astra and local Qwen)**. No AI provider subscription is needed to try the public demos.
+The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) offers **five apps in two flavours each: GPT-6 Astra and local Qwen 3.8**.
+Text Atlas opens by default. Each app's Astra and Qwen cards appear together.
+No AI provider subscription is needed to try these ten completed builds.
 
-- [Open the INRIA text atlas](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true)
-- [Open the Chronos forecast app](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true)
-- [Open the MILP energy lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true)
-- [Open the free-threading lab](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true)
-- [Open the original GPT-6 Astra Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true)
-- [Open the local Qwen Iris demo](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true)
+| App | Original GPT-6 Astra build | Local Qwen 3.8 build |
+| --- | --- | --- |
+| Text atlas | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true) |
+| Demand forecast | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true) |
+| MILP Energy Lab | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true) |
+| Free-threading lab | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true) |
+| Iris decision lab | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true) |
 
 The MILP Energy Lab adapts PyPSA contributors'
 [Modular Expansion with Unit Commitment notebook](https://github.com/PyPSA/PyPSA/blob/c838aa498557cc8e27a9d3ed10d45e35c4b0b442/docs/examples/modular-committable.ipynb),
@@ -57,8 +56,7 @@ Rhyme Rhyming Dictionary and subsampled by INRIA. The app reports vocabulary,
 projection variance and a silhouette diagnostic; clusters are exploratory.
 
 Select a demo card to switch the embedded app. Direct links remain usable
-without JavaScript. Add `?demo=threading`, `?demo=text`, `?demo=forecast` or `?demo=iris` / `?demo=iris_local` to the
-static page URL to share a particular demo.
+without JavaScript. Use the same `demo` parameter on the static page URL to share a particular build; for example, `?demo=milp_astra` or `?demo=milp`.
 
 The forecasting source is Amazon Science's
 [Chronos-2 quickstart notebook](https://github.com/amazon-science/chronos-forecasting/blob/10afa9ebe016e514f9d7dc1aa873f66af57e116b/notebooks/chronos-2-quickstart.ipynb),
@@ -92,18 +90,22 @@ The **build model** generated the application. The **app model or algorithm** ru
 | --- | --- | --- |
 | Iris decision lab · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Decision tree, random forest and logistic regression |
 | Iris decision lab · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | Decision tree, random forest and logistic regression |
-| Text atlas | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | TF-IDF, dimensionality reduction and clustering |
-| Demand forecast | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | autogluon/chronos-2-small |
-| Free-threading lab | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | Mandelbrot benchmark; no inference model |
-| MILP Energy Lab | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | PyPSA and HiGHS optimization; no inference model |
+| Text atlas · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | TF-IDF, dimensionality reduction and clustering |
+| Text atlas · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | TF-IDF, dimensionality reduction and clustering |
+| Demand forecast · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | autogluon/chronos-2-small |
+| Demand forecast · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | autogluon/chronos-2-small |
+| Free-threading lab · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | Mandelbrot benchmark; no inference model |
+| Free-threading lab · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | Mandelbrot benchmark; no inference model |
+| MILP Energy Lab · original | GPT-6 Astra (`gpt-6-astra`, OpenAI) | PyPSA and HiGHS optimization; no inference model |
+| MILP Energy Lab · local | Qwen 3.8 27B (`ddalcu/Qwen3.8-27B-MLX-Serve-4bit`, local MLX) | PyPSA and HiGHS optimization; no inference model |
 
 The local Iris application Python was generated and repaired by local MLX `ddalcu/Qwen3.8-27B-MLX-Serve-4bit` (4-bit), without cloud code-generation fallback. A coordinating assistant prepared requests, ran independent checks and reviewed the outputs. The local model produced the complete application files and a bounded repair. Generation used the native local MLX API; Tokki wrapped the commands, but these calls were not routed through Tokki offloading. This describes local application code generation, not fully offline coordination. The [build receipt](https://huggingface.co/spaces/jpmorard/agilab/blob/d6d4cf41ad40c917c7f792d544b59157fd198fc6/src/agilab/resources/notebook_agent_local_demo/result.json) records the model revision and validation.
 
-The original Iris GPT-6 Astra build-model identity was checked against its original run header. The public apps do not call their build provider when visitors use them.
+All five original GPT-6 Astra build-model identities were checked against their original native run headers. Their downloadable app files and receipts are preserved byte for byte; Astra attribution is displayed separately from the historical receipts. The public apps do not call their build provider when visitors use them.
 
 Text Atlas was also rebuilt with the same local Qwen3.8 model, without cloud code-generation fallback. Its application Python and notebook cells came from the local model; a coordinating assistant integrated the bundle and ran independent checks. Generation used the native local API and is not claimed as a Tokki agent offload. The verified build took **20.14 minutes**, including notebook, workflow, numerical and interface checks; local inference took 935.18 seconds. The pinned source notebook, 1,250-article corpus and licenses are preserved. Its [build receipt](https://github.com/ThalesGroup/agilab/blob/46dc6690457a8bc606352cbb0e19aeb083781965/src/agilab/resources/text_notebook_demo/result.json) records the exact model revisions and verification scope.
 
-Demand Forecast was also rebuilt with local Qwen 3.8 27B, with no cloud code-generation fallback. The application runs the pinned Chronos-2-small checkpoint locally. Its receipt includes exact build-model revisions, measured build duration, notebook and workflow replay, and independent real-inference checks across three seeds. Both Iris flavours are preserved.
+Demand Forecast was also rebuilt with local Qwen 3.8 27B, with no cloud code-generation fallback. The application runs the pinned Chronos-2-small checkpoint locally. Its receipt includes exact build-model revisions, measured build duration, notebook and workflow replay, and independent real-inference checks across three seeds. Both flavours of all five apps are preserved.
 
 ## Publishing the static Space
 
@@ -121,4 +123,4 @@ https://huggingface.co/spaces/jpmorard/tokki.
 
 Free-threading was rebuilt and repaired with local Qwen 3.8 27B, with no cloud code-generation fallback. Its application Python, bundled tests, and notebook cells are local-model output. Independent checks verified actual GIL state, identical image digests across all three execution modes, worker identities, repeated timings, process cleanup, and fresh notebook/workflow replay. The original notebook and AGILAB pool engine are unchanged. The recorded build duration includes repairs and intervening validation work; it is not inference time alone.
 
-MILP Energy Lab was rebuilt and repaired with the same local Qwen model. Independent checks cover the reference objective of 21879 and 30 modules, infeasibility without a false incumbent, load shedding, solar/startup constraints and costs, and identical scenario batches executed through the real AGILAB process pool with overlapping workers. Its downloadable receipt records notebook/workflow agreement and exact model revisions. Both Iris flavours remain available.
+MILP Energy Lab was rebuilt and repaired with the same local Qwen model. Independent checks cover the reference objective of 21879 and 30 modules, infeasibility without a false incumbent, load shedding, solar/startup constraints and costs, and identical scenario batches executed through the real AGILAB process pool with overlapping workers. Its downloadable receipt records notebook/workflow agreement and exact model revisions. Both flavours of all five apps remain available.
