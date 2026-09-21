@@ -35,6 +35,10 @@
     .choice small { display: block; color: #426172; line-height: 1.5; }
     .choice .model-info { margin-top: 10px; font-size: 12px; }
     .choice span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #08766c; font-weight: 750; }
+    .choice .build-time { margin: 14px 0; padding: 12px 14px; border-radius: 10px; background: #e7f4ee; }
+    .choice .build-time small { color: #285749; font-size: 12px; font-weight: 650; }
+    .choice .build-duration { display: block; margin-top: 3px; color: #075b4a; font-size: 26px; font-weight: 800; letter-spacing: -.035em; text-transform: none; font-variant-numeric: tabular-nums; }
+    .timing-note { margin: 20px 0 -8px; color: #42566a; font-size: 13px; }
     .demo { background: white; border: 1px solid #d5e3df; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px #143a4b0b; }
     iframe { display: block; border: 0; width: 100%; height: 1200px; min-height: 75vh; }
     footer { padding: 18px 0 8px; font-size: 13px; line-height: 1.7; color: #596c7b; }
@@ -70,54 +74,65 @@ agilab-notebook-demo --ui</code></pre>
         It excludes notebook contents, prompts, paths and credentials.
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
+    <p class="timing-note">Recorded elapsed build time, including repairs, validation and any waiting time. One run per build; scopes differ. <a href="https://huggingface.co/spaces/jpmorard/agilab/tree/61500142c9e143f8e222cf25f7b0e50f2a12db68/src/agilab/resources" target="_blank" rel="noopener noreferrer">Build receipts ↗</a></p>
     <nav class="choices" aria-label="Choose a notebook demo">
       <a class="choice" data-demo="text" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
         <span>Local Qwen · INRIA</span><strong>Text atlas · Qwen</strong>
+        <div class="build-time" data-build-seconds="1208.2"><small>Build time</small><span class="build-duration">20 min 08 s</span></div>
         <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
       </a>
       <a class="choice" data-demo="text_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&amp;embed=true">
         <span>Original Astra · INRIA</span><strong>Text atlas · Astra</strong>
+        <div class="build-time" data-build-seconds="464.0"><small>Build time</small><span class="build-duration">7 min 44 s</span></div>
         <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
       </a>
       <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
         <span>Local Qwen · Chronos-2 Small</span><strong>Demand forecast · Qwen</strong>
+        <div class="build-time" data-build-seconds="5361.5"><small>Build time</small><span class="build-duration">1 h 29 min 22 s</span></div>
         <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: autogluon/chronos-2-small</small>
       </a>
       <a class="choice" data-demo="forecast_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&amp;embed=true">
         <span>Original Astra · Chronos-2 Small</span><strong>Demand forecast · Astra</strong>
+        <div class="build-time" data-build-seconds="361.0"><small>Build time</small><span class="build-duration">6 min 01 s</span></div>
         <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: autogluon/chronos-2-small</small>
       </a>
       <a class="choice" data-demo="milp" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
         <span>Local Qwen · PyPSA</span><strong>MILP Energy Lab · Qwen</strong>
+        <div class="build-time" data-build-seconds="15899.9"><small>Build time</small><span class="build-duration">4 h 25 min 00 s</span></div>
         <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
       <a class="choice" data-demo="milp_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&amp;embed=true">
         <span>Original Astra · PyPSA</span><strong>MILP Energy Lab · Astra</strong>
+        <div class="build-time" data-build-seconds="1439.8"><small>Build time</small><span class="build-duration">24 min 00 s</span></div>
         <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
       <a class="choice" data-demo="threading" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true">
         <span>Local Qwen · Python free-threading</span><strong>Free-threading lab · Qwen</strong>
+        <div class="build-time" data-build-seconds="16066.5"><small>Build time</small><span class="build-duration">4 h 27 min 47 s</span></div>
         <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: Mandelbrot benchmark; no inference model</small>
       </a>
       <a class="choice" data-demo="threading_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&amp;embed=true">
         <span>Original Astra · Python free-threading</span><strong>Free-threading lab · Astra</strong>
+        <div class="build-time" data-build-seconds="751.0"><small>Build time</small><span class="build-duration">12 min 31 s</span></div>
         <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Mandelbrot benchmark; no inference model</small>
       </a>
       <a class="choice" data-demo="iris" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true">
         <span>Aurélien Géron · Original demo</span><strong>Iris decision lab · Astra</strong>
+        <div class="build-time" data-build-seconds="285.3"><small>Build time</small><span class="build-duration">4 min 45 s</span></div>
         <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Decision tree, random forest and logistic regression</small>
       </a>
       <a class="choice" data-demo="iris_local" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&amp;embed=true">
         <span>Aurélien Géron · Local model build</span><strong>Iris decision lab · Qwen</strong>
+        <div class="build-time" data-build-seconds="2048.5"><small>Build time</small><span class="build-duration">34 min 09 s</span></div>
         <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: Decision tree, random forest and logistic regression</small>
       </a>

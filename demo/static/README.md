@@ -16,13 +16,15 @@ The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) offers **five ap
 Text Atlas opens by default. Each app's Astra and Qwen cards appear together.
 No AI provider subscription is needed to try these ten completed builds.
 
+Each launch card highlights its recorded elapsed build time, rounded to the nearest second. These times include repairs, validation and any waiting time. They describe one recorded run per build with differing scopes, not a controlled model-speed benchmark. The values come from the [published build receipts](https://huggingface.co/spaces/jpmorard/agilab/tree/61500142c9e143f8e222cf25f7b0e50f2a12db68/src/agilab/resources).
+
 | App | Original GPT-6 Astra build | Local Qwen 3.8 build |
 | --- | --- | --- |
-| Text atlas | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true) |
-| Demand forecast | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true) |
-| MILP Energy Lab | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true) |
-| Free-threading lab | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true) |
-| Iris decision lab | [Astra](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true) | [Qwen](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true) |
+| Text atlas | [Astra · 7 min 44 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&embed=true) | [Qwen · 20 min 08 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true) |
+| Demand forecast | [Astra · 6 min 01 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&embed=true) | [Qwen · 1 h 29 min 22 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true) |
+| MILP Energy Lab | [Astra · 24 min 00 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&embed=true) | [Qwen · 4 h 25 min 00 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true) |
+| Free-threading lab | [Astra · 12 min 31 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&embed=true) | [Qwen · 4 h 27 min 47 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true) |
+| Iris decision lab | [Astra · 4 min 45 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true) | [Qwen · 34 min 09 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true) |
 
 The MILP Energy Lab adapts PyPSA contributors'
 [Modular Expansion with Unit Commitment notebook](https://github.com/PyPSA/PyPSA/blob/c838aa498557cc8e27a9d3ed10d45e35c4b0b442/docs/examples/modular-committable.ipynb),
