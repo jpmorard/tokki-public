@@ -78,7 +78,7 @@ agilab-notebook-demo --ui</code></pre>
         It excludes notebook contents, prompts, paths and credentials.
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
-    <p class="timing-note">RTX builds use the OpenCode agent with local Qwen; Codex supervises the build and validation online. Recorded build durations, including repairs and checks. One run per build; hardware, quantization and verification scopes differ. RTX timings exclude initial installation, downloads and browser checks. 1 KLOC = 1,000 Python code lines across the generated app and notebook, excluding comments, docstrings, tests and supplied helpers. Lines/min divides that code volume by elapsed build minutes; it does not measure code quality. <a href="https://huggingface.co/spaces/jpmorard/agilab/tree/af6a08acf470764a7be46a344f5576bf9ffd93d8/src/agilab/demos/resources" target="_blank" rel="noopener noreferrer">Build receipts ↗</a></p>
+    <p class="timing-note">RTX builds use the OpenCode agent with local Qwen; Codex supervises the build and validation online. Recorded build durations, including repairs and checks. One run per build; hardware, quantization and verification scopes differ. RTX timings exclude initial installation, downloads and browser checks. 1 KLOC = 1,000 Python code lines across the generated app and notebook, excluding comments, docstrings, tests and supplied helpers. Lines/min divides that code volume by elapsed build minutes; it does not measure code quality. <a href="https://huggingface.co/spaces/jpmorard/agilab/tree/4f9c8edf30d1a79b498c92da5c3d233c6501b305/src/agilab/demos/resources" target="_blank" rel="noopener noreferrer">Build receipts ↗</a></p>
     <nav class="choices" aria-label="Choose a notebook demo">
       <a class="choice" data-demo="text_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&amp;embed=true">
         <span>Original Astra · INRIA</span><strong>Text atlas · Astra</strong>
@@ -131,7 +131,7 @@ agilab-notebook-demo --ui</code></pre>
       <a class="choice" data-demo="milp_rtx" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_rtx&amp;embed=true">
         <span>Local Qwen · rtx4 · NVIDIA RTX 4090</span><strong>MILP Energy Lab · Qwen · RTX</strong>
         <div class="build-time" data-build-seconds="15837.7" data-kloc="0.584"><small>Build time</small><span class="build-duration">4 h 23 min 58 s</span><small class="code-size">0.584 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="2.212442">2.2 lines/min</small></div>
-        <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
+        <small>Build an energy system, inspect optimal schedules, save scenarios, and compare serial and parallel scenario throughput.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (Q4_K_M · local CUDA)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
       <a class="choice" data-demo="threading_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&amp;embed=true">
