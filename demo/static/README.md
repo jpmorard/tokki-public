@@ -12,19 +12,19 @@ short_description: Agentic solution
 
 # Tokki · From notebooks to working apps
 
-The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) offers **five apps in two flavours each: GPT-6 Astra and local Qwen 3.8**.
-Text Atlas opens by default. Each app's Astra and Qwen cards appear together.
-No AI provider subscription is needed to try these ten completed builds.
+The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) offers **five apps in three flavours each: GPT-6 Astra, Qwen on Mac, and Qwen on NVIDIA RTX**.
+Text Atlas opens by default. Each app's Astra, Qwen Mac and Qwen RTX cards appear together.
+No AI provider subscription is needed to try these fifteen completed builds.
 
-Each launch card highlights its recorded elapsed build time, rounded to the nearest second. These times include repairs, validation and any waiting time. They describe one recorded run per build with differing scopes, not a controlled model-speed benchmark. The values come from the [published build receipts](https://huggingface.co/spaces/jpmorard/agilab/tree/61500142c9e143f8e222cf25f7b0e50f2a12db68/src/agilab/resources).
+Each launch card highlights its recorded elapsed build time, rounded to the nearest second. All durations include repairs and validation. Legacy receipts include waiting time; RTX receipts sum active build/repair runs and exclude gaps between runs, initial installation, downloads and browser checks. They describe one recorded run per build with differing scopes, not a controlled model-speed benchmark. The values come from the [published build receipts](https://huggingface.co/spaces/jpmorard/agilab/tree/a5c340c0f778f9a6e80252c386c44104df100fba/src/agilab/demos/resources).
 
-| App | Original GPT-6 Astra build | Local Qwen 3.8 build |
-| --- | --- | --- |
-| Text atlas | [Astra · 7 min 44 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&embed=true) | [Qwen · 20 min 08 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true) |
-| Demand forecast | [Astra · 6 min 01 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&embed=true) | [Qwen · 1 h 29 min 22 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true) |
-| MILP Energy Lab | [Astra · 24 min 00 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&embed=true) | [Qwen · 4 h 25 min 00 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true) |
-| Free-threading lab | [Astra · 12 min 31 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&embed=true) | [Qwen · 4 h 27 min 47 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true) |
-| Iris decision lab | [Astra · 4 min 45 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true) | [Qwen · 34 min 09 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true) |
+| App | GPT-6 Astra · duration / KLOC / lines/min | Qwen Mac · duration / KLOC / lines/min | Qwen RTX · duration / KLOC / lines/min |
+| --- | --- | --- | --- |
+| Text atlas | [7 min 44 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&embed=true) · 0.257 KLOC · 33.2 lines/min | [20 min 08 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&embed=true) · 0.236 KLOC · 11.7 lines/min | [20 min 54 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_rtx&embed=true) · 0.304 KLOC · 14.5 lines/min |
+| Demand forecast | [6 min 01 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&embed=true) · 0.322 KLOC · 53.5 lines/min | [1 h 29 min 22 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&embed=true) · 0.395 KLOC · 4.4 lines/min | [26 min 55 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_rtx&embed=true) · 0.407 KLOC · 15.1 lines/min |
+| MILP Energy Lab | [24 min 00 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&embed=true) · 1.344 KLOC · 56.0 lines/min | [4 h 25 min 00 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&embed=true) · 1.768 KLOC · 6.7 lines/min | [4 h 23 min 58 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_rtx&embed=true) · 0.584 KLOC · 2.2 lines/min |
+| Free-threading lab | [12 min 31 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&embed=true) · 0.602 KLOC · 48.1 lines/min | [4 h 27 min 47 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&embed=true) · 1.468 KLOC · 5.5 lines/min | [4 h 26 min 27 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_rtx&embed=true) · 1.312 KLOC · 4.9 lines/min |
+| Iris decision lab | [4 min 45 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&embed=true) · 0.180 KLOC · 37.9 lines/min | [34 min 09 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&embed=true) · 0.155 KLOC · 4.5 lines/min | [8 min 02 s](https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_rtx&embed=true) · 0.261 KLOC · 32.5 lines/min |
 
 The MILP Energy Lab adapts PyPSA contributors'
 [Modular Expansion with Unit Commitment notebook](https://github.com/PyPSA/PyPSA/blob/c838aa498557cc8e27a9d3ed10d45e35c4b0b442/docs/examples/modular-committable.ipynb),
@@ -160,4 +160,10 @@ https://huggingface.co/spaces/jpmorard/tokki.
 
 Free-threading was rebuilt and repaired with local Qwen 3.8 27B, with no cloud code-generation fallback. Its application Python, bundled tests, and notebook cells are local-model output. Independent checks verified actual GIL state, identical image digests across all three execution modes, worker identities, repeated timings, process cleanup, and fresh notebook/workflow replay. The original notebook and AGILAB pool engine are unchanged. The recorded build duration includes repairs and intervening validation work; it is not inference time alone.
 
-MILP Energy Lab was rebuilt and repaired with the same local Qwen model. Independent checks cover the reference objective of 21879 and 30 modules, infeasibility without a false incumbent, load shedding, solar/startup constraints and costs, and identical scenario batches executed through the real AGILAB process pool with overlapping workers. Its downloadable receipt records notebook/workflow agreement and exact model revisions. Both flavours of all five apps remain available.
+MILP Energy Lab was rebuilt and repaired with the same local Qwen model. Independent checks cover the reference objective of 21879 and 30 modules, infeasibility without a false incumbent, load shedding, solar/startup constraints and costs, and identical scenario batches executed through the real AGILAB process pool with overlapping workers. Its downloadable receipt records notebook/workflow agreement and exact model revisions. All three flavours of all five apps remain available.
+
+## Standalone Qwen RTX builds
+
+The RTX flavour was generated and repaired by Qwen3.8-27B Q4_K_M through Tokki and OpenCode on NVIDIA RTX 4090. Initial downloads were allowed; application code generation used no cloud AI fallback and no manual app-code edits. RTX identifies the build hardware; the completed demos run on the public Space hardware.
+
+RTX duration includes generation, automatic repairs and independent notebook, numerical and workflow checks. Installation, initial downloads and browser checks are excluded. KLOC counts nonblank Python code lines in the app and generated notebook, excluding comments, docstrings, tests and supplied helpers. The app and notebook are separate deliverables and are counted separately. **Lines/min = KLOC × 1,000 × 60 / build seconds.** This ratio describes code volume per elapsed build minute, not code quality.

@@ -27,7 +27,7 @@
     pre { overflow-x: auto; padding: 14px; background: #f3f7f5; border-radius: 8px; line-height: 1.6; }
     .bar { margin: 22px 0 12px; font-size: 14px; }
     .badge { padding: 7px 12px; border-radius: 999px; color: #106957; background: #dfefe7; font-weight: 650; }
-    .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; margin: 24px 0 12px; }
+    .choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 24px 0 12px; }
     .choice { display: block; padding: 20px; border: 1px solid #cbded7; border-radius: 14px; text-decoration: none; background: #fff; color: #18394e; }
     .choice:hover { border-color: #087d72; }
     .choice[aria-current="true"] { background: #e7f4ee; border: 2px solid #087d72; padding: 19px; }
@@ -38,6 +38,10 @@
     .choice .build-time { margin: 14px 0; padding: 12px 14px; border-radius: 10px; background: #e7f4ee; }
     .choice .build-time small { color: #285749; font-size: 12px; font-weight: 650; }
     .choice .build-duration { display: block; margin-top: 3px; color: #075b4a; font-size: 26px; font-weight: 800; letter-spacing: -.035em; text-transform: none; font-variant-numeric: tabular-nums; }
+    .choice .code-size { margin-top: 8px; font-size: 16px; font-weight: 750; font-variant-numeric: tabular-nums; }
+    .choice .build-rate { margin-top: 4px; font-size: 16px; font-weight: 750; color: #075b4a; }
+    @media (max-width: 900px) { .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .choices { grid-template-columns: 1fr; } }
     .timing-note { margin: 20px 0 -8px; color: #42566a; font-size: 13px; }
     .demo { background: white; border: 1px solid #d5e3df; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px #143a4b0b; }
     iframe { display: block; border: 0; width: 100%; height: 1200px; min-height: 75vh; }
@@ -57,7 +61,7 @@
     <section class="intro" aria-labelledby="title">
       <div class="eyebrow">Agentic build · Verifiable result</div>
       <h1 id="title">From notebooks to working apps.</h1>
-      <p>Five notebooks, two builds of each: GPT-6 Astra and local Qwen 3.8. Compare Text Atlas, demand forecasting, energy planning, CPU scaling and Iris classification.
+      <p>Five notebooks, three builds of each: GPT-6 Astra, Qwen on Mac, and local Qwen on NVIDIA RTX. Compare Text Atlas, demand forecasting, energy planning, CPU scaling and Iris classification.
         Each card identifies the build model. AGILAB presents the working app, its original source bundle, and its recorded checks.</p>
     </section>
     <details>
@@ -74,67 +78,97 @@ agilab-notebook-demo --ui</code></pre>
         It excludes notebook contents, prompts, paths and credentials.
         Nothing is submitted automatically; public reports are associated with your GitHub account.</p>
     </details>
-    <p class="timing-note">Recorded elapsed build time, including repairs, validation and any waiting time. One run per build; scopes differ. <a href="https://huggingface.co/spaces/jpmorard/agilab/tree/61500142c9e143f8e222cf25f7b0e50f2a12db68/src/agilab/resources" target="_blank" rel="noopener noreferrer">Build receipts ↗</a></p>
+    <p class="timing-note">RTX builds use the OpenCode agent with local Qwen; Codex supervises the build and validation online. Recorded build durations, including repairs and checks. One run per build; hardware, quantization and verification scopes differ. RTX timings exclude initial installation, downloads and browser checks. 1 KLOC = 1,000 Python code lines across the generated app and notebook, excluding comments, docstrings, tests and supplied helpers. Lines/min divides that code volume by elapsed build minutes; it does not measure code quality. <a href="https://huggingface.co/spaces/jpmorard/agilab/tree/a5c340c0f778f9a6e80252c386c44104df100fba/src/agilab/demos/resources" target="_blank" rel="noopener noreferrer">Build receipts ↗</a></p>
     <nav class="choices" aria-label="Choose a notebook demo">
-      <a class="choice" data-demo="text" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
-        <span>Local Qwen · INRIA</span><strong>Text atlas · Qwen</strong>
-        <div class="build-time" data-build-seconds="1208.2"><small>Build time</small><span class="build-duration">20 min 08 s</span></div>
-        <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
-        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
-      </a>
       <a class="choice" data-demo="text_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_astra&amp;embed=true">
         <span>Original Astra · INRIA</span><strong>Text atlas · Astra</strong>
-        <div class="build-time" data-build-seconds="464.0"><small>Build time</small><span class="build-duration">7 min 44 s</span></div>
+        <div class="build-time" data-build-seconds="464.0" data-kloc="0.257"><small>Build time</small><span class="build-duration">7 min 44 s</span><small class="code-size">0.257 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="33.232759">33.2 lines/min</small></div>
         <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
       </a>
-      <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
-        <span>Local Qwen · Chronos-2 Small</span><strong>Demand forecast · Qwen</strong>
-        <div class="build-time" data-build-seconds="5361.5"><small>Build time</small><span class="build-duration">1 h 29 min 22 s</span></div>
-        <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
-        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: autogluon/chronos-2-small</small>
+      <a class="choice" data-demo="text" aria-current="true" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text&amp;embed=true">
+        <span>Local Qwen · INRIA</span><strong>Text atlas · Qwen · Mac</strong>
+        <div class="build-time" data-build-seconds="1208.2" data-kloc="0.236"><small>Build time</small><span class="build-duration">20 min 08 s</span><small class="code-size">0.236 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="11.719914">11.7 lines/min</small></div>
+        <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
+      </a>
+      <a class="choice" data-demo="text_rtx" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=text_rtx&amp;embed=true">
+        <span>Local Qwen · rtx5 · NVIDIA RTX 4090</span><strong>Text atlas · Qwen · RTX</strong>
+        <div class="build-time" data-build-seconds="1254.26" data-kloc="0.304"><small>Build time</small><span class="build-duration">20 min 54 s</span><small class="code-size">0.304 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="14.542439">14.5 lines/min</small></div>
+        <small>Map 1,250 historical news articles. Discover how words become neighborhoods.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (Q4_K_M · local CUDA)<br>App uses: TF-IDF, dimensionality reduction and clustering</small>
       </a>
       <a class="choice" data-demo="forecast_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_astra&amp;embed=true">
         <span>Original Astra · Chronos-2 Small</span><strong>Demand forecast · Astra</strong>
-        <div class="build-time" data-build-seconds="361.0"><small>Build time</small><span class="build-duration">6 min 01 s</span></div>
+        <div class="build-time" data-build-seconds="361.0" data-kloc="0.322"><small>Build time</small><span class="build-duration">6 min 01 s</span><small class="code-size">0.322 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="53.518006">53.5 lines/min</small></div>
         <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: autogluon/chronos-2-small</small>
       </a>
-      <a class="choice" data-demo="milp" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
-        <span>Local Qwen · PyPSA</span><strong>MILP Energy Lab · Qwen</strong>
-        <div class="build-time" data-build-seconds="15899.9"><small>Build time</small><span class="build-duration">4 h 25 min 00 s</span></div>
-        <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
-        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
+      <a class="choice" data-demo="forecast" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast&amp;embed=true">
+        <span>Local Qwen · Chronos-2 Small</span><strong>Demand forecast · Qwen · Mac</strong>
+        <div class="build-time" data-build-seconds="5361.5" data-kloc="0.395"><small>Build time</small><span class="build-duration">1 h 29 min 22 s</span><small class="code-size">0.395 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="4.420405">4.4 lines/min</small></div>
+        <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: autogluon/chronos-2-small</small>
+      </a>
+      <a class="choice" data-demo="forecast_rtx" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=forecast_rtx&amp;embed=true">
+        <span>Local Qwen · rtx5 · NVIDIA RTX 4090</span><strong>Demand forecast · Qwen · RTX</strong>
+        <div class="build-time" data-build-seconds="1615.2" data-kloc="0.407"><small>Build time</small><span class="build-duration">26 min 55 s</span><small class="code-size">0.407 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="15.118871">15.1 lines/min</small></div>
+        <small>Design a promotion, run a pretrained model, and compare the forecast with held-out data.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (Q4_K_M · local CUDA)<br>App uses: autogluon/chronos-2-small</small>
       </a>
       <a class="choice" data-demo="milp_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_astra&amp;embed=true">
         <span>Original Astra · PyPSA</span><strong>MILP Energy Lab · Astra</strong>
-        <div class="build-time" data-build-seconds="1439.8"><small>Build time</small><span class="build-duration">24 min 00 s</span></div>
+        <div class="build-time" data-build-seconds="1439.8" data-kloc="1.344"><small>Build time</small><span class="build-duration">24 min 00 s</span><small class="code-size">1.344 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="56.007779">56.0 lines/min</small></div>
         <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
-      <a class="choice" data-demo="threading" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true">
-        <span>Local Qwen · Python free-threading</span><strong>Free-threading lab · Qwen</strong>
-        <div class="build-time" data-build-seconds="16066.5"><small>Build time</small><span class="build-duration">4 h 27 min 47 s</span></div>
-        <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
-        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: Mandelbrot benchmark; no inference model</small>
+      <a class="choice" data-demo="milp" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp&amp;embed=true">
+        <span>Local Qwen · PyPSA</span><strong>MILP Energy Lab · Qwen · Mac</strong>
+        <div class="build-time" data-build-seconds="15899.9" data-kloc="1.768"><small>Build time</small><span class="build-duration">4 h 25 min 00 s</span><small class="code-size">1.768 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="6.671740">6.7 lines/min</small></div>
+        <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
+      </a>
+      <a class="choice" data-demo="milp_rtx" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=milp_rtx&amp;embed=true">
+        <span>Local Qwen · rtx4 · NVIDIA RTX 4090</span><strong>MILP Energy Lab · Qwen · RTX</strong>
+        <div class="build-time" data-build-seconds="15837.7" data-kloc="0.584"><small>Build time</small><span class="build-duration">4 h 23 min 58 s</span><small class="code-size">0.584 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="2.212442">2.2 lines/min</small></div>
+        <small>Build an energy system, inspect optimal schedules, save scenarios, and measure AGILAB batch throughput.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (Q4_K_M · local CUDA)<br>App uses: PyPSA and HiGHS optimization; no inference model</small>
       </a>
       <a class="choice" data-demo="threading_astra" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_astra&amp;embed=true">
         <span>Original Astra · Python free-threading</span><strong>Free-threading lab · Astra</strong>
-        <div class="build-time" data-build-seconds="751.0"><small>Build time</small><span class="build-duration">12 min 31 s</span></div>
+        <div class="build-time" data-build-seconds="751.0" data-kloc="0.602"><small>Build time</small><span class="build-duration">12 min 31 s</span><small class="code-size">0.602 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="48.095872">48.1 lines/min</small></div>
         <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Mandelbrot benchmark; no inference model</small>
       </a>
+      <a class="choice" data-demo="threading" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading&amp;embed=true">
+        <span>Local Qwen · Python free-threading</span><strong>Free-threading lab · Qwen · Mac</strong>
+        <div class="build-time" data-build-seconds="16066.5" data-kloc="1.468"><small>Build time</small><span class="build-duration">4 h 27 min 47 s</span><small class="code-size">1.468 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="5.482215">5.5 lines/min</small></div>
+        <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: Mandelbrot benchmark; no inference model</small>
+      </a>
+      <a class="choice" data-demo="threading_rtx" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=threading_rtx&amp;embed=true">
+        <span>Local Qwen · rtx1 · NVIDIA RTX 4090</span><strong>Free-threading lab · Qwen · RTX</strong>
+        <div class="build-time" data-build-seconds="15987.22" data-kloc="1.312"><small>Build time</small><span class="build-duration">4 h 26 min 27 s</span><small class="code-size">1.312 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="4.923933">4.9 lines/min</small></div>
+        <small>Render identical fractals with threads and processes. Measure real speedup on the available CPU cores.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (Q4_K_M · local CUDA)<br>App uses: Mandelbrot benchmark; no inference model</small>
+      </a>
       <a class="choice" data-demo="iris" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris&amp;embed=true">
         <span>Aurélien Géron · Original demo</span><strong>Iris decision lab · Astra</strong>
-        <div class="build-time" data-build-seconds="285.3"><small>Build time</small><span class="build-duration">4 min 45 s</span></div>
+        <div class="build-time" data-build-seconds="285.3" data-kloc="0.180"><small>Build time</small><span class="build-duration">4 min 45 s</span><small class="code-size">0.180 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="37.854890">37.9 lines/min</small></div>
         <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
         <small class="model-info">Build model: GPT-6 Astra (OpenAI)<br>App uses: Decision tree, random forest and logistic regression</small>
       </a>
       <a class="choice" data-demo="iris_local" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_local&amp;embed=true">
-        <span>Aurélien Géron · Local model build</span><strong>Iris decision lab · Qwen</strong>
-        <div class="build-time" data-build-seconds="2048.5"><small>Build time</small><span class="build-duration">34 min 09 s</span></div>
+        <span>Aurélien Géron · Local model build</span><strong>Iris decision lab · Qwen · Mac</strong>
+        <div class="build-time" data-build-seconds="2048.5" data-kloc="0.155"><small>Build time</small><span class="build-duration">34 min 09 s</span><small class="code-size">0.155 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="4.539907">4.5 lines/min</small></div>
         <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
         <small class="model-info">Build model: Qwen 3.8 27B (local MLX)<br>App uses: Decision tree, random forest and logistic regression</small>
+      </a>
+      <a class="choice" data-demo="iris_rtx" aria-current="false" href="https://jpmorard-agilab.hf.space/AGENT_DEMO?demo=iris_rtx&amp;embed=true">
+        <span>Local Qwen · rtx5 · NVIDIA RTX 4090</span><strong>Iris decision lab · Qwen · RTX</strong>
+        <div class="build-time" data-build-seconds="481.63" data-kloc="0.261"><small>Build time</small><span class="build-duration">8 min 02 s</span><small class="code-size">0.261 KLOC · generated Python</small><small class="build-rate" data-loc-per-minute="32.514586">32.5 lines/min</small></div>
+        <small>Compare classifiers and see how a model's complexity changes its decisions.</small>
+        <small class="model-info">Build model: Qwen 3.8 27B (Q4_K_M · local CUDA)<br>App uses: Decision tree, random forest and logistic regression</small>
       </a>
     </nav>
     <div class="bar">
