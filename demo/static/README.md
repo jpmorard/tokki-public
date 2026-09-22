@@ -16,7 +16,7 @@ The [Tokki Space](https://huggingface.co/spaces/jpmorard/tokki) offers **five ap
 Text Atlas opens by default. Each app's Astra, Qwen Mac and Qwen RTX cards appear together.
 No AI provider subscription is needed to try these fifteen completed builds.
 
-Each launch card highlights its recorded elapsed build time, rounded to the nearest second. All durations include repairs and validation. Legacy receipts include waiting time; RTX receipts sum active build/repair runs and exclude gaps between runs, initial installation, downloads and browser checks. They describe one recorded run per build with differing scopes, not a controlled model-speed benchmark. The values come from the [published build receipts](https://huggingface.co/spaces/jpmorard/agilab/tree/a5c340c0f778f9a6e80252c386c44104df100fba/src/agilab/demos/resources).
+Each launch card highlights its recorded elapsed build time, rounded to the nearest second. All durations include repairs and validation. Legacy receipts include waiting time; RTX receipts sum active build/repair runs and exclude gaps between runs, initial installation, downloads and browser checks. They describe one recorded run per build with differing scopes, not a controlled model-speed benchmark. The values come from the [published build receipts](https://huggingface.co/spaces/jpmorard/agilab/tree/af6a08acf470764a7be46a344f5576bf9ffd93d8/src/agilab/demos/resources).
 
 | App | GPT-6 Astra · duration / KLOC / lines/min | Qwen Mac · duration / KLOC / lines/min | Qwen RTX · duration / KLOC / lines/min |
 | --- | --- | --- | --- |
