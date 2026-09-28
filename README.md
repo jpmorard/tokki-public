@@ -2,6 +2,7 @@
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Release evidence](https://img.shields.io/badge/release%20evidence-signed-blue.svg)](RELEASES.md)
+[![Build with Rust](https://img.shields.io/badge/Build%20with-Rust-orange.svg?logo=rust&logoColor=white)](https://www.rust-lang.org/)
 
 Tokki is a proprietary local developer tool with a **pure Rust runtime**,
 distributed as compiled wheels.
