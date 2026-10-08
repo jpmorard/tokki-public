@@ -1,0 +1,31 @@
+{
+  "schema": "tokki.token_cost_projection.v1",
+  "updated_on": "2026-10-08",
+  "input_snapshot": {
+    "path": "docs/evidence/token-cost-snapshot-2026-09-17.json",
+    "sha256": "0a5c09b7802a02f2db4b32c3e540ce36ba4d82d777cabfda5ac3310da5c7ffc1"
+  },
+  "pricing": {
+    "checked_on": "2026-10-08",
+    "basis": "standard_uncached_short_context_input",
+    "models": [
+      {"id": "gpt-6-astra", "label": "GPT-6 Astra", "input_usd_per_million": 10, "source": "https://developers.openai.com/api/docs/models/gpt-6-astra"},
+      {"id": "gpt-6.1-sol", "label": "GPT-6.1 Sol", "input_usd_per_million": 2, "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol"},
+      {"id": "gpt-5.6-terra", "label": "GPT-5.6 Terra", "input_usd_per_million": 2, "source": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"},
+      {"id": "gpt-6-luna", "label": "GPT-6 Luna", "input_usd_per_million": 0.1, "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"}
+    ]
+  },
+  "exchange_rate": {
+    "date": "2026-10-07",
+    "retrieved_on": "2026-10-08",
+    "usd_per_eur": 1.1177,
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+  },
+  "projection": {"baseline_input_tokens": 1000000, "max_input_tokens_per_request": 272000, "aggregation": "across requests"},
+  "limitations": [
+    "The context ratio remains the two-scenario measurement from 2026-09-17, not a fresh runtime benchmark.",
+    "Exact historical counts use gpt-4o; displayed model tokenization and task quality were not measured.",
+    "This projection is not a measured million-token workload or a comparison of equivalent completed tasks.",
+    "Output, cache, tools, recovery, retries, latency, regional surcharges and Codex quotas are excluded; this is not billing evidence."
+  ]
+}

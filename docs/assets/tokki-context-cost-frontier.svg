@@ -1,79 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="700" height="420" role="img" aria-labelledby="ctxcost-title ctxcost-desc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-  <title id="ctxcost-title">Cost per 1 million baseline input tokens</title>
-  <desc id="ctxcost-desc">Euro projection for 1.000 M baseline input tokens accumulated across requests, or approximately 0.145 M tokens with Tokki at the measured ratio of 6.9x. Fresh local capture on 2026-09-17 with Tokki 1.0.63: 2 available scenarios, 11,989 baseline tokens and 1,736 Tokki tokens, counted exactly with gpt-4o (grade A); later reruns can differ. The projection applies this ratio to a million tokens; it is not a measured million-token run, native token accounting for the displayed models or a quality comparison: this is not an Astra benchmark. OpenAI standard uncached input prices checked on 2026-09-17: Astra $10.00, Sol $4.00, Terra $2.00 and Luna $0.20 per million tokens. Each request is assumed to have at most 272,000 input tokens, without long-context surcharges. ECB exchange rate from 2026-09-17: 1.1481 USD per EUR. Baseline → Tokki projected costs: Astra €8.71 → €1.26; Sol €3.48 → €0.50; Terra €1.74 → €0.25; Luna €0.1742 → €0.0252. Output, caching, tools and Codex quotas excluded; not billing evidence. Unavailable log scenarios excluded. Aggregate receipt: token-cost-snapshot-2026-09-17.json; inputs remain private.</desc>
-  <!-- Standard API input prices, checked 2026-09-17:
-       https://developers.openai.com/api/docs/models/gpt-6-astra
-       https://developers.openai.com/api/docs/models/gpt-5.6-sol
-       https://developers.openai.com/api/docs/models/gpt-5.6-terra
-       https://developers.openai.com/api/docs/models/gpt-5.6-luna
-       FX source: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html
-       Cost = (measured tokens / measured baseline) × USD per million / 1.1481.
-       Log axis: x = 300 + log10(cost / 0.01) × 852 / log10(2000). -->
-  <rect width="1200" height="720" fill="#ffffff"/>
-  <text x="48" y="64" font-size="34" font-weight="700" fill="#172026">Cost per 1 million baseline input tokens</text>
-  <text x="48" y="104" font-size="22" fill="#475569">1.000 M → 0.145 M tokens (ratio 6.9x)</text>
-  <circle cx="60" cy="156" r="10" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-  <text x="82" y="163" font-size="21" fill="#334155">Baseline context</text>
-  <circle cx="370" cy="156" r="10" fill="#2563eb"/>
-  <text x="392" y="163" font-size="21" fill="#334155">Context with Tokki</text>
-  <g stroke="#cbd5e1" stroke-width="1">
-    <line x1="300.0" y1="204" x2="300.0" y2="536"/>
-    <line x1="558.1" y1="204" x2="558.1" y2="536"/>
-    <line x1="816.2" y1="204" x2="816.2" y2="536"/>
-    <line x1="1074.3" y1="204" x2="1074.3" y2="536"/>
-    <line x1="1152.0" y1="204" x2="1152.0" y2="536"/>
-  </g>
-  <g font-size="20" fill="#475569" text-anchor="middle">
-    <text x="300.0" y="568">€0.01</text>
-    <text x="558.1" y="568">€0.10</text>
-    <text x="816.2" y="568">€1</text>
-    <text x="1074.3" y="568">€10</text>
-    <text x="1152.0" y="568">€20</text>
-  </g>
-  <text x="710" y="600" font-size="20" fill="#475569" text-anchor="middle">Estimated input cost · logarithmic scale</text>
-  <g id="cost-astra">
-    <text x="48" y="250" font-size="24" font-weight="600" fill="#172026">GPT-6 Astra</text>
-    <text x="48" y="277" font-size="20" fill="#475569">€8.71 / M input</text>
-    <line x1="842.2" y1="254" x2="1058.8" y2="254" stroke="#94a3b8" stroke-width="3"/>
-    <circle id="astra-baseline" cx="1058.8" cy="254" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-    <circle id="astra-tokki" cx="842.2" cy="254" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-    <text id="astra-baseline-cost" x="1058.8" y="230" font-size="22" fill="#334155" text-anchor="middle">€8.71</text>
-    <text id="astra-tokki-cost" x="842.2" y="230" font-size="22" font-weight="600" fill="#1e40af" text-anchor="middle">€1.26</text>
-  </g>
-  <g id="cost-sol">
-    <text x="48" y="330" font-size="24" font-weight="600" fill="#172026">GPT-5.6 Sol</text>
-    <text x="48" y="357" font-size="20" fill="#475569">€3.48 / M input</text>
-    <line x1="739.5" y1="334" x2="956.1" y2="334" stroke="#94a3b8" stroke-width="3"/>
-    <circle id="sol-baseline" cx="956.1" cy="334" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-    <circle id="sol-tokki" cx="739.5" cy="334" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-    <text id="sol-baseline-cost" x="956.1" y="310" font-size="22" fill="#334155" text-anchor="middle">€3.48</text>
-    <text id="sol-tokki-cost" x="739.5" y="310" font-size="22" font-weight="600" fill="#1e40af" text-anchor="middle">€0.50</text>
-  </g>
-  <g id="cost-terra">
-    <text x="48" y="410" font-size="24" font-weight="600" fill="#172026">GPT-5.6 Terra</text>
-    <text x="48" y="437" font-size="20" fill="#475569">€1.74 / M input</text>
-    <line x1="661.8" y1="414" x2="878.4" y2="414" stroke="#94a3b8" stroke-width="3"/>
-    <circle id="terra-baseline" cx="878.4" cy="414" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-    <circle id="terra-tokki" cx="661.8" cy="414" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-    <text id="terra-baseline-cost" x="878.4" y="390" font-size="22" fill="#334155" text-anchor="middle">€1.74</text>
-    <text id="terra-tokki-cost" x="661.8" y="390" font-size="22" font-weight="600" fill="#1e40af" text-anchor="middle">€0.25</text>
-  </g>
-  <g id="cost-luna">
-    <text x="48" y="490" font-size="24" font-weight="600" fill="#172026">GPT-5.6 Luna</text>
-    <text x="48" y="517" font-size="20" fill="#475569">€0.174 / M input</text>
-    <line x1="403.7" y1="494" x2="620.3" y2="494" stroke="#94a3b8" stroke-width="3"/>
-    <circle id="luna-baseline" cx="620.3" cy="494" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-    <circle id="luna-tokki" cx="403.7" cy="494" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-    <text id="luna-baseline-cost" x="620.3" y="470" font-size="22" fill="#334155" text-anchor="middle">€0.1742</text>
-    <text id="luna-tokki-cost" x="403.7" y="470" font-size="22" font-weight="600" fill="#1e40af" text-anchor="middle">€0.0252</text>
-  </g>
-  <rect x="48" y="620" width="454" height="76" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
-  <text x="68" y="650" font-size="24" font-weight="600" fill="#1e40af">Input divided by 6.9</text>
-  <text x="68" y="680" font-size="20" fill="#334155">≈ 85.5% lower projected input cost</text>
-  <g font-size="18" fill="#475569">
-    <text x="528" y="634">Measured: 2026-09-17 · gpt-4o token counts</text>
-    <text x="528" y="655">Prices + ECB FX: 2026-09-17 · €1 = $1.1481</text>
-    <text x="528" y="676">1 M tokens across requests ≤272k each.</text>
-    <text x="528" y="697">Input only; not a measured 1 M-token run.</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="700" height="420" role="img" aria-labelledby="ctxcost-title ctxcost-desc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+<title id="ctxcost-title">Projected cost per 1 million baseline input tokens</title>
+<desc id="ctxcost-desc">Historical context snapshot 2026-09-17, Tokki 1.0.63: 11989 baseline and 1736 Tokki tokens counted with gpt-4o across 2 scenarios. Standard uncached API input prices verified 2026-10-08; ECB rate dated 2026-10-07: 1.1177 USD/EUR. One million baseline input tokens accumulated across requests of at most 272000 tokens. Projected costs, not a new benchmark, equivalent-task comparison or billing evidence. Output, cache, tools, recovery, retries and Codex quotas excluded. Receipt: tokki-token-cost-projection-20261008.json.</desc>
+<rect width="1200" height="720" rx="24" fill="#ffffff"/>
+<text x="48" y="60" font-size="24" fill="#2563eb" font-weight="700">TOKKI · TOKEN-COST TEASER</text>
+<text x="48" y="113" font-size="38" fill="#172026" font-weight="700">Less context. Lower projected input cost.</text>
+<text x="48" y="153" font-size="25" fill="#334155" >1.000 M baseline → 0.145 M with Tokki¹</text>
+<circle cx="710" cy="188" r="9" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
+<text x="730" y="196" font-size="21" fill="#475569" >Baseline</text>
+<circle cx="918" cy="188" r="9" fill="#2563eb" stroke="#ffffff" stroke-width="3"/>
+<text x="938" y="196" font-size="21" fill="#475569" >With Tokki</text>
+<line x1="300.0" y1="216" x2="300.0" y2="536" stroke="#e2e8f0"/>
+<text x="300.0" y="568" font-size="20" fill="#475569" text-anchor="middle">€0.01</text>
+<line x1="558.1" y1="216" x2="558.1" y2="536" stroke="#e2e8f0"/>
+<text x="558.1" y="568" font-size="20" fill="#475569" text-anchor="middle">€0.1</text>
+<line x1="816.2" y1="216" x2="816.2" y2="536" stroke="#e2e8f0"/>
+<text x="816.2" y="568" font-size="20" fill="#475569" text-anchor="middle">€1</text>
+<line x1="1074.3" y1="216" x2="1074.3" y2="536" stroke="#e2e8f0"/>
+<text x="1074.3" y="568" font-size="20" fill="#475569" text-anchor="middle">€10</text>
+<line x1="1152.0" y1="216" x2="1152.0" y2="536" stroke="#e2e8f0"/>
+<text x="1152.0" y="568" font-size="20" fill="#475569" text-anchor="middle">€20</text>
+<g id="ctxcost-cost-astra">
+<text x="48" y="250" font-size="24" fill="#172026" font-weight="600">GPT-6 Astra</text>
+<text x="48" y="277" font-size="20" fill="#475569" >$10 / M input</text>
+<line x1="845.2" y1="254" x2="1061.8" y2="254" stroke="#94a3b8" stroke-width="3"/>
+<circle id="ctxcost-astra-baseline" cx="1061.8" cy="254" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
+<circle id="ctxcost-astra-tokki" cx="845.2" cy="254" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="1061.8" y="230" font-size="22" fill="#334155" id="astra-baseline-cost" text-anchor="middle">€8.95</text>
+<text x="845.2" y="230" font-size="22" fill="#1e40af" id="astra-tokki-cost" text-anchor="middle" font-weight="600">€1.30</text>
+</g>
+<g id="ctxcost-cost-sol">
+<text x="48" y="330" font-size="24" fill="#172026" font-weight="600">GPT-6.1 Sol</text>
+<text x="48" y="357" font-size="20" fill="#475569" >$2 / M input</text>
+<line x1="664.8" y1="334" x2="881.4" y2="334" stroke="#94a3b8" stroke-width="3"/>
+<circle id="ctxcost-sol-baseline" cx="881.4" cy="334" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
+<circle id="ctxcost-sol-tokki" cx="664.8" cy="334" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="881.4" y="310" font-size="22" fill="#334155" id="sol-baseline-cost" text-anchor="middle">€1.79</text>
+<text x="664.8" y="310" font-size="22" fill="#1e40af" id="sol-tokki-cost" text-anchor="middle" font-weight="600">€0.26</text>
+</g>
+<g id="ctxcost-cost-terra">
+<text x="48" y="410" font-size="24" fill="#172026" font-weight="600">GPT-5.6 Terra</text>
+<text x="48" y="437" font-size="20" fill="#475569" >$2 / M input</text>
+<line x1="664.8" y1="414" x2="881.4" y2="414" stroke="#94a3b8" stroke-width="3"/>
+<circle id="ctxcost-terra-baseline" cx="881.4" cy="414" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
+<circle id="ctxcost-terra-tokki" cx="664.8" cy="414" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="881.4" y="390" font-size="22" fill="#334155" id="terra-baseline-cost" text-anchor="middle">€1.79</text>
+<text x="664.8" y="390" font-size="22" fill="#1e40af" id="terra-tokki-cost" text-anchor="middle" font-weight="600">€0.26</text>
+</g>
+<g id="ctxcost-cost-luna">
+<text x="48" y="490" font-size="24" fill="#172026" font-weight="600">GPT-6 Luna</text>
+<text x="48" y="517" font-size="20" fill="#475569" >$0.1 / M input</text>
+<line x1="329.0" y1="494" x2="545.6" y2="494" stroke="#94a3b8" stroke-width="3"/>
+<circle id="ctxcost-luna-baseline" cx="545.6" cy="494" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
+<circle id="ctxcost-luna-tokki" cx="329.0" cy="494" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="545.6" y="470" font-size="22" fill="#334155" id="luna-baseline-cost" text-anchor="middle">€0.0895</text>
+<text x="329.0" y="470" font-size="22" fill="#1e40af" id="luna-tokki-cost" text-anchor="middle" font-weight="600">€0.0130</text>
+</g>
+<text x="710" y="600" font-size="20" fill="#475569" text-anchor="middle">Estimated input cost · logarithmic scale</text>
+<text x="48" y="640" font-size="20" fill="#475569" >¹ 2026-09-17 · 2 scenarios · gpt-4o</text>
+<text x="48" y="668" font-size="20" fill="#475569" >11,989 → 1,736 tokens · 6.9x</text>
+<text x="620" y="640" font-size="20" fill="#475569" >Prices: 2026-10-08 · ECB: 2026-10-07</text>
+<text x="620" y="668" font-size="20" fill="#475569" >Standard uncached input</text>
+<text x="48" y="697" font-size="20" fill="#475569" >Projection, not billing or a new benchmark.</text>
+<text x="820" y="697" font-size="20" fill="#475569" >Other costs excluded.</text>
 </svg>

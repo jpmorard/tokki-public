@@ -81,23 +81,25 @@ availability.*
 
 **For 1 million baseline input tokens: approximately 0.145 million with Tokki.**
 The chart applies the 6.9x reduction measured on 2026-09-17 to this shared
-volume, making projected costs easier to compare.
+volume, using API prices checked on 2026-10-08 and the ECB rate dated 2026-10-07.
 
 <p align="center">
   <a href="docs/assets/tokki-context-cost-frontier.svg">
     <img
       src="docs/assets/tokki-context-cost-frontier.svg"
-      alt="Projected input costs with and without Tokki for GPT-6 Astra, GPT-5.6 Sol, Terra and Luna, using the same dated token snapshot."
+      alt="Projected input costs with and without Tokki for GPT-6 Astra, GPT-6.1 Sol, GPT-5.6 Terra and GPT-6 Luna, using a historical token snapshot."
       width="700"
     >
   </a>
 </p>
 
 [Version française](docs/assets/tokki-context-cost-frontier-fr.svg).
-Token counts, prices and ECB exchange rate updated on 2026-09-17.
+The historical token counts are unchanged; this update is not a new benchmark.
 This is a normalized input-cost projection across requests, not a measured
 million-token workload. See the [Public Report](#public-report)
 and [aggregate measurement receipt](docs/evidence/token-cost-snapshot-2026-09-17.json).
+The [projection receipt](docs/evidence/tokki-token-cost-projection-20261008.json)
+records the current prices, exchange rate and historical receipt hash.
 
 ## Public Report
 
@@ -126,18 +128,18 @@ are estimates; task success and model quality were not measured.
 The [input-cost comparison](docs/assets/tokki-context-cost-frontier.svg)
 ([French](docs/assets/tokki-context-cost-frontier-fr.svg)) now includes
 [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra).
-Standard uncached input prices checked on 2026-09-17 are $10.00 for Astra,
-$4.00 for [Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol),
-$2.00 for [Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
-and $0.20 for [Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna)
+Standard uncached input prices checked on 2026-10-08 are $10.00 for Astra,
+$2.00 for [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol),
+$2.00 for [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
+and $0.10 for [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 per million tokens. The chart uses the
 [ECB exchange rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
-of 1.1481 USD per EUR (2026-09-17). It scales the freshly measured `gpt-4o`
+of 1.1177 USD per EUR (2026-10-07). It scales the historical `gpt-4o`
 token ratio to 1 million baseline input tokens (approximately 0.145 million
 with Tokki), accumulated across requests of at most 272,000 input tokens
 each, so standard rates apply. This is a normalized price projection, not a
 measured million-token workload, an Astra benchmark or a quality comparison.
-Output, caching, tools and Codex subscription quotas are excluded.
+Output, caching, tools, recovery, retries and Codex subscription quotas are excluded.
 A later benchmark rerun can differ.
 
 Prior published readings of 590x on the dirty-worktree row and 80,485 net
