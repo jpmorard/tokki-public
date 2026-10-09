@@ -172,19 +172,29 @@ boundary are defined in [BENCHMARK.md](BENCHMARK.md).
 ## Install
 
 Compiled wheel files are distributed privately to authorized users. This public
-repo does not host wheel artifacts. After receiving the wheel matching your OS,
-install it from a local path, then verify with `tokki --version` and
-`tokki doctor --strict`.
+repo does not host wheel artifacts. After receiving the wheel
+matching your OS and a separate activation certificate, install the wheel from
+a local path, activate it using the instructions supplied with your certificate,
+then verify with `tokki --version` and `tokki doctor --strict`.
 
-### PyPI status
+### PyPI status and activation
 
-PyPI's current inert name-retention placeholder is `tokki 0.0.1`. It contains
-no Tokki runtime and declares `Requires-Python >=99`, so `pip` will not install
-it in supported Python environments. It exists solely to retain the Tokki
-project name. The current private runtime is `Tokki 1.0.63`; its public
-integrity record is
-[v1.0.63 release evidence](RELEASES.md). PyPI publishing is retired and is not
-the Tokki distribution channel.
+Public runtime wheels on PyPI are planned; publication is pending.
+PyPI's current inert name-retention placeholder is `tokki 0.0.1`.
+This is the only release on [PyPI](https://pypi.org/project/tokki/), as verified
+on 2026-10-09. It contains no Tokki runtime and declares `Requires-Python >=99`,
+so `pip` will not install it in supported Python environments.
+Do not use `pip install tokki` to obtain the runtime yet.
+
+The planned public wheels retain the proprietary license terms, but exclude
+activation certificates, private signing keys and private implementation source.
+Installing a wheel does not activate Tokki. A valid activation certificate is
+required for licensed runtime operations and is provided separately to authorized users.
+
+The current private runtime is `Tokki 1.0.63`; its public integrity record is
+[v1.0.63 release evidence](RELEASES.md). Until a runtime release is published on
+PyPI and this page confirms its version, use the authorized private wheel
+installation instructions below.
 
 After install, the non-destructive first-run check is:
 
@@ -345,6 +355,8 @@ Windows notes:
 ## Public Package
 
 Current public package: `tokki 1.0.63`.
+
+This is the documented private runtime release, not the PyPI placeholder.
 
 `1.0.63` provides private wheelhouse artifacts for:
 
