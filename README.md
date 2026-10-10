@@ -191,10 +191,11 @@ activation certificates, private signing keys and private implementation source.
 Installing a wheel does not activate Tokki. A valid activation certificate is
 required for licensed runtime operations and is provided separately to authorized users.
 
-The current private runtime is `Tokki 1.0.63`; its public integrity record is
-[v1.0.63 release evidence](RELEASES.md). Until a runtime release is published on
-PyPI and this page confirms its version, use the authorized private wheel
-installation instructions below.
+The current private runtime is `Tokki 1.0.68`, distributed privately; its
+[v1.0.68 release evidence](RELEASES.md) contains signed metadata only.
+It provides no public wheel download and does not announce a PyPI runtime release.
+Until public runtime wheels are published and this page confirms their version,
+use the authorized private wheel installation instructions below.
 
 After install, the non-destructive first-run check is:
 
@@ -217,7 +218,7 @@ Apple Silicon:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.63-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.68-py3-none-macosx_11_0_arm64.whl
 export PATH="$(python3 -m site --user-base)/bin:$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -226,7 +227,7 @@ Optional isolated install with `uv`:
 
 ```sh
 uv tool install --force \
-/path/to/tokki-1.0.63-py3-none-macosx_11_0_arm64.whl
+/path/to/tokki-1.0.68-py3-none-macosx_11_0_arm64.whl
 tokki --version
 ```
 
@@ -249,7 +250,7 @@ x86_64:
 
 ```sh
 python3 -m pip install --user --upgrade --force-reinstall \
-/path/to/tokki-1.0.63-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.68-py3-none-manylinux_2_35_x86_64.whl
 export PATH="$HOME/.local/bin:$PATH"
 tokki --version
 ```
@@ -258,7 +259,7 @@ Optional isolated install with `pipx`:
 
 ```sh
 python3 -m pipx install --force \
-/path/to/tokki-1.0.63-py3-none-manylinux_2_35_x86_64.whl
+/path/to/tokki-1.0.68-py3-none-manylinux_2_35_x86_64.whl
 tokki --version
 ```
 
@@ -310,7 +311,7 @@ x86_64 PowerShell:
 
 ```powershell
 py -m pip install --user --upgrade --force-reinstall `
-C:\Path\To\tokki-1.0.63-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.68-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -320,7 +321,7 @@ Optional isolated install with `pipx`:
 py -m pip install --user pipx
 py -m pipx ensurepath
 py -m pipx install --force `
-C:\Path\To\tokki-1.0.63-py3-none-win_amd64.whl
+C:\Path\To\tokki-1.0.68-py3-none-win_amd64.whl
 tokki --version
 ```
 
@@ -352,17 +353,20 @@ Windows notes:
   logs/reports under `%LOCALAPPDATA%\tokki\`. Set `TOKKI_RUNTIME_CONFIG`,
   `TOKKI_LOG_DIR`, or `TOKKI_REPORT_DIR` to override.
 
-## Public Package
+## Private runtime and public release record
 
-Current public package: `tokki 1.0.63`.
+Current public package: `tokki 1.0.68`.
 
-This is the documented private runtime release, not the PyPI placeholder.
+This version label identifies the public integrity record of the privately
+distributed runtime. The public repository contains its signed release metadata;
+it does not host these wheels. PyPI still contains only the inert `tokki 0.0.1`
+placeholder, and public runtime-wheel publication remains pending.
 
-`1.0.63` provides private wheelhouse artifacts for:
+`1.0.68` provides private wheelhouse artifacts for:
 
-- macOS arm64: `tokki-1.0.63-py3-none-macosx_11_0_arm64.whl`
-- Linux x86_64: `tokki-1.0.63-py3-none-manylinux_2_35_x86_64.whl`
-- Windows x86_64: `tokki-1.0.63-py3-none-win_amd64.whl`
+- macOS arm64: `tokki-1.0.68-py3-none-macosx_11_0_arm64.whl`
+- Linux x86_64: `tokki-1.0.68-py3-none-manylinux_2_35_x86_64.whl`
+- Windows x86_64: `tokki-1.0.68-py3-none-win_amd64.whl`
 
 The wheel intentionally does not include private implementation source,
 repository-local tests, protected Rust source, or private development scripts.
