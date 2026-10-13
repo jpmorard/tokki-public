@@ -1,0 +1,6 @@
+{
+  "manifest_sha256": "570c3896d8e392ecf9da472e72f46cb3f2eb925b1a2fc58e9e79082c386e59cc",
+  "public_key": "06e20fac36f318c68a2cd57a151973cd14122a15590646f4ead792e83c2893f5",
+  "schema": "tokki.release_artifacts_signature.v1",
+  "signature": "ed25519:a5d2214bf7d96733ed26b9a67ce870001fa124c03ea9117bb05f17397552f9783e8011a5f549867c5561ccaec04f2cd4bed4d23208619522f4805614ec5b0d0f"
+}

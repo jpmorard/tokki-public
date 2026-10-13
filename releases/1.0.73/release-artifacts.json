@@ -1,0 +1,59 @@
+{
+  "artifact_count": 3,
+  "artifacts": [
+    {
+      "filename": "tokki-1.0.73-py3-none-macosx_11_0_arm64.whl",
+      "kind": "wheel",
+      "platform": "macosx_11_0_arm64",
+      "sha256": "72c53d1f367cb16b305cbd6ef65d7b30d57961e8550bc62b0f10dac83aba3032",
+      "size": 13883816
+    },
+    {
+      "filename": "tokki-1.0.73-py3-none-manylinux_2_35_x86_64.whl",
+      "kind": "wheel",
+      "platform": "manylinux_2_35_x86_64",
+      "sha256": "d0a6583659bec32d34ea28a97b6cb34d4ef2bec1156be1561e08de2aee5f1787",
+      "size": 14946036
+    },
+    {
+      "filename": "tokki-1.0.73-py3-none-win_amd64.whl",
+      "kind": "wheel",
+      "platform": "win_amd64",
+      "sha256": "22018f9f21584b6c20385f31721519429786e529846d0d4794e7c2732547ea98",
+      "size": 14528132
+    }
+  ],
+  "build_provenance": {
+    "artifacts": [
+      {
+        "filename": "tokki-1.0.73-py3-none-macosx_11_0_arm64.whl",
+        "sha256": "72c53d1f367cb16b305cbd6ef65d7b30d57961e8550bc62b0f10dac83aba3032",
+        "size": 13883816
+      },
+      {
+        "filename": "tokki-1.0.73-py3-none-manylinux_2_35_x86_64.whl",
+        "sha256": "d0a6583659bec32d34ea28a97b6cb34d4ef2bec1156be1561e08de2aee5f1787",
+        "size": 14946036
+      },
+      {
+        "filename": "tokki-1.0.73-py3-none-win_amd64.whl",
+        "sha256": "22018f9f21584b6c20385f31721519429786e529846d0d4794e7c2732547ea98",
+        "size": 14528132
+      }
+    ],
+    "package": "tokki",
+    "schema": "tokki.build_provenance.v1",
+    "source_commit": "9194adc267dcab2e168c6a923b427c8f6e3f6c85",
+    "source_tree": "e1b105f788a93e329e4c46d6872917d0ff9c763d",
+    "trust_anchor_fingerprints": {
+      "license": "8fe62a44fd9912c06d48813aa55578995b3d8ace3fa6b5f82429687444b91175",
+      "release": "ff2bfbef745c462e9bf449d2f5214b079a5732fbe9ad962564788c2fcf49d90d",
+      "release_transition": "0e6d05de9ce0c6695c0e4d72e274b8de72cd266671325b703b2158c95e0da50c"
+    },
+    "version": "1.0.73"
+  },
+  "package": "tokki",
+  "schema": "tokki.release_artifacts.v1",
+  "sha256sums": "SHA256SUMS",
+  "version": "1.0.73"
+}
