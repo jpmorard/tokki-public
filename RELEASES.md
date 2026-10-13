@@ -7,12 +7,12 @@ The signed manifest binds the wheel name, platform, byte size, SHA-256, source
 commit/tree identifiers, and release trust-anchor fingerprints without publishing
 implementation source or wheel bytes.
 
-## Current release: 1.0.69
+## Current release: 1.0.72
 
-- [Manifest](releases/1.0.69/release-artifacts.json)
-- [Signature](releases/1.0.69/release-artifacts.sig)
-- [SHA-256 sums](releases/1.0.69/SHA256SUMS)
-- [SPDX dependency inventory](releases/1.0.69/SBOM.spdx.json)
+- [Manifest](releases/1.0.72/release-artifacts.json)
+- [Signature](releases/1.0.72/release-artifacts.sig)
+- [SHA-256 sums](releases/1.0.72/SHA256SUMS)
+- [SPDX dependency inventory](releases/1.0.72/SBOM.spdx.json)
 
 This is a public metadata record for a privately distributed runtime. It offers
 no public wheel download and does not announce a PyPI runtime release. PyPI's
@@ -24,12 +24,19 @@ custodians holding the complete authorized three-platform wheel directory can
 authenticate its manifest, signature, and exact wheel bytes with:
 
 ```sh
-tokki release verify-artifacts /path/to/tokki-1.0.69 --json
+tokki release verify-artifacts /path/to/tokki-1.0.72 --json
 ```
 
 The private installer verifies adjacent authenticated release evidence where
 that release contract applies. A hash match alone proves bytes, not source
 review, security suitability, or a support commitment.
+
+## Archived integrity record: 1.0.69
+
+- [Manifest](releases/1.0.69/release-artifacts.json)
+- [Signature](releases/1.0.69/release-artifacts.sig)
+- [SHA-256 sums](releases/1.0.69/SHA256SUMS)
+- [SPDX dependency inventory](releases/1.0.69/SBOM.spdx.json)
 
 ## Archived integrity record: 1.0.63
 
