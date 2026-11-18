@@ -379,6 +379,9 @@ wheel must match both its published SHA-256 and signed release manifest.
 
 ## Support
 
+If you want public support for Claude Code, star this repository on GitHub.
+Public support for Claude Code will open when `tokki-public` reaches **100 stars**.
+
 Use GitHub issues for installation problems and public package metadata issues.
 For failure reports, `tokki issue report --dry-run` prepares a bounded,
 privacy-filtered **local preview only**. Tokki does not post the preview:
