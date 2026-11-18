@@ -4,14 +4,18 @@
 [![Release evidence](https://img.shields.io/badge/release%20evidence-signed-blue.svg)](RELEASES.md)
 [![Build with Rust](https://img.shields.io/badge/Build%20with-Rust-orange.svg?logo=rust&logoColor=white)](https://www.rust-lang.org/)
 
-Tokki is a proprietary local developer tool with a **pure Rust runtime**,
-distributed as compiled wheels.
-It is a token killer for local developer sessions: built to cut avoidable local
-agent context before it becomes prompt spend, while keeping implementation
-details and local payloads private.
+Tokki is a **local orchestration runtime for coding agents**. It coordinates
+work across terminal agents and the checks on their results. In the
+[RTX notebook demos](https://huggingface.co/spaces/jpmorard/tokki), OpenCode
+used Qwen on a local GPU to build the apps. Codex supervised the builds and
+validation online. AGILAB lets you explore the finished apps and their checks.
 
-This public package and repository contain package information, license
-terms, public proof figures, a live demo link, and security-contact guidance.
+Cross-agent handoffs are opt-in. When a command produces a long log, Tokki
+returns a compact result and a handle for retrieving the full output locally.
+
+The proprietary Rust runtime is distributed as compiled wheels. This repository
+contains public demos, benchmark summaries, signed release metadata, license
+terms, and security contacts.
 
 ## Try Tokki × AGILAB on Hugging Face
 
