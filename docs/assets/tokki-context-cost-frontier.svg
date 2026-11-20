@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="700" height="540" viewBox="0 0 700 540" role="img" aria-labelledby="cost-en-title cost-en-desc" xml:lang="en" font-family="Arial, Helvetica, sans-serif">
   <title id="cost-en-title">How much input reaches the model?</title>
-  <desc id="cost-en-desc">Two September 2026 tasks used 11,989 baseline tokens or 1,736 with Tokki. The table projects the observed fraction across one million baseline tokens for four models at November 20, 2026 standard uncached input prices.</desc>
+  <desc id="cost-en-desc">Across two tasks, compact context fell from 11,989 to 1,736 tokens, 85.5% fewer tokens. At the same ratio, one million input tokens would become about 144,799. The table uses standard uncached input prices on November 20, 2026 for requests of at most 272,000 input tokens each. For GPT-6.2 Sol, for example, the projected input cost falls from $2.00 to $0.29.</desc>
   <rect x="1" y="1" width="698" height="538" fill="#ffffff" rx="12"/>
   <text x="26" y="40" font-size="27" font-weight="700" fill="#192d3a" text-anchor="start">How much input reaches the model?</text>
   <text x="26" y="68" font-size="16" font-weight="400" fill="#425769" text-anchor="start">Measured on two tasks · September 17, 2026</text>
@@ -9,10 +9,12 @@
   <text x="645" y="110" font-size="19" font-weight="550" fill="#253a49" text-anchor="end">11,989 tokens</text>
   <text x="26" y="153" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">With Tokki</text>
   <rect x="150" y="136" width="52.12778380181833" height="17" fill="#00715c" rx="2"/>
+  <text x="214" y="151" font-size="16" font-weight="600" fill="#00634f">85.5% fewer tokens</text>
   <text x="645" y="152" font-size="19" font-weight="700" fill="#00634f" text-anchor="end">1,736 tokens</text>
   <rect x="26" y="180" width="626" height="1" fill="#cbd4d8" rx="0"/>
   <text x="26" y="218" font-size="24" font-weight="700" fill="#192d3a" text-anchor="start">Projected input cost</text>
-  <text x="26" y="246" font-size="16" font-weight="400" fill="#425769" text-anchor="start">1 million baseline tokens across requests</text>
+  <text x="26" y="241" font-size="17" font-weight="600" fill="#283b47">1,000,000 tokens → about 144,799 with Tokki</text>
+  <text x="26" y="261" font-size="15" fill="#425769">At most 272,000 input tokens per request</text>
   <text x="30" y="285" font-size="16" font-weight="600" fill="#192d3a" text-anchor="start">Model</text>
   <text x="455" y="285" font-size="16" font-weight="600" fill="#283b47" text-anchor="end">Baseline (USD)</text>
   <text x="642" y="285" font-size="16" font-weight="600" fill="#00634f" text-anchor="end">With Tokki (USD)</text>
