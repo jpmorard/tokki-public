@@ -1,6 +1,6 @@
 # Benchmark boundary
 
-The cost chart and current benchmark rows use a fresh, two-scenario maintainer
+The cost chart and current benchmark rows use a two-scenario maintainer
 capture from **2026-09-17**, produced with Tokki **1.0.63**. Older session and
 failure-log rows in the README retain their original dates.
 
@@ -13,16 +13,13 @@ supports checking the arithmetic, not reproducing the underlying workload.
 These figures must not be read as a universal saving or as billing evidence.
 
 The chart normalizes the measured ratio to **1 million baseline input tokens**
-and approximately **0.145 million Tokki tokens**. This is a projection, not a
+and approximately **144,799 Tokki tokens** (1,000,000 × 1,736 ÷ 11,989). This is a projection, not a
 measured million-token workload. Tokens are assumed to accumulate across
 requests with at most 272,000 input tokens each, so standard rates apply;
 single long-context requests may use different rates.
 
 `Grade A` means an exact count for the tokenizer used in the capture. The
-2026-09-17 capture used the `gpt-4o` tokenizer. Applying those counts to GPT-6
-Astra or GPT-5.6 input prices is a cost approximation, not native model token
-accounting or an exact provider bill. Prices and the ECB exchange rate
-(1.1481 USD per EUR) were checked on 2026-09-17; sources are in the receipt.
+2026-09-17 capture used the `gpt-4o` tokenizer. The projection applies that historical fraction to public model prices. Each projected input cost equals the corresponding baseline input charge multiplied by 1,736 ÷ 11,989. Euro amounts equal US dollars divided by 1.0990, the ECB reference rate on November 20, 2026. The [pricing receipt](docs/evidence/tokki-token-cost-projection-20261120.json) lists the four prices and their sources. Model-specific tokenization and actual bills can differ.
 Output tokens, caching, tools, retries, latency, task success and Codex
 subscription quotas are excluded. The workload differs from July, so the
 ratio change is not a like-for-like measurement of product improvement.

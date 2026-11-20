@@ -83,27 +83,15 @@ availability.*
 
 ## Token-cost teaser
 
-**For 1 million baseline input tokens: approximately 0.145 million with Tokki.**
-The chart applies the 6.9x reduction measured on 2026-09-17 to this shared
-volume, using API prices checked on 2026-10-08 and the ECB rate dated 2026-10-07.
+**Across two context-preparation tasks, the full input contained 11,989 tokens. Tokki’s compact input contained 1,736 — 85.5% fewer.** The September 17 benchmark counted the text an agent would receive for its operating instructions and for a repository overview. It used the `gpt-4o` tokenizer.
+
+What would that mean at current API rates? If the same ratio held across requests totaling **1 million baseline input tokens**, Tokki would send about **144,799**. With GPT-6.2 Sol, the projected input charge would fall from **$2.00 to $0.29**.
 
 <p align="center">
-  <a href="docs/assets/tokki-context-cost-frontier.svg">
-    <img
-      src="docs/assets/tokki-context-cost-frontier.svg"
-      alt="Projected input costs with and without Tokki for GPT-6 Astra, GPT-6.1 Sol, GPT-5.6 Terra and GPT-6 Luna, using a historical token snapshot."
-      width="700"
-    >
-  </a>
+  <a href="docs/assets/tokki-context-cost-frontier.svg"><img src="docs/assets/tokki-context-cost-frontier.svg" width="700" alt="Observed input: 11,989 baseline tokens and 1,736 with Tokki. The chart compares projected input charges at four model prices."></a>
 </p>
 
-[Version française](docs/assets/tokki-context-cost-frontier-fr.svg).
-The historical token counts are unchanged; this update is not a new benchmark.
-This is a normalized input-cost projection across requests, not a measured
-million-token workload. See the [Public Report](#public-report)
-and [aggregate measurement receipt](docs/evidence/token-cost-snapshot-2026-09-17.json).
-The [projection receipt](docs/evidence/tokki-token-cost-projection-20261008.json)
-records the current prices, exchange rate and historical receipt hash.
+[Graphique en français](docs/assets/tokki-context-cost-frontier-fr.svg) · [Measured token counts](docs/evidence/token-cost-snapshot-2026-09-17.json) · [Prices and calculation](docs/evidence/tokki-token-cost-projection-20261120.json)
 
 ## Public Report
 
@@ -129,22 +117,16 @@ are estimates; task success and model quality were not measured.
 | Cost projection | currency-aware projected avoided | configured price inputs; not billing evidence |
 | Privacy guard | 0 strict findings | tracked `HEAD` content only; Git history, forks, caches, and external services are outside this claim |
 
-The [input-cost comparison](docs/assets/tokki-context-cost-frontier.svg)
-([French](docs/assets/tokki-context-cost-frontier-fr.svg)) now includes
-[GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra).
-Standard uncached input prices checked on 2026-10-08 are $10.00 for Astra,
-$2.00 for [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol),
-$2.00 for [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
-and $0.10 for [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
-per million tokens. The chart uses the
-[ECB exchange rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
-of 1.1177 USD per EUR (2026-10-07). It scales the historical `gpt-4o`
-token ratio to 1 million baseline input tokens (approximately 0.145 million
-with Tokki), accumulated across requests of at most 272,000 input tokens
-each, so standard rates apply. This is a normalized price projection, not a
-measured million-token workload, an Astra benchmark or a quality comparison.
-Output, caching, tools, recovery, retries and Codex subscription quotas are excluded.
-A later benchmark rerun can differ.
+The table prices one million baseline input tokens across requests. The Tokki column applies the observed fraction, 1,736 ÷ 11,989, to the same workload. Prices are in US dollars for standard, uncached text input on November 20, 2026, with at most 272,000 input tokens per request.
+
+| Model | Baseline input | With Tokki |
+|---|---:|---:|
+| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) | $8.00 | $1.16 |
+| [GPT-6.2 Sol](https://developers.openai.com/api/docs/models/gpt-6.2-sol) | $2.00 | $0.29 |
+| [GPT-6.1 Terra](https://developers.openai.com/api/docs/models/gpt-6.1-terra) | $1.00 | $0.14 |
+| [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) | $0.10 | $0.014 |
+
+The [French chart](docs/assets/tokki-context-cost-frontier-fr.svg) converts the same amounts to euros using the [ECB reference rate](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html) of 1 EUR = 1.0990 USD on November 20. Actual API charges also depend on caching, output, tools and retries. The benchmark measured context size only. See the [method and limits](BENCHMARK.md).
 
 Prior published readings of 590x on the dirty-worktree row and 80,485 net
 tokens on the pack do not reproduce under exact counting on the current

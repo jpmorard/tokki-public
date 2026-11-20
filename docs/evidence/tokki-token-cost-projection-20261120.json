@@ -1,0 +1,59 @@
+{
+  "schema": "tokki.token_cost_projection.v1",
+  "updated_on": "2026-11-20",
+  "input_snapshot": {
+    "path": "docs/evidence/token-cost-snapshot-2026-09-17.json",
+    "sha256": "0a5c09b7802a02f2db4b32c3e540ce36ba4d82d777cabfda5ac3310da5c7ffc1"
+  },
+  "pricing": {
+    "checked_on": "2026-11-20",
+    "basis": "standard_uncached_short_context_input",
+    "models": [
+      {
+        "id": "gpt-6.2-astra",
+        "label": "GPT-6.2 Astra",
+        "input_usd_per_million": 8,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6.2-astra"
+      },
+      {
+        "id": "gpt-6.2-sol",
+        "label": "GPT-6.2 Sol",
+        "input_usd_per_million": 2,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6.2-sol"
+      },
+      {
+        "id": "gpt-6.1-terra",
+        "label": "GPT-6.1 Terra",
+        "input_usd_per_million": 1,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+      },
+      {
+        "id": "gpt-6-luna",
+        "label": "GPT-6 Luna",
+        "input_usd_per_million": 0.1,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+      }
+    ]
+  },
+  "exchange_rate": {
+    "date": "2026-11-20",
+    "retrieved_on": "2026-11-20",
+    "usd_per_eur": 1.099,
+    "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html"
+  },
+  "projection": {
+    "baseline_input_tokens": 1000000,
+    "max_input_tokens_per_request": 272000,
+    "aggregation": "across requests",
+    "method": "Use the exact compact/baseline count from the input snapshot before rounding. Multiply baseline cost by this fraction for the projected compact cost. Divide USD by USD per EUR for euros.",
+    "baseline_tokens_measured": 11989,
+    "compact_tokens_measured": 1736,
+    "projected_compact_input_tokens_rounded": 144799
+  },
+  "limitations": [
+    "The context ratio remains the two-scenario measurement from 2026-09-17, not a fresh runtime benchmark.",
+    "Exact historical counts use gpt-4o; displayed model tokenization and task quality were not measured.",
+    "This projection is not a measured million-token workload or a comparison of equivalent completed tasks.",
+    "Output, cache, tools, recovery, retries, latency, regional surcharges and Codex quotas are excluded; this is not billing evidence."
+  ]
+}

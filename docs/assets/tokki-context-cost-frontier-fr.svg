@@ -1,65 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="700" height="420" role="img" aria-labelledby="ctxcostfr-title ctxcostfr-desc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
-<title id="ctxcostfr-title">Coût projeté pour 1 million de tokens de référence</title>
-<desc id="ctxcostfr-desc">Historical context snapshot 2026-09-17, Tokki 1.0.63: 11989 baseline and 1736 Tokki tokens counted with gpt-4o across 2 scenarios. Standard uncached API input prices verified 2026-10-08; ECB rate dated 2026-10-07: 1.1177 USD/EUR. One million baseline input tokens accumulated across requests of at most 272000 tokens. Projected costs, not a new benchmark, equivalent-task comparison or billing evidence. Output, cache, tools, recovery, retries and Codex quotas excluded. Receipt: tokki-token-cost-projection-20261008.json.</desc>
-<rect width="1200" height="720" rx="24" fill="#ffffff"/>
-<text x="48" y="60" font-size="24" fill="#2563eb" font-weight="700">TOKKI · TOKEN-COST TEASER</text>
-<text x="48" y="113" font-size="38" fill="#172026" font-weight="700">Moins de contexte. Coût d’entrée projeté réduit.</text>
-<text x="48" y="153" font-size="25" fill="#334155" >1,000 M de référence → 0,145 M avec Tokki¹</text>
-<circle cx="710" cy="188" r="9" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-<text x="730" y="196" font-size="21" fill="#475569" >Référence</text>
-<circle cx="918" cy="188" r="9" fill="#2563eb" stroke="#ffffff" stroke-width="3"/>
-<text x="938" y="196" font-size="21" fill="#475569" >Avec Tokki</text>
-<line x1="300.0" y1="216" x2="300.0" y2="536" stroke="#e2e8f0"/>
-<text x="300.0" y="568" font-size="20" fill="#475569" text-anchor="middle">€0,01</text>
-<line x1="558.1" y1="216" x2="558.1" y2="536" stroke="#e2e8f0"/>
-<text x="558.1" y="568" font-size="20" fill="#475569" text-anchor="middle">€0,1</text>
-<line x1="816.2" y1="216" x2="816.2" y2="536" stroke="#e2e8f0"/>
-<text x="816.2" y="568" font-size="20" fill="#475569" text-anchor="middle">€1</text>
-<line x1="1074.3" y1="216" x2="1074.3" y2="536" stroke="#e2e8f0"/>
-<text x="1074.3" y="568" font-size="20" fill="#475569" text-anchor="middle">€10</text>
-<line x1="1152.0" y1="216" x2="1152.0" y2="536" stroke="#e2e8f0"/>
-<text x="1152.0" y="568" font-size="20" fill="#475569" text-anchor="middle">€20</text>
-<g id="ctxcostfr-cost-astra">
-<text x="48" y="250" font-size="24" fill="#172026" font-weight="600">GPT-6 Astra</text>
-<text x="48" y="277" font-size="20" fill="#475569" >$10 / M entrée</text>
-<line x1="845.2" y1="254" x2="1061.8" y2="254" stroke="#94a3b8" stroke-width="3"/>
-<circle id="ctxcostfr-astra-baseline" cx="1061.8" cy="254" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-<circle id="ctxcostfr-astra-tokki" cx="845.2" cy="254" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-<text x="1061.8" y="230" font-size="22" fill="#334155" id="astra-baseline-cost" text-anchor="middle">€8,95</text>
-<text x="845.2" y="230" font-size="22" fill="#1e40af" id="astra-tokki-cost" text-anchor="middle" font-weight="600">€1,30</text>
-</g>
-<g id="ctxcostfr-cost-sol">
-<text x="48" y="330" font-size="24" fill="#172026" font-weight="600">GPT-6.1 Sol</text>
-<text x="48" y="357" font-size="20" fill="#475569" >$2 / M entrée</text>
-<line x1="664.8" y1="334" x2="881.4" y2="334" stroke="#94a3b8" stroke-width="3"/>
-<circle id="ctxcostfr-sol-baseline" cx="881.4" cy="334" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-<circle id="ctxcostfr-sol-tokki" cx="664.8" cy="334" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-<text x="881.4" y="310" font-size="22" fill="#334155" id="sol-baseline-cost" text-anchor="middle">€1,79</text>
-<text x="664.8" y="310" font-size="22" fill="#1e40af" id="sol-tokki-cost" text-anchor="middle" font-weight="600">€0,26</text>
-</g>
-<g id="ctxcostfr-cost-terra">
-<text x="48" y="410" font-size="24" fill="#172026" font-weight="600">GPT-5.6 Terra</text>
-<text x="48" y="437" font-size="20" fill="#475569" >$2 / M entrée</text>
-<line x1="664.8" y1="414" x2="881.4" y2="414" stroke="#94a3b8" stroke-width="3"/>
-<circle id="ctxcostfr-terra-baseline" cx="881.4" cy="414" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-<circle id="ctxcostfr-terra-tokki" cx="664.8" cy="414" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-<text x="881.4" y="390" font-size="22" fill="#334155" id="terra-baseline-cost" text-anchor="middle">€1,79</text>
-<text x="664.8" y="390" font-size="22" fill="#1e40af" id="terra-tokki-cost" text-anchor="middle" font-weight="600">€0,26</text>
-</g>
-<g id="ctxcostfr-cost-luna">
-<text x="48" y="490" font-size="24" fill="#172026" font-weight="600">GPT-6 Luna</text>
-<text x="48" y="517" font-size="20" fill="#475569" >$0.1 / M entrée</text>
-<line x1="329.0" y1="494" x2="545.6" y2="494" stroke="#94a3b8" stroke-width="3"/>
-<circle id="ctxcostfr-luna-baseline" cx="545.6" cy="494" r="11" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
-<circle id="ctxcostfr-luna-tokki" cx="329.0" cy="494" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-<text x="545.6" y="470" font-size="22" fill="#334155" id="luna-baseline-cost" text-anchor="middle">€0,0895</text>
-<text x="329.0" y="470" font-size="22" fill="#1e40af" id="luna-tokki-cost" text-anchor="middle" font-weight="600">€0,0130</text>
-</g>
-<text x="710" y="600" font-size="20" fill="#475569" text-anchor="middle">Coût d’entrée estimé · échelle logarithmique</text>
-<text x="48" y="640" font-size="20" fill="#475569" >¹ 17/09/2026 · 2 scénarios · gpt-4o</text>
-<text x="48" y="668" font-size="20" fill="#475569" >11 989 → 1 736 tokens · 6,9x</text>
-<text x="620" y="640" font-size="20" fill="#475569" >Tarifs : 08/10/2026 · BCE : 07/10/2026</text>
-<text x="620" y="668" font-size="20" fill="#475569" >Entrées standard non cachées</text>
-<text x="48" y="697" font-size="20" fill="#475569" >Projection, pas une facture ni un nouveau test.</text>
-<text x="820" y="697" font-size="20" fill="#475569" >Autres coûts exclus.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="540" viewBox="0 0 700 540" role="img" aria-labelledby="cost-fr-title cost-fr-desc" xml:lang="fr" font-family="Arial, Helvetica, sans-serif">
+  <title id="cost-fr-title">Combien de tokens le modèle reçoit-il ?</title>
+  <desc id="cost-fr-desc">Deux tâches de septembre 2026 totalisaient 11 989 tokens en entrée, ou 1 736 avec Tokki. Le tableau applique la même proportion à un million de tokens aux tarifs standard hors cache du 20 novembre 2026, pour quatre modèles.</desc>
+  <rect x="1" y="1" width="698" height="538" fill="#ffffff" rx="12"/>
+  <text x="26" y="40" font-size="27" font-weight="700" fill="#192d3a" text-anchor="start">Combien de tokens le modèle reçoit-il ?</text>
+  <text x="26" y="68" font-size="16" font-weight="400" fill="#425769" text-anchor="start">Mesure sur deux tâches · 17 septembre 2026</text>
+  <text x="26" y="111" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">Référence</text>
+  <rect x="150" y="94" width="360" height="17" fill="#50667b" rx="2"/>
+  <text x="645" y="110" font-size="19" font-weight="550" fill="#253a49" text-anchor="end">11 989 tokens</text>
+  <text x="26" y="153" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">Avec Tokki</text>
+  <rect x="150" y="136" width="52.12778380181833" height="17" fill="#00715c" rx="2"/>
+  <text x="645" y="152" font-size="19" font-weight="700" fill="#00634f" text-anchor="end">1 736 tokens</text>
+  <rect x="26" y="180" width="626" height="1" fill="#cbd4d8" rx="0"/>
+  <text x="26" y="218" font-size="24" font-weight="700" fill="#192d3a" text-anchor="start">Coût d’entrée projeté</text>
+  <text x="26" y="246" font-size="16" font-weight="400" fill="#425769" text-anchor="start">1 million de tokens de référence cumulés</text>
+  <text x="30" y="285" font-size="16" font-weight="600" fill="#192d3a" text-anchor="start">Modèle</text>
+  <text x="455" y="285" font-size="16" font-weight="600" fill="#283b47" text-anchor="end">Référence (EUR)</text>
+  <text x="642" y="285" font-size="16" font-weight="600" fill="#00634f" text-anchor="end">Avec Tokki (EUR)</text>
+  <rect x="18" y="303" width="644" height="37" fill="#f1f5f6" rx="3"/>
+  <text x="30" y="328" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">GPT-6.2 Astra</text>
+  <text x="455" y="328" font-size="19" font-weight="450" fill="#283b47" text-anchor="end">7,28 €</text>
+  <text x="642" y="328" font-size="19" font-weight="700" fill="#00634f" text-anchor="end">1,05 €</text>
+  <rect x="18" y="342" width="644" height="37" fill="#ffffff" rx="3"/>
+  <text x="30" y="367" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">GPT-6.2 Sol</text>
+  <text x="455" y="367" font-size="19" font-weight="450" fill="#283b47" text-anchor="end">1,82 €</text>
+  <text x="642" y="367" font-size="19" font-weight="700" fill="#00634f" text-anchor="end">0,26 €</text>
+  <rect x="18" y="381" width="644" height="37" fill="#f1f5f6" rx="3"/>
+  <text x="30" y="406" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">GPT-6.1 Terra</text>
+  <text x="455" y="406" font-size="19" font-weight="450" fill="#283b47" text-anchor="end">0,91 €</text>
+  <text x="642" y="406" font-size="19" font-weight="700" fill="#00634f" text-anchor="end">0,13 €</text>
+  <rect x="18" y="420" width="644" height="37" fill="#ffffff" rx="3"/>
+  <text x="30" y="445" font-size="18" font-weight="550" fill="#192d3a" text-anchor="start">GPT-6 Luna</text>
+  <text x="455" y="445" font-size="19" font-weight="450" fill="#283b47" text-anchor="end">0,09 €</text>
+  <text x="642" y="445" font-size="19" font-weight="700" fill="#00634f" text-anchor="end">0,013 €</text>
+  <text x="26" y="488" font-size="15" font-weight="400" fill="#425769" text-anchor="start">Entrée standard hors cache · 20 nov. 2026</text>
+  <text x="26" y="513" font-size="15" font-weight="400" fill="#425769" text-anchor="start">BCE, 20 nov. 2026 · 1 € = 1,0990 $US</text>
 </svg>
